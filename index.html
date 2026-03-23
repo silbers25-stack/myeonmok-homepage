@@ -3,30 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>서울면목북부</title>
+  <title>서울면목북부회중</title>
+
   <style>
     * {
       box-sizing: border-box;
     }
 
     :root {
-      --bg: #f8f4ee;
+      --bg: #f8faf7;
       --paper: #ffffff;
-      --line: #eee5da;
-      --text: #4c4742;
-      --muted: #7c746c;
-      --title: #5f5148;
-      --accent-soft: #f7eee5;
-      --green: #6b826f;
-      --shadow: 0 14px 30px rgba(92, 75, 61, 0.08);
+      --hero-peach: #ffe8dc;
+      --hero-green: #e6f3e8;
+      --text: #4b4b4b;
+      --title: #6f5a52;
+      --body-text: #6b625b;
+      --menu-green: #5f7f68;
+      --line: #e9eee9;
+      --soft-peach: #fff7f2;
+      --soft-green: #f3fbf4;
+      --shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
       --radius-lg: 24px;
       --radius-md: 18px;
     }
 
     body {
       margin: 0;
-      font-family: "Noto Sans KR", "Malgun Gothic", sans-serif;
-      background: linear-gradient(180deg, #fcfaf7 0%, var(--bg) 100%);
+      font-family: "Noto Sans KR", sans-serif;
+      background: linear-gradient(180deg, #fffdfb 0%, #f6fbf7 100%);
       color: var(--text);
     }
 
@@ -34,9 +38,9 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(255, 250, 244, 0.94);
-      backdrop-filter: blur(10px);
+      background: rgba(252, 255, 252, 0.92);
       border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(8px);
     }
 
     .nav-inner {
@@ -52,60 +56,77 @@
       flex: 0 0 auto;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 13px;
       cursor: pointer;
-      min-width: 240px;
+      min-width: 315px;
       user-select: none;
     }
 
     .brand-symbol {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #5f8f98, #79a8a8);
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+      position: relative;
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 8px 18px rgba(95, 143, 152, 0.18);
-      position: relative;
-      overflow: hidden;
+      background: linear-gradient(135deg, #7fc0a0, #99cfb0);
+      box-shadow: 0 8px 18px rgba(95, 127, 104, 0.16);
+      flex-shrink: 0;
     }
 
-    .brand-symbol::after {
+    .brand-symbol::before {
       content: "";
       position: absolute;
       inset: 5px;
-      border-radius: 50%;
-      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 11px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
     }
 
-    .brand-symbol-text {
+    .brand-monogram {
       position: relative;
       z-index: 1;
       color: #ffffff;
-      font-size: 0.95rem;
+      font-size: 0.84rem;
       font-weight: 800;
-      letter-spacing: -0.05em;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    .brand-divider {
+      width: 1px;
+      height: 34px;
+      background: linear-gradient(
+        to bottom,
+        rgba(95, 127, 104, 0.12),
+        rgba(95, 127, 104, 0.45),
+        rgba(95, 127, 104, 0.12)
+      );
+      flex-shrink: 0;
     }
 
     .brand-wordmark {
-      line-height: 1.05;
+      line-height: 1.06;
     }
 
     .brand-ko {
-      font-size: 1.12rem;
+      font-size: 1.08rem;
       font-weight: 800;
-      color: #5f5148;
+      color: var(--title);
       letter-spacing: -0.04em;
+      white-space: nowrap;
     }
 
     .brand-en {
       margin-top: 5px;
-      font-size: 0.68rem;
+      font-size: 0.66rem;
       font-weight: 700;
-      color: #7f9a9b;
-      letter-spacing: 0.12em;
+      color: #7fa08a;
+      letter-spacing: 0.13em;
       text-transform: uppercase;
+      white-space: nowrap;
     }
 
     .menu {
@@ -119,33 +140,31 @@
     .menu button {
       border: none;
       background: transparent;
-      color: var(--green);
-      font-size: 0.95rem;
-      font-weight: 700;
       padding: 10px 16px;
-      border-radius: 999px;
+      border-radius: 20px;
       cursor: pointer;
+      font-weight: 600;
+      color: var(--menu-green);
+      font-size: 0.95rem;
       transition: 0.2s ease;
     }
 
     .menu button:hover {
-      background: #f6ede5;
+      background: #fff1e7;
     }
 
     .menu button.active {
-      background: linear-gradient(135deg, #f5e3d3, #edf5ee);
-      box-shadow: 0 6px 14px rgba(107, 130, 111, 0.12);
+      background: linear-gradient(135deg, #ffe8dc, #e6f3e8);
     }
 
     main {
       max-width: 1240px;
-      margin: 0 auto;
-      padding: 24px 18px 30px;
+      margin: 24px auto 0;
+      padding: 0 18px 30px;
     }
 
     .content-shell {
       background: var(--paper);
-      border: 1px solid #f1e8de;
       border-radius: 28px;
       overflow: hidden;
       box-shadow: var(--shadow);
@@ -162,7 +181,7 @@
 
     .home-layout {
       padding: 18px;
-      background: linear-gradient(180deg, #fffaf5 0%, #fcfaf7 100%);
+      background: linear-gradient(180deg, #fffaf6 0%, #f6fbf7 100%);
     }
 
     .hero-main {
@@ -171,7 +190,7 @@
       overflow: hidden;
       border-radius: var(--radius-lg);
       background:
-        linear-gradient(rgba(45, 35, 30, 0.38), rgba(45, 35, 30, 0.38)),
+        linear-gradient(rgba(80, 66, 60, 0.18), rgba(80, 66, 60, 0.18)),
         url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
       display: flex;
       align-items: center;
@@ -180,11 +199,19 @@
       padding: 30px;
     }
 
+    .hero-main::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 232, 220, 0.52), rgba(230, 243, 232, 0.36));
+      mix-blend-mode: screen;
+    }
+
     .hero-main::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.24));
+      background: linear-gradient(to bottom, rgba(255,255,255,0.04), rgba(0,0,0,0.08));
     }
 
     .hero-copy {
@@ -198,7 +225,7 @@
       font-size: 0.9rem;
       letter-spacing: 0.28em;
       text-transform: uppercase;
-      opacity: 0.82;
+      opacity: 0.88;
       margin-bottom: 14px;
     }
 
@@ -215,19 +242,19 @@
       font-size: 1.14rem;
       line-height: 1.8;
       max-width: 700px;
-      color: rgba(255, 255, 255, 0.92);
+      color: rgba(255, 255, 255, 0.94);
     }
 
     .hero-guide {
       margin-top: 16px;
       font-size: 0.98rem;
-      color: rgba(255, 255, 255, 0.86);
+      color: rgba(255, 255, 255, 0.88);
     }
 
     .section-box {
       padding: 38px 32px 44px;
       min-height: 520px;
-      background: linear-gradient(180deg, #fffdfb 0%, #fcfaf7 100%);
+      background: #ffffff;
     }
 
     .section-box h2 {
@@ -239,7 +266,7 @@
 
     .section-box p {
       margin: 0 0 14px;
-      color: #6f6861;
+      color: var(--body-text);
       line-height: 1.85;
     }
 
@@ -253,14 +280,14 @@
     .info-card {
       padding: 22px 20px;
       border-radius: var(--radius-md);
-      background: linear-gradient(180deg, #fff8f1 0%, #f7fbf8 100%);
-      border: 1px solid #eee5da;
+      background: linear-gradient(135deg, #fff8f3 0%, #f2fbf4 100%);
+      border: 1px solid #edf1ec;
     }
 
     .info-card h3 {
       margin: 0 0 10px;
       font-size: 1.08rem;
-      color: #61705e;
+      color: var(--menu-green);
     }
 
     .info-card p {
@@ -284,19 +311,19 @@
     }
 
     .quick-item {
-      background: rgba(255, 255, 255, 0.88);
-      border: 1px solid #efe5db;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid #edf1ec;
       border-radius: 14px;
       padding: 11px 8px;
       text-align: center;
       cursor: pointer;
       transition: transform 0.18s ease, box-shadow 0.18s ease;
-      box-shadow: 0 8px 18px rgba(97, 79, 66, 0.05);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
     }
 
     .quick-item:hover {
       transform: translateY(-2px);
-      box-shadow: 0 12px 20px rgba(97, 79, 66, 0.08);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.06);
     }
 
     .quick-icon {
@@ -304,11 +331,11 @@
       height: 36px;
       margin: 0 auto 7px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #fff1e7, #edf6ee);
+      background: linear-gradient(135deg, #ffe8dc, #e6f3e8);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #6c8070;
+      color: var(--menu-green);
     }
 
     .quick-icon svg {
@@ -320,14 +347,14 @@
     .quick-label {
       font-size: 0.82rem;
       font-weight: 700;
-      color: #665a52;
+      color: #6a5d54;
       line-height: 1.35;
     }
 
     footer {
       text-align: center;
       padding: 18px 18px 30px;
-      color: #7e746d;
+      color: #8a7f75;
       font-size: 0.93rem;
     }
 
@@ -357,13 +384,23 @@
     }
 
     @media (max-width: 760px) {
+      .brand-mark {
+        min-width: auto;
+        justify-content: center;
+        gap: 10px;
+      }
+
       .brand-symbol {
         width: 44px;
         height: 44px;
       }
 
-      .brand-symbol-text {
-        font-size: 0.82rem;
+      .brand-monogram {
+        font-size: 0.74rem;
+      }
+
+      .brand-divider {
+        height: 30px;
       }
 
       .brand-ko {
@@ -371,7 +408,8 @@
       }
 
       .brand-en {
-        font-size: 0.62rem;
+        font-size: 0.58rem;
+        letter-spacing: 0.1em;
       }
 
       .menu {
@@ -415,11 +453,12 @@
     <div class="nav-inner">
       <div class="brand-mark" onclick="goTab('home')">
         <div class="brand-symbol">
-          <span class="brand-symbol-text">면목</span>
+          <span class="brand-monogram">SMNC</span>
         </div>
+        <div class="brand-divider"></div>
         <div class="brand-wordmark">
-          <div class="brand-ko">서울 면목 북부</div>
-          <div class="brand-en">Seoul Myeonmok North</div>
+          <div class="brand-ko">서울 면목 북부 회중</div>
+          <div class="brand-en">Seoul Myeonmok North Congregation</div>
         </div>
       </div>
 
@@ -443,9 +482,9 @@
         <div class="home-layout">
           <div class="hero-main">
             <div class="hero-copy">
-              <div class="hero-eyebrow">SEOUL MYEONMOK NORTH</div>
-              <h1>서울 면목 북부</h1>
-              <p>안녕하세요. 서울 면목 북부에 오신 모든 분들을 환영합니다.</p>
+              <div class="hero-eyebrow">SEOUL MYEONMOK NORTH CONGREGATION</div>
+              <h1>서울 면목 북부 회중</h1>
+              <p>안녕하세요. 서울 면목 북부 회중에 오신 모든 분들을 환영합니다.</p>
               <div class="hero-guide">필요한 안내는 상단 메뉴에서 편리하게 확인하실 수 있습니다.</div>
             </div>
           </div>
@@ -455,7 +494,7 @@
       <section id="about" class="tab">
         <div class="section-box">
           <h2>회중 소개</h2>
-          <p>이곳에는 서울 면목 북부에 대한 기본 소개를 담을 수 있습니다. 처음 방문하시는 분들께서도 편안하게 둘러보실 수 있도록 간단하고 분명한 안내를 넣어 두시면 좋습니다.</p>
+          <p>이곳에는 서울 면목 북부 회중에 대한 기본 소개를 담을 수 있습니다. 처음 방문하시는 분들께서도 편안하게 둘러보실 수 있도록 간단하고 분명한 안내를 넣어 두시면 좋습니다.</p>
           <div class="info-grid">
             <div class="info-card">
               <h3>기본 안내</h3>
@@ -617,7 +656,7 @@
   </div>
 
   <footer>
-    © 2026 서울면목북부
+    © 2026 서울면목북부회중
   </footer>
 
   <script>
