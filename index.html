@@ -1,185 +1,656 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>서울면목북부</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>서울면목북부</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-<style>
-* { box-sizing: border-box; }
+    :root {
+      --bg: #f8f4ee;
+      --paper: #ffffff;
+      --line: #eee5da;
+      --text: #4c4742;
+      --muted: #7c746c;
+      --title: #5f5148;
+      --accent-soft: #f7eee5;
+      --green: #6b826f;
+      --shadow: 0 14px 30px rgba(92, 75, 61, 0.08);
+      --radius-lg: 24px;
+      --radius-md: 18px;
+    }
 
-body {
-  margin: 0;
-  font-family: "Noto Sans KR", sans-serif;
-  background: #faf7f2;
-  color: #4b4b4b;
-}
+    body {
+      margin: 0;
+      font-family: "Noto Sans KR", "Malgun Gothic", sans-serif;
+      background: linear-gradient(180deg, #fcfaf7 0%, var(--bg) 100%);
+      color: var(--text);
+    }
 
-/* 🌸 메인 배경 */
-.hero {
-  height: 60vh;
-  background: linear-gradient(135deg, #ffe8dc, #e6f3e8);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
-}
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 250, 244, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
 
-/* 제목 크게 */
-.hero h1 {
-  font-size: 3.2rem;
-  margin: 0;
-  color: #6f5a52;
-}
+    .nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
 
-/* 문구 */
-.hero p {
-  margin-top: 18px;
-  font-size: 1.2rem;
-  color: #6b625b;
-}
+    .brand-mark {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      min-width: 240px;
+      user-select: none;
+    }
 
-/* 메뉴 */
-nav {
-  position: sticky;
-  top: 0;
-  background: #fffaf4;
-  border-bottom: 1px solid #eee;
-  z-index: 1000;
-}
+    .brand-symbol {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #5f8f98, #79a8a8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 18px rgba(95, 143, 152, 0.18);
+      position: relative;
+      overflow: hidden;
+    }
 
-.menu {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 12px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-}
+    .brand-symbol::after {
+      content: "";
+      position: absolute;
+      inset: 5px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
 
-.menu button {
-  border: none;
-  background: transparent;
-  padding: 10px 16px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-weight: 600;
-  color: #5f7f68;
-}
+    .brand-symbol-text {
+      position: relative;
+      z-index: 1;
+      color: #ffffff;
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+    }
 
-.menu button.active {
-  background: #ffe8dc;
-}
+    .brand-wordmark {
+      line-height: 1.05;
+    }
 
-/* 내용 영역 */
-main {
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 0 20px;
-}
+    .brand-ko {
+      font-size: 1.12rem;
+      font-weight: 800;
+      color: #5f5148;
+      letter-spacing: -0.04em;
+    }
 
-.content {
-  background: white;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-}
+    .brand-en {
+      margin-top: 5px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: #7f9a9b;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
 
-.tab {
-  display: none;
-}
+    .menu {
+      flex: 1;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
 
-.tab.active {
-  display: block;
-}
+    .menu button {
+      border: none;
+      background: transparent;
+      color: var(--green);
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 10px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
 
-h2 {
-  margin-top: 0;
-  color: #6f5a52;
-}
+    .menu button:hover {
+      background: #f6ede5;
+    }
 
-/* 반응형 */
-@media(max-width: 768px){
-  .hero h1 { font-size: 2.2rem; }
-}
-</style>
+    .menu button.active {
+      background: linear-gradient(135deg, #f5e3d3, #edf5ee);
+      box-shadow: 0 6px 14px rgba(107, 130, 111, 0.12);
+    }
+
+    main {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 24px 18px 30px;
+    }
+
+    .content-shell {
+      background: var(--paper);
+      border: 1px solid #f1e8de;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      min-height: 620px;
+    }
+
+    .tab {
+      display: none;
+    }
+
+    .tab.active {
+      display: block;
+    }
+
+    .home-layout {
+      padding: 18px;
+      background: linear-gradient(180deg, #fffaf5 0%, #fcfaf7 100%);
+    }
+
+    .hero-main {
+      min-height: 620px;
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(rgba(45, 35, 30, 0.38), rgba(45, 35, 30, 0.38)),
+        url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px;
+    }
+
+    .hero-main::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.24));
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 1;
+      color: #fff;
+      max-width: 760px;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.9rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      opacity: 0.82;
+      margin-bottom: 14px;
+    }
+
+    .hero-copy h1 {
+      margin: 0;
+      font-size: 4.4rem;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      font-weight: 800;
+    }
+
+    .hero-copy p {
+      margin: 18px auto 0;
+      font-size: 1.14rem;
+      line-height: 1.8;
+      max-width: 700px;
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    .hero-guide {
+      margin-top: 16px;
+      font-size: 0.98rem;
+      color: rgba(255, 255, 255, 0.86);
+    }
+
+    .section-box {
+      padding: 38px 32px 44px;
+      min-height: 520px;
+      background: linear-gradient(180deg, #fffdfb 0%, #fcfaf7 100%);
+    }
+
+    .section-box h2 {
+      margin: 0 0 14px;
+      font-size: 2rem;
+      color: var(--title);
+      letter-spacing: -0.03em;
+    }
+
+    .section-box p {
+      margin: 0 0 14px;
+      color: #6f6861;
+      line-height: 1.85;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .info-card {
+      padding: 22px 20px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(180deg, #fff8f1 0%, #f7fbf8 100%);
+      border: 1px solid #eee5da;
+    }
+
+    .info-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.08rem;
+      color: #61705e;
+    }
+
+    .info-card p {
+      margin: 0;
+    }
+
+    .quick-menu-wrap {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 18px 12px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .quick-menu {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(90px, 1fr));
+      gap: 12px;
+      max-width: 520px;
+      width: 100%;
+    }
+
+    .quick-item {
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid #efe5db;
+      border-radius: 14px;
+      padding: 11px 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      box-shadow: 0 8px 18px rgba(97, 79, 66, 0.05);
+    }
+
+    .quick-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 20px rgba(97, 79, 66, 0.08);
+    }
+
+    .quick-icon {
+      width: 36px;
+      height: 36px;
+      margin: 0 auto 7px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #fff1e7, #edf6ee);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6c8070;
+    }
+
+    .quick-icon svg {
+      width: 17px;
+      height: 17px;
+      stroke-width: 1.8;
+    }
+
+    .quick-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #665a52;
+      line-height: 1.35;
+    }
+
+    footer {
+      text-align: center;
+      padding: 18px 18px 30px;
+      color: #7e746d;
+      font-size: 0.93rem;
+    }
+
+    @media (max-width: 980px) {
+      .nav-inner {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+      }
+
+      .brand-mark {
+        min-width: auto;
+        justify-content: center;
+      }
+
+      .menu {
+        justify-content: center;
+      }
+
+      .hero-main {
+        min-height: 500px;
+      }
+
+      .hero-copy h1 {
+        font-size: 3.3rem;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .brand-symbol {
+        width: 44px;
+        height: 44px;
+      }
+
+      .brand-symbol-text {
+        font-size: 0.82rem;
+      }
+
+      .brand-ko {
+        font-size: 1rem;
+      }
+
+      .brand-en {
+        font-size: 0.62rem;
+      }
+
+      .menu {
+        justify-content: flex-start;
+      }
+
+      .hero-main {
+        min-height: 420px;
+      }
+
+      .hero-copy h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-copy p {
+        font-size: 1rem;
+      }
+
+      .quick-menu {
+        grid-template-columns: repeat(2, minmax(90px, 1fr));
+        max-width: 300px;
+      }
+
+      .section-box {
+        padding: 28px 20px 34px;
+      }
+
+      .section-box h2 {
+        font-size: 1.6rem;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<!-- 🌸 첫 화면 (배경) -->
-<section class="hero">
-  <h1>서울 면목 북부</h1>
-  <p>안녕하세요. 서울 면목 북부에 오신 모든 분들을 환영합니다.</p>
-</section>
+  <nav>
+    <div class="nav-inner">
+      <div class="brand-mark" onclick="goTab('home')">
+        <div class="brand-symbol">
+          <span class="brand-symbol-text">면목</span>
+        </div>
+        <div class="brand-wordmark">
+          <div class="brand-ko">서울 면목 북부</div>
+          <div class="brand-en">Seoul Myeonmok North</div>
+        </div>
+      </div>
 
-<!-- 메뉴 -->
-<nav>
-  <div class="menu">
-    <button class="active" onclick="showTab('about', this)">회중 소개</button>
-    <button onclick="showTab('area', this)">구역 소개</button>
-    <button onclick="showTab('service', this)">봉사 안내</button>
-    <button onclick="showTab('meeting', this)">집회 안내</button>
-    <button onclick="showTab('contact', this)">문의하기</button>
-    <button onclick="showTab('parking', this)">주차장 안내</button>
-    <button onclick="showTab('stay', this)">숙박시설 안내</button>
+      <div class="menu">
+        <button class="active" onclick="showTab('home', this)">홈</button>
+        <button onclick="showTab('about', this)">회중 소개</button>
+        <button onclick="showTab('area', this)">구역 소개</button>
+        <button onclick="showTab('service', this)">봉사 안내</button>
+        <button onclick="showTab('meeting', this)">집회 안내</button>
+        <button onclick="showTab('contact', this)">문의하기</button>
+        <button onclick="showTab('parking', this)">주차장 안내</button>
+        <button onclick="showTab('stay', this)">숙박시설 안내</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="content-shell">
+
+      <section id="home" class="tab active">
+        <div class="home-layout">
+          <div class="hero-main">
+            <div class="hero-copy">
+              <div class="hero-eyebrow">SEOUL MYEONMOK NORTH</div>
+              <h1>서울 면목 북부</h1>
+              <p>안녕하세요. 서울 면목 북부에 오신 모든 분들을 환영합니다.</p>
+              <div class="hero-guide">필요한 안내는 상단 메뉴에서 편리하게 확인하실 수 있습니다.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="tab">
+        <div class="section-box">
+          <h2>회중 소개</h2>
+          <p>이곳에는 서울 면목 북부에 대한 기본 소개를 담을 수 있습니다. 처음 방문하시는 분들께서도 편안하게 둘러보실 수 있도록 간단하고 분명한 안내를 넣어 두시면 좋습니다.</p>
+          <div class="info-grid">
+            <div class="info-card">
+              <h3>기본 안내</h3>
+              <p>회중의 전반적인 소개와 분위기를 적어 두실 수 있습니다.</p>
+            </div>
+            <div class="info-card">
+              <h3>방문 참고</h3>
+              <p>처음 오시는 분들을 위한 짧은 안내를 정리해 두시면 좋습니다.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="area" class="tab">
+        <div class="section-box">
+          <h2>구역 소개</h2>
+          <p>이곳에는 구역과 관련된 안내를 넣을 수 있습니다. 주변 환경이나 이동 시 참고할 수 있는 내용을 보기 좋게 정리하시면 도움이 됩니다.</p>
+          <div class="info-grid">
+            <div class="info-card">
+              <h3>지역 특징</h3>
+              <p>주요 지역과 기준점이 되는 장소를 적어 두실 수 있습니다.</p>
+            </div>
+            <div class="info-card">
+              <h3>이동 참고</h3>
+              <p>대중교통이나 도보 이동에 관한 참고 내용을 넣을 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="service" class="tab">
+        <div class="section-box">
+          <h2>봉사 안내</h2>
+          <p>봉사와 관련된 일정과 기본 안내를 적는 공간입니다. 처음 참석하시는 분들도 쉽게 이해할 수 있도록 정리해 두시면 좋습니다.</p>
+          <div class="info-grid">
+            <div class="info-card">
+              <h3>정기 봉사 모임</h3>
+              <p>요일, 시간, 집합 장소 같은 정보를 넣을 수 있습니다.</p>
+            </div>
+            <div class="info-card">
+              <h3>참석 안내</h3>
+              <p>준비할 점이나 간단한 참고 사항을 적어 두실 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="meeting" class="tab">
+        <div class="section-box">
+          <h2>집회 안내</h2>
+          <p>집회 시간과 장소를 정확하게 안내하는 공간입니다. 방문하시는 분들께 가장 중요한 정보가 될 수 있으므로 분명하고 보기 좋게 적어 두시면 좋습니다.</p>
+          <div class="info-grid">
+            <div class="info-card">
+              <h3>주중 집회</h3>
+              <p>요일과 시간을 입력해 주세요.</p>
+            </div>
+            <div class="info-card">
+              <h3>주말 집회</h3>
+              <p>요일과 시간을 입력해 주세요.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="tab">
+        <div class="section-box">
+          <h2>문의하기</h2>
+          <p>문의가 필요하신 분들을 위해 연락 방법을 안내하는 공간입니다. 간단하면서도 분명하게 정리해 두시면 좋습니다.</p>
+          <div class="info-grid">
+            <div class="info-card">
+              <h3>연락 담당</h3>
+              <p>담당자 이름이나 안내 문구를 입력해 주세요.</p>
+            </div>
+            <div class="info-card">
+              <h3>연락 방법</h3>
+              <p>전화, 이메일 또는 기타 문의 방법을 입력해 주세요.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="parking" class="tab">
+        <div class="section-box">
+          <h2>주차장 안내</h2>
+          <p>차량으로 방문하시는 분들을 위해 주차 관련 내용을 정리하는 공간입니다. 위치와 이용 방법을 간단히 적어 두시면 도움이 됩니다.</p>
+          <div class="info-grid">
+            <div class="info-card">
+              <h3>주차 위치</h3>
+              <p>주차 가능한 장소를 입력해 주세요.</p>
+            </div>
+            <div class="info-card">
+              <h3>이용 참고</h3>
+              <p>이용 가능 시간과 주의 사항을 적어 주세요.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="stay" class="tab">
+        <div class="section-box">
+          <h2>숙박시설 안내</h2>
+          <p>먼 곳에서 방문하시는 분들을 위해 주변 숙박시설 정보를 정리할 수 있습니다. 이름과 위치, 간단한 참고 사항을 넣어 두시면 좋습니다.</p>
+          <div class="info-grid">
+            <div class="info-card">
+              <h3>주변 숙박시설</h3>
+              <p>숙박시설 이름과 위치 정보를 넣어 주세요.</p>
+            </div>
+            <div class="info-card">
+              <h3>이용 참고</h3>
+              <p>예약 시 알아두면 좋은 내용을 적어 둘 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <div class="quick-menu-wrap">
+    <div class="quick-menu">
+      <div class="quick-item" onclick="goTab('meeting')">
+        <div class="quick-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <rect x="3" y="5" width="18" height="16" rx="2"></rect>
+            <path d="M16 3v4M8 3v4M3 10h18"></path>
+          </svg>
+        </div>
+        <div class="quick-label">집회 안내</div>
+      </div>
+
+      <div class="quick-item" onclick="goTab('parking')">
+        <div class="quick-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M7 17V6h5a4 4 0 0 1 0 8H7"></path>
+          </svg>
+        </div>
+        <div class="quick-label">주차장 안내</div>
+      </div>
+
+      <div class="quick-item" onclick="goTab('service')">
+        <div class="quick-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M8 12l4 4 4-4"></path>
+            <path d="M12 16V4"></path>
+          </svg>
+        </div>
+        <div class="quick-label">봉사 안내</div>
+      </div>
+
+      <div class="quick-item" onclick="goTab('contact')">
+        <div class="quick-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M4 6a2 2 0 0 1 2-2h12v12l-4-3H6a2 2 0 0 1-2-2z"></path>
+          </svg>
+        </div>
+        <div class="quick-label">문의하기</div>
+      </div>
+    </div>
   </div>
-</nav>
 
-<!-- 내용 -->
-<main>
-  <div class="content">
+  <footer>
+    © 2026 서울면목북부
+  </footer>
 
-    <section id="about" class="tab active">
-      <h2>회중 소개</h2>
-      <p>회중에 대한 소개 내용을 이곳에 작성하시면 됩니다.</p>
-    </section>
+  <script>
+    function showTab(id, el) {
+      document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+      document.querySelectorAll('.menu button').forEach(button => button.classList.remove('active'));
 
-    <section id="area" class="tab">
-      <h2>구역 소개</h2>
-      <p>구역에 대한 설명을 작성하세요.</p>
-    </section>
+      document.getElementById(id).classList.add('active');
+      el.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
-    <section id="service" class="tab">
-      <h2>봉사 안내</h2>
-      <p>봉사 일정과 안내를 작성하세요.</p>
-    </section>
-
-    <section id="meeting" class="tab">
-      <h2>집회 안내</h2>
-      <p>집회 시간과 장소를 입력하세요.</p>
-    </section>
-
-    <section id="contact" class="tab">
-      <h2>문의하기</h2>
-      <p>연락 방법을 작성하세요.</p>
-    </section>
-
-    <section id="parking" class="tab">
-      <h2>주차장 안내</h2>
-      <p>주차 안내를 작성하세요.</p>
-    </section>
-
-    <section id="stay" class="tab">
-      <h2>숙박시설 안내</h2>
-      <p>숙박 정보 작성.</p>
-    </section>
-
-  </div>
-</main>
-
-<script>
-function showTab(id, el){
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.menu button').forEach(b => b.classList.remove('active'));
-
-  document.getElementById(id).classList.add('active');
-  el.classList.add('active');
-}
-</script>
-
+    function goTab(id) {
+      const buttons = Array.from(document.querySelectorAll('.menu button'));
+      const map = {
+        home: '홈',
+        about: '회중 소개',
+        area: '구역 소개',
+        service: '봉사 안내',
+        meeting: '집회 안내',
+        contact: '문의하기',
+        parking: '주차장 안내',
+        stay: '숙박시설 안내'
+      };
+      const targetButton = buttons.find(btn => btn.textContent.trim() === map[id]);
+      if (targetButton) {
+        showTab(id, targetButton);
+      } else {
+        document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+  </script>
 </body>
 </html>
