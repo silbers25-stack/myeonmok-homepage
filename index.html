@@ -5,38 +5,72 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>서울면목북부</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: #ffffff;
       color: #222;
+    }
+    header {
+      width: 100%;
+      border-bottom: 1px solid #eee;
+      background: #fff;
+    }
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-size: 1rem;
+      font-weight: bold;
+      color: #111;
+    }
+    .menu a {
+      margin-left: 18px;
+      text-decoration: none;
+      color: #444;
+      font-size: 0.95rem;
+    }
+    .hero {
+      min-height: calc(100vh - 70px);
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100vh;
       text-align: center;
+      padding: 40px 20px;
     }
     .container {
-      max-width: 700px;
-      padding: 20px;
+      max-width: 760px;
     }
     h1 {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       margin-bottom: 20px;
+      line-height: 1.3;
     }
     p {
       font-size: 1.1rem;
       color: #555;
-      line-height: 1.6;
+      line-height: 1.8;
+      margin: 0;
+    }
+    .sub {
+      margin-top: 16px;
     }
     .buttons {
-      margin-top: 30px;
+      margin-top: 32px;
     }
-    a {
+    .buttons a {
       display: inline-block;
       margin: 8px;
-      padding: 12px 20px;
-      border-radius: 10px;
+      padding: 13px 22px;
+      border-radius: 12px;
       text-decoration: none;
       font-size: 0.95rem;
     }
@@ -47,20 +81,38 @@
     .secondary {
       border: 1px solid #ccc;
       color: #333;
+      background: #fff;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>누구나 환영합니다</h1>
-    <p>
-      서울면목북부 회중은 성경을 배우고 서로를 격려하며,<br />
-      누구나 편안하게 방문할 수 있는 따뜻한 모임입니다.
-    </p>
-    <div class="buttons">
-      <a href=\"#\">집회 안내 보기</a>
-      <a href=\"#\" class=\"secondary\">문의하기</a>
+  <header>
+    <div class="nav">
+      <div class="logo">서울면목북부</div>
+      <div class="menu">
+        <a href="#about">소개</a>
+        <a href="#meeting">집회 안내</a>
+        <a href="#contact">문의하기</a>
+      </div>
     </div>
-  </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>누구나 환영합니다</h1>
+      <p>
+        서울면목북부 회중은 성경을 배우고 서로를 격려하며,
+        누구나 편안하게 방문할 수 있는 따뜻한 모임입니다.
+      </p>
+      <p class="sub">
+        집회에 참석해 보시거나 성경에 대해 알아보고 싶으시다면
+        편안한 마음으로 살펴보시기 바랍니다.
+      </p>
+      <div class="buttons">
+        <a href="#meeting" class="primary">집회 안내 보기</a>
+        <a href="#contact" class="secondary">문의하기</a>
+      </div>
+    </div>
+  </section>
 </body>
 </html>
