@@ -11,17 +11,17 @@
     }
 
     :root {
-      --bg: #f8faf7;
+      --bg: #f6faf7;
       --paper: #ffffff;
-      --hero-peach: #ffe8dc;
-      --hero-green: #e6f3e8;
+      --hero-peach: #ffe5d8;
+      --hero-green: #e4f3e7;
       --text: #4b4b4b;
       --title: #6f5a52;
       --body-text: #6b625b;
       --menu-green: #5f7f68;
-      --line: #e9eee9;
-      --soft-peach: #fff7f2;
-      --soft-green: #f3fbf4;
+      --line: #e5eee8;
+      --soft-peach: #fff8f4;
+      --soft-green: #f2fbf4;
       --shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
       --radius-lg: 24px;
       --radius-md: 18px;
@@ -30,7 +30,7 @@
     body {
       margin: 0;
       font-family: "Noto Sans KR", sans-serif;
-      background: linear-gradient(180deg, #fffdfb 0%, #f6fbf7 100%);
+      background: linear-gradient(180deg, #fffefd 0%, #f3faf5 100%);
       color: var(--text);
     }
 
@@ -38,7 +38,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(252, 255, 252, 0.92);
+      background: rgba(255, 255, 255, 0.92);
       border-bottom: 1px solid var(--line);
       backdrop-filter: blur(8px);
     }
@@ -150,11 +150,11 @@
     }
 
     .menu button:hover {
-      background: #fff1e7;
+      background: #fff3eb;
     }
 
     .menu button.active {
-      background: linear-gradient(135deg, #ffe8dc, #e6f3e8);
+      background: linear-gradient(135deg, #ffe5d8, #e4f3e7);
     }
 
     main {
@@ -181,7 +181,7 @@
 
     .home-layout {
       padding: 18px;
-      background: linear-gradient(180deg, #fffaf6 0%, #f6fbf7 100%);
+      background: linear-gradient(180deg, #fffaf7 0%, #f4fbf6 100%);
     }
 
     .hero-main {
@@ -190,7 +190,7 @@
       overflow: hidden;
       border-radius: var(--radius-lg);
       background:
-        linear-gradient(rgba(80, 66, 60, 0.18), rgba(80, 66, 60, 0.18)),
+        linear-gradient(rgba(80, 66, 60, 0.14), rgba(80, 66, 60, 0.14)),
         url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
       display: flex;
       align-items: center;
@@ -203,7 +203,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(255, 232, 220, 0.52), rgba(230, 243, 232, 0.36));
+      background: linear-gradient(135deg, rgba(255, 229, 216, 0.42), rgba(228, 243, 231, 0.28));
       mix-blend-mode: screen;
     }
 
@@ -211,7 +211,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(255,255,255,0.04), rgba(0,0,0,0.08));
+      background: linear-gradient(to bottom, rgba(255,255,255,0.02), rgba(0,0,0,0.06));
     }
 
     .hero-copy {
@@ -280,8 +280,8 @@
     .info-card {
       padding: 22px 20px;
       border-radius: var(--radius-md);
-      background: linear-gradient(135deg, #fff8f3 0%, #f2fbf4 100%);
-      border: 1px solid #edf1ec;
+      background: linear-gradient(135deg, #fff9f5 0%, #f2fbf4 100%);
+      border: 1px solid #eaf1eb;
     }
 
     .info-card h3 {
@@ -312,7 +312,7 @@
 
     .quick-item {
       background: rgba(255, 255, 255, 0.92);
-      border: 1px solid #edf1ec;
+      border: 1px solid #eaf1eb;
       border-radius: 14px;
       padding: 11px 8px;
       text-align: center;
@@ -331,7 +331,7 @@
       height: 36px;
       margin: 0 auto 7px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #ffe8dc, #e6f3e8);
+      background: linear-gradient(135deg, #ffe5d8, #e4f3e7);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -545,15 +545,15 @@
       <section id="meeting" class="tab">
         <div class="section-box">
           <h2>집회 안내</h2>
-          <p>집회 시간과 장소를 정확하게 안내하는 공간입니다. 방문하시는 분들께 가장 중요한 정보가 될 수 있으므로 분명하고 보기 좋게 적어 두시면 좋습니다.</p>
+          <p>서울 면목 북부 회중의 집회 시간을 안내드립니다. 대도시 캠페인 기간 동안 함께 모여 격려를 나누는 시간이 되었으면 좋겠습니다.</p>
           <div class="info-grid">
             <div class="info-card">
               <h3>주중 집회</h3>
-              <p>요일과 시간을 입력해 주세요.</p>
+              <p>매주 금요일 저녁 7시 30분</p>
             </div>
             <div class="info-card">
               <h3>주말 집회</h3>
-              <p>요일과 시간을 입력해 주세요.</p>
+              <p>매주 일요일 오후 1시 30분</p>
             </div>
           </div>
         </div>
