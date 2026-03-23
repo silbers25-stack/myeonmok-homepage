@@ -13,15 +13,11 @@
     :root {
       --bg: #f6faf7;
       --paper: #ffffff;
-      --hero-peach: #ffe5d8;
-      --hero-green: #e4f3e7;
       --text: #4b4b4b;
       --title: #6f5a52;
       --body-text: #6b625b;
       --menu-green: #5f7f68;
       --line: #e5eee8;
-      --soft-peach: #fff8f4;
-      --soft-green: #f2fbf4;
       --shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
       --radius-lg: 24px;
       --radius-md: 18px;
@@ -190,8 +186,8 @@
       overflow: hidden;
       border-radius: var(--radius-lg);
       background:
-    linear-gradient(rgba(30, 30, 40, 0.25), rgba(30, 30, 40, 0.25)),
-    url("https://images.unsplash.com/photo-1549880338-65ddcdfd017b?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+        linear-gradient(rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0.28)),
+        url("hero-night.png") center center / cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -199,19 +195,11 @@
       padding: 30px;
     }
 
-    .hero-main::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(255, 229, 216, 0.42), rgba(228, 243, 231, 0.28));
-      mix-blend-mode: screen;
-    }
-
     .hero-main::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(255,255,255,0.02), rgba(0,0,0,0.06));
+      background: linear-gradient(to bottom, rgba(0,0,0,0.02), rgba(0,0,0,0.04));
     }
 
     .hero-copy {
@@ -219,13 +207,14 @@
       z-index: 1;
       color: #fff;
       max-width: 760px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.28);
     }
 
     .hero-eyebrow {
       font-size: 0.9rem;
       letter-spacing: 0.28em;
       text-transform: uppercase;
-      opacity: 0.88;
+      opacity: 0.9;
       margin-bottom: 14px;
     }
 
@@ -242,13 +231,13 @@
       font-size: 1.14rem;
       line-height: 1.8;
       max-width: 700px;
-      color: rgba(255, 255, 255, 0.94);
+      color: rgba(255, 255, 255, 0.96);
     }
 
     .hero-guide {
       margin-top: 16px;
       font-size: 0.98rem;
-      color: rgba(255, 255, 255, 0.88);
+      color: rgba(255, 255, 255, 0.9);
     }
 
     .section-box {
@@ -665,7 +654,7 @@
       document.querySelectorAll('.menu button').forEach(button => button.classList.remove('active'));
 
       document.getElementById(id).classList.add('active');
-      el.classList.add('active');
+      if (el) el.classList.add('active');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -682,13 +671,7 @@
         stay: '숙박시설 안내'
       };
       const targetButton = buttons.find(btn => btn.textContent.trim() === map[id]);
-      if (targetButton) {
-        showTab(id, targetButton);
-      } else {
-        document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
-        document.getElementById(id).classList.add('active');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
+      showTab(id, targetButton || null);
     }
   </script>
 </body>
