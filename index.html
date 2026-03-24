@@ -392,9 +392,10 @@
     /* 숙박시설 안내 전용 */
     .stay-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-      margin-top: 24px;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      max-width: 760px;
+      margin: 24px auto 0;
     }
 
     .stay-card {
@@ -442,9 +443,9 @@
     }
 
     .stay-list li {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       color: var(--body-text);
-      line-height: 1.75;
+      line-height: 1.8;
       word-break: keep-all;
     }
 
@@ -454,9 +455,11 @@
 
     .stay-label {
       display: inline-block;
-      min-width: 52px;
+      min-width: 68px;
       font-weight: 700;
       color: var(--menu-green);
+      margin-right: 6px;
+      vertical-align: top;
     }
 
     .stay-list a {
@@ -466,7 +469,8 @@
     }
 
     .stay-note {
-      margin-top: 20px;
+      margin: 20px auto 0;
+      max-width: 760px;
       padding: 20px;
       border-radius: var(--radius-md);
       background: linear-gradient(135deg, #fff9f4 0%, #f7fcf8 100%);
@@ -827,131 +831,146 @@
       </section>
 
       <section id="stay" class="tab">
-  <div class="section-box">
-    <h2>숙박시설 안내</h2>
+        <div class="section-box">
+          <h2>숙박시설 안내</h2>
 
-    <p>
-      먼 곳에서 오시는 형제자매들을 위해 회관 인근 숙박시설을 안내드립니다.
-      편안히 쉬실 수 있는 숙소를 살펴보시고, 예약 시에는 회관까지의 이동 거리와 교통 편의성도 함께 확인해 주시기 바랍니다.
-    </p>
+          <p>
+            먼 곳에서 오시는 형제자매들을 위해 회관 인근 숙박시설을 안내드립니다.
+            편안히 쉬실 수 있는 숙소를 살펴보시고, 예약 시에는 회관까지의 이동 거리와 대중교통 편의성도 함께 확인해 주시기 바랍니다.
+          </p>
 
-    <div class="stay-grid">
+          <div class="stay-grid">
 
-      <div class="stay-card">
-        <h3 class="stay-title">
-          <span class="stay-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path d="M3 21V7a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v14"></path>
-              <path d="M9 21V14h4v7"></path>
-              <path d="M18 21V11h3v10"></path>
-              <path d="M7 9h.01M12 9h.01"></path>
-            </svg>
-          </span>
-          그레이튼 호텔
-        </h3>
-        <ul class="stay-list">
-          <li><span class="stay-label">주소</span> 중랑구 상봉로28길 7</li>
-          <li><span class="stay-label">위치</span> 망우역 1번 출구에서 444m</li>
-          <li><span class="stay-label">회관까지</span> 차량 기준 약 15~20분 내외</li>
-          <li><span class="stay-label">연락처</span> <a href="tel:01068213342">010-6821-3342</a></li>
-          <li><span class="stay-label">링크</span> <a href="https://blog.naver.com/greatenhotel" target="_blank" rel="noopener noreferrer">블로그 바로가기</a></li>
-        </ul>
-      </div>
+            <div class="stay-card">
+              <h3 class="stay-title">
+                <span class="stay-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M3 21V7a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v14"></path>
+                    <path d="M9 21V14h4v7"></path>
+                    <path d="M18 21V11h3v10"></path>
+                    <path d="M7 9h.01M12 9h.01"></path>
+                  </svg>
+                </span>
+                그레이튼 호텔
+              </h3>
+              <ul class="stay-list">
+                <li>
+                  <span class="stay-label">주소</span>
+                  <a href="https://map.naver.com/p/search/%EC%A4%91%EB%9E%91%EA%B5%AC%20%EC%83%81%EB%B4%89%EB%A1%9C28%EA%B8%B8%207" target="_blank" rel="noopener noreferrer">중랑구 상봉로28길 7</a>
+                </li>
+                <li><span class="stay-label">위치</span> 망우역 1번 출구에서 444m</li>
+                <li><span class="stay-label">회관까지</span> 차량 기준 약 15~20분 내외</li>
+                <li><span class="stay-label">연락처</span> <a href="tel:01068213342">010-6821-3342</a></li>
+                <li><span class="stay-label">링크</span> <a href="https://blog.naver.com/greatenhotel" target="_blank" rel="noopener noreferrer">블로그 바로가기</a></li>
+              </ul>
+            </div>
 
-      <div class="stay-card">
-        <h3 class="stay-title">
-          <span class="stay-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path d="M3 21V7a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v14"></path>
-              <path d="M9 21V14h4v7"></path>
-              <path d="M18 21V11h3v10"></path>
-              <path d="M7 9h.01M12 9h.01"></path>
-            </svg>
-          </span>
-          소원 료칸 앤 호텔 by 아늑 상봉점
-        </h3>
-        <ul class="stay-list">
-          <li><span class="stay-label">주소</span> 중랑구 상봉로28길 13</li>
-          <li><span class="stay-label">위치</span> 망우역 1번 출구에서 471m</li>
-          <li><span class="stay-label">회관까지</span> 차량 기준 약 15~20분 내외</li>
-          <li><span class="stay-label">연락처</span> <a href="tel:01077003403">010-7700-3403</a></li>
-          <li><span class="stay-label">링크</span> <a href="https://www.instagram.com/aankhotel.official" target="_blank" rel="noopener noreferrer">인스타그램 바로가기</a></li>
-        </ul>
-      </div>
+            <div class="stay-card">
+              <h3 class="stay-title">
+                <span class="stay-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M3 21V7a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v14"></path>
+                    <path d="M9 21V14h4v7"></path>
+                    <path d="M18 21V11h3v10"></path>
+                    <path d="M7 9h.01M12 9h.01"></path>
+                  </svg>
+                </span>
+                소원 료칸 앤 호텔 by 아늑 상봉점
+              </h3>
+              <ul class="stay-list">
+                <li>
+                  <span class="stay-label">주소</span>
+                  <a href="https://map.naver.com/p/search/%EC%A4%91%EB%9E%91%EA%B5%AC%20%EC%83%81%EB%B4%89%EB%A1%9C28%EA%B8%B8%2013" target="_blank" rel="noopener noreferrer">중랑구 상봉로28길 13</a>
+                </li>
+                <li><span class="stay-label">위치</span> 망우역 1번 출구에서 471m</li>
+                <li><span class="stay-label">회관까지</span> 차량 기준 약 15~20분 내외</li>
+                <li><span class="stay-label">연락처</span> <a href="tel:01077003403">010-7700-3403</a></li>
+                <li><span class="stay-label">링크</span> <a href="https://www.instagram.com/aankhotel.official" target="_blank" rel="noopener noreferrer">인스타그램 바로가기</a></li>
+              </ul>
+            </div>
 
-      <div class="stay-card">
-        <h3 class="stay-title">
-          <span class="stay-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path d="M3 21V7a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v14"></path>
-              <path d="M9 21V14h4v7"></path>
-              <path d="M18 21V11h3v10"></path>
-              <path d="M7 9h.01M12 9h.01"></path>
-            </svg>
-          </span>
-          메이호텔
-        </h3>
-        <ul class="stay-list">
-          <li><span class="stay-label">주소</span> 중랑구 망우로52길 28</li>
-          <li><span class="stay-label">위치</span> 상봉역 2번 출구에서 475m</li>
-          <li><span class="stay-label">회관까지</span> 차량 기준 약 15~20분 내외</li>
-          <li><span class="stay-label">연락처</span> <a href="tel:024931100">02-493-1100</a></li>
-        </ul>
-      </div>
+            <div class="stay-card">
+              <h3 class="stay-title">
+                <span class="stay-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M3 21V7a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v14"></path>
+                    <path d="M9 21V14h4v7"></path>
+                    <path d="M18 21V11h3v10"></path>
+                    <path d="M7 9h.01M12 9h.01"></path>
+                  </svg>
+                </span>
+                메이호텔
+              </h3>
+              <ul class="stay-list">
+                <li>
+                  <span class="stay-label">주소</span>
+                  <a href="https://map.naver.com/p/search/%EC%A4%91%EB%9E%91%EA%B5%AC%20%EB%A7%9D%EC%9A%B0%EB%A1%9C52%EA%B8%B8%2028" target="_blank" rel="noopener noreferrer">중랑구 망우로52길 28</a>
+                </li>
+                <li><span class="stay-label">위치</span> 상봉역 2번 출구에서 475m</li>
+                <li><span class="stay-label">회관까지</span> 차량 기준 약 15~20분 내외</li>
+                <li><span class="stay-label">연락처</span> <a href="tel:024931100">02-493-1100</a></li>
+              </ul>
+            </div>
 
-      <div class="stay-card">
-        <h3 class="stay-title">
-          <span class="stay-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path d="M3 21V7a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v14"></path>
-              <path d="M9 21V14h4v7"></path>
-              <path d="M18 21V11h3v10"></path>
-              <path d="M7 9h.01M12 9h.01"></path>
-            </svg>
-          </span>
-          라코지스테이 서울
-        </h3>
-        <ul class="stay-list">
-          <li><span class="stay-label">주소</span> 중랑구 망우로 232</li>
-          <li><span class="stay-label">위치</span> 중랑역 3번 출구에서 242m</li>
-          <li><span class="stay-label">회관까지</span> 차량 기준 약 12~18분 내외</li>
-          <li><span class="stay-label">연락처</span> <a href="tel:050714276888">0507-1427-6888</a></li>
-          <li><span class="stay-label">링크</span> <a href="http://lacozistay.com" target="_blank" rel="noopener noreferrer">홈페이지 바로가기</a></li>
-        </ul>
-      </div>
+            <div class="stay-card">
+              <h3 class="stay-title">
+                <span class="stay-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M3 21V7a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v14"></path>
+                    <path d="M9 21V14h4v7"></path>
+                    <path d="M18 21V11h3v10"></path>
+                    <path d="M7 9h.01M12 9h.01"></path>
+                  </svg>
+                </span>
+                라코지스테이 서울
+              </h3>
+              <ul class="stay-list">
+                <li>
+                  <span class="stay-label">주소</span>
+                  <a href="https://map.naver.com/p/search/%EC%A4%91%EB%9E%91%EA%B5%AC%20%EB%A7%9D%EC%9A%B0%EB%A1%9C%20232" target="_blank" rel="noopener noreferrer">중랑구 망우로 232</a>
+                </li>
+                <li><span class="stay-label">위치</span> 중랑역 3번 출구에서 242m</li>
+                <li><span class="stay-label">회관까지</span> 차량 기준 약 12~18분 내외</li>
+                <li><span class="stay-label">연락처</span> <a href="tel:050714276888">0507-1427-6888</a></li>
+                <li><span class="stay-label">링크</span> <a href="http://lacozistay.com" target="_blank" rel="noopener noreferrer">홈페이지 바로가기</a></li>
+              </ul>
+            </div>
 
-      <div class="stay-card">
-        <h3 class="stay-title">
-          <span class="stay-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path d="M3 21V7a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v14"></path>
-              <path d="M9 21V14h4v7"></path>
-              <path d="M18 21V11h3v10"></path>
-              <path d="M7 9h.01M12 9h.01"></path>
-            </svg>
-          </span>
-          호텔드씨엘
-        </h3>
-        <ul class="stay-list">
-          <li><span class="stay-label">주소</span> 중랑구 동일로 866</li>
-          <li><span class="stay-label">위치</span> 먹골역 4번 출구에서 241m</li>
-          <li><span class="stay-label">회관까지</span> 차량 기준 약 18~25분 내외</li>
-          <li><span class="stay-label">연락처</span> <a href="tel:029759380">02-975-9380</a></li>
-        </ul>
-      </div>
+            <div class="stay-card">
+              <h3 class="stay-title">
+                <span class="stay-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M3 21V7a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v14"></path>
+                    <path d="M9 21V14h4v7"></path>
+                    <path d="M18 21V11h3v10"></path>
+                    <path d="M7 9h.01M12 9h.01"></path>
+                  </svg>
+                </span>
+                호텔드씨엘
+              </h3>
+              <ul class="stay-list">
+                <li>
+                  <span class="stay-label">주소</span>
+                  <a href="https://map.naver.com/p/search/%EC%A4%91%EB%9E%91%EA%B5%AC%20%EB%8F%99%EC%9D%BC%EB%A1%9C%20866" target="_blank" rel="noopener noreferrer">중랑구 동일로 866</a>
+                </li>
+                <li><span class="stay-label">위치</span> 먹골역 4번 출구에서 241m</li>
+                <li><span class="stay-label">회관까지</span> 차량 기준 약 18~25분 내외</li>
+                <li><span class="stay-label">연락처</span> <a href="tel:029759380">02-975-9380</a></li>
+              </ul>
+            </div>
 
-    </div>
+          </div>
 
-    <div class="stay-note">
-      <h3>안내 말씀</h3>
-      <p>
-        회관 주소는 서울 중랑구 용마산로94다길 35입니다.
-        숙박시설에서 회관까지의 소요 시간은 교통 상황과 이동 수단에 따라 달라질 수 있으므로,
-        위 안내 시간은 참고용으로 보아 주시기 바랍니다.
-      </p>
-    </div>
-  </div>
-</section>
+          <div class="stay-note">
+            <h3>안내</h3>
+            <p>
+              숙박시설의 예약 가능 여부와 요금은 시기에 따라 달라질 수 있습니다.
+              방문 일정에 맞추어 미리 확인해 주시기 바라며, 자세한 이동이나 지역 안내가 필요하신 경우
+              문의하기 메뉴를 통해 담당 형제에게 연락하실 수 있습니다.
+            </p>
+          </div>
+        </div>
+      </section>
 
     </div>
   </main>
