@@ -18,6 +18,8 @@
       --body-text: #6b625b;
       --menu-green: #5f7f68;
       --line: #e5eee8;
+      --soft-peach: #fff3eb;
+      --soft-mint: #eef7f0;
       --shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
       --radius-lg: 24px;
       --radius-md: 18px;
@@ -146,7 +148,7 @@
     }
 
     .menu button:hover {
-      background: #fff3eb;
+      background: var(--soft-peach);
     }
 
     .menu button.active {
@@ -246,17 +248,56 @@
       background: #ffffff;
     }
 
-    .section-box h2 {
-      margin: 0 0 14px;
+    .section-intro {
+      max-width: 860px;
+      margin-bottom: 8px;
+    }
+
+    .section-intro p {
+      margin: 0;
+      color: var(--body-text);
+      line-height: 1.85;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .section-heading-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #ffe5d8, #e4f3e7);
+      color: var(--menu-green);
+      box-shadow: 0 8px 18px rgba(95, 127, 104, 0.1);
+      flex-shrink: 0;
+    }
+
+    .section-heading-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke-width: 1.8;
+    }
+
+    .section-heading-text h2 {
+      margin: 0;
       font-size: 2rem;
       color: var(--title);
       letter-spacing: -0.03em;
     }
 
-    .section-box p {
-      margin: 0 0 14px;
-      color: var(--body-text);
-      line-height: 1.85;
+    .section-heading-text span {
+      display: block;
+      margin-top: 4px;
+      font-size: 0.92rem;
+      color: #8a7f75;
+      letter-spacing: -0.01em;
     }
 
     .info-grid {
@@ -266,21 +307,29 @@
       margin-top: 24px;
     }
 
-    .info-card {
+    .info-card,
+    .section-panel,
+    .stay-card {
       padding: 22px 20px;
       border-radius: var(--radius-md);
       background: linear-gradient(135deg, #fff9f5 0%, #f2fbf4 100%);
       border: 1px solid #eaf1eb;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.03);
     }
 
-    .info-card h3 {
+    .info-card h3,
+    .section-panel h3,
+    .stay-note h3 {
       margin: 0 0 10px;
       font-size: 1.08rem;
       color: var(--menu-green);
     }
 
-    .info-card p {
+    .info-card p,
+    .section-panel p {
       margin: 0;
+      color: var(--body-text);
+      line-height: 1.8;
     }
 
     .contact-grid {
@@ -389,22 +438,24 @@
       line-height: 1.35;
     }
 
-    /* 숙박시설 안내 전용 */
+    .inline-link {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    /* 숙박시설 안내 */
     .stay-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-      max-width: 760px;
-      margin: 24px auto 0;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 24px;
     }
 
     .stay-card {
-      padding: 22px 20px;
-      border-radius: var(--radius-md);
+      height: 100%;
       background: linear-gradient(135deg, #fffaf6 0%, #f2fbf4 100%);
       border: 1px solid #e8f0ea;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.03);
-      height: 100%;
     }
 
     .stay-title {
@@ -455,10 +506,10 @@
 
     .stay-label {
       display: inline-block;
-      min-width: 68px;
+      min-width: 78px;
       font-weight: 700;
       color: var(--menu-green);
-      margin-right: 6px;
+      margin-right: 8px;
       vertical-align: top;
     }
 
@@ -469,18 +520,12 @@
     }
 
     .stay-note {
-      margin: 20px auto 0;
-      max-width: 760px;
+      margin-top: 20px;
       padding: 20px;
       border-radius: var(--radius-md);
       background: linear-gradient(135deg, #fff9f4 0%, #f7fcf8 100%);
       border: 1px solid #e8f0ea;
-    }
-
-    .stay-note h3 {
-      margin: 0 0 10px;
-      font-size: 1.02rem;
-      color: var(--menu-green);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.03);
     }
 
     .stay-note p {
@@ -579,7 +624,7 @@
         padding: 28px 20px 34px;
       }
 
-      .section-box h2 {
+      .section-heading-text h2 {
         font-size: 1.6rem;
       }
 
@@ -644,8 +689,23 @@
 
       <section id="about" class="tab">
         <div class="section-box">
-          <h2>회중 소개</h2>
-          <p>이곳에는 서울 면목 북부 회중에 대한 기본 소개를 담을 수 있습니다. 처음 방문하시는 분들께서도 편안하게 둘러보실 수 있도록 간단하고 분명한 안내를 넣어 두시면 좋습니다.</p>
+          <div class="section-heading">
+            <div class="section-heading-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path>
+                <path d="M4 20a8 8 0 0 1 16 0"></path>
+              </svg>
+            </div>
+            <div class="section-heading-text">
+              <h2>회중 소개</h2>
+              <span>서울 면목 북부 회중에 대한 기본 안내</span>
+            </div>
+          </div>
+
+          <div class="section-intro">
+            <p>이곳에는 서울 면목 북부 회중에 대한 기본 소개를 담을 수 있습니다. 처음 방문하시는 분들께서도 편안하게 둘러보실 수 있도록 간단하고 분명한 안내를 넣어 두시면 좋습니다.</p>
+          </div>
+
           <div class="info-grid">
             <div class="info-card">
               <h3>기본 안내</h3>
@@ -661,8 +721,23 @@
 
       <section id="area" class="tab">
         <div class="section-box">
-          <h2>구역 소개</h2>
-          <p>이곳에는 구역과 관련된 안내를 넣을 수 있습니다. 주변 환경이나 이동 시 참고할 수 있는 내용을 보기 좋게 정리하시면 도움이 됩니다.</p>
+          <div class="section-heading">
+            <div class="section-heading-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M12 21s7-4.35 7-11a7 7 0 1 0-14 0c0 6.65 7 11 7 11z"></path>
+                <circle cx="12" cy="10" r="2.5"></circle>
+              </svg>
+            </div>
+            <div class="section-heading-text">
+              <h2>구역 소개</h2>
+              <span>주변 지역과 이동 참고 정보</span>
+            </div>
+          </div>
+
+          <div class="section-intro">
+            <p>이곳에는 구역과 관련된 안내를 넣을 수 있습니다. 주변 환경이나 이동 시 참고할 수 있는 내용을 보기 좋게 정리하시면 도움이 됩니다.</p>
+          </div>
+
           <div class="info-grid">
             <div class="info-card">
               <h3>지역 특징</h3>
@@ -678,8 +753,24 @@
 
       <section id="service" class="tab">
         <div class="section-box">
-          <h2>봉사 안내</h2>
-          <p>봉사와 관련된 일정과 기본 안내를 적는 공간입니다. 처음 참석하시는 분들도 쉽게 이해할 수 있도록 정리해 두시면 좋습니다.</p>
+          <div class="section-heading">
+            <div class="section-heading-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M12 5v14"></path>
+                <path d="M5 12h14"></path>
+                <path d="M7 7l10 10"></path>
+              </svg>
+            </div>
+            <div class="section-heading-text">
+              <h2>봉사 안내</h2>
+              <span>봉사와 관련된 일정 및 참고 사항</span>
+            </div>
+          </div>
+
+          <div class="section-intro">
+            <p>봉사와 관련된 일정과 기본 안내를 적는 공간입니다. 처음 참석하시는 분들도 쉽게 이해할 수 있도록 정리해 두시면 좋습니다.</p>
+          </div>
+
           <div class="info-grid">
             <div class="info-card">
               <h3>정기 봉사 모임</h3>
@@ -695,14 +786,27 @@
 
       <section id="meeting" class="tab">
         <div class="section-box">
-          <h2>집회 안내</h2>
+          <div class="section-heading">
+            <div class="section-heading-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <rect x="3" y="5" width="18" height="16" rx="2"></rect>
+                <path d="M16 3v4M8 3v4M3 10h18"></path>
+              </svg>
+            </div>
+            <div class="section-heading-text">
+              <h2>집회 안내</h2>
+              <span>집회 시간과 회관 관련 정보</span>
+            </div>
+          </div>
 
-          <p>
-            서울 면목 북부 회중의 집회 시간을 안내드립니다.
-            대도시 캠페인에 참여하시는 형제자매 여러분을 진심으로 환영합니다.
-          </p>
+          <div class="section-intro">
+            <p>
+              서울 면목 북부 회중의 집회 시간을 안내드립니다.
+              대도시 캠페인에 참여하시는 형제자매 여러분을 진심으로 환영합니다.
+            </p>
+          </div>
 
-          <div class="info-card" style="margin-top: 18px;">
+          <div class="section-panel" style="margin-top: 24px;">
             <h3>회관 주소</h3>
             <p>
               도로명 주소 :
@@ -710,7 +814,7 @@
                 href="https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%EC%8B%9C%20%EC%A4%91%EB%9E%91%EA%B5%AC%20%EC%9A%A9%EB%A7%88%EC%82%B0%EB%A1%9C94%EB%8B%A4%EA%B8%B8%2035%201%EC%B8%B5"
                 target="_blank"
                 rel="noopener noreferrer"
-                style="color: inherit; text-decoration: underline;"
+                class="inline-link"
               >
                 서울시 중랑구 용마산로94다길 35 1층
               </a>
@@ -737,7 +841,7 @@
             </div>
           </div>
 
-          <div class="info-card" style="margin-top: 18px;">
+          <div class="section-panel" style="margin-top: 18px;">
             <h3>회관 주차 안내</h3>
             <p>
               회관 주차장이 매우 협소하기 때문에 차량을 가지고 오실 경우, 인근 면일초등학교 공영 주차장을 이용해 주시기 바랍니다.
@@ -750,7 +854,7 @@
                 href="https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%EC%8B%9C%20%EC%A4%91%EB%9E%91%EA%B5%AC%20%EC%9A%A9%EB%A7%88%EC%82%B0%EB%A1%9C100%EA%B8%B8%2013%20%EB%A9%B4%EC%9D%BC%EC%B4%88%EB%93%B1%ED%95%99%EA%B5%90"
                 target="_blank"
                 rel="noopener noreferrer"
-                style="color: inherit; text-decoration: underline;"
+                class="inline-link"
               >
                 서울시 중랑구 용마산로100길 13 면일초등학교
               </a><br>
@@ -759,17 +863,23 @@
               기타 : 주차장에서 도보로 약 11분 거리
             </p>
           </div>
-
         </div>
       </section>
 
       <section id="contact" class="tab">
         <div class="section-box">
-          <h2>문의하기</h2>
+          <div class="section-heading" style="margin-bottom: 18px;">
+            <div class="section-heading-text">
+              <h2>문의하기</h2>
+              <span>필요한 경우 담당 형제에게 연락하실 수 있습니다</span>
+            </div>
+          </div>
 
-          <p>
-            대도시 캠페인과 관련하여 문의가 있으신 형제 자매들께서는 아래 담당 형제에게 연락주시기 바랍니다.
-          </p>
+          <div class="section-intro">
+            <p>
+              대도시 캠페인과 관련하여 문의가 있으신 형제 자매들께서는 아래 담당 형제에게 연락주시기 바랍니다.
+            </p>
+          </div>
 
           <div class="info-grid contact-grid">
 
@@ -815,8 +925,22 @@
 
       <section id="parking" class="tab">
         <div class="section-box">
-          <h2>주차장 안내</h2>
-          <p>차량으로 방문하시는 분들을 위해 주차 관련 내용을 정리하는 공간입니다. 위치와 이용 방법을 간단히 적어 두시면 도움이 됩니다.</p>
+          <div class="section-heading">
+            <div class="section-heading-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M7 17V6h5a4 4 0 0 1 0 8H7"></path>
+              </svg>
+            </div>
+            <div class="section-heading-text">
+              <h2>주차장 안내</h2>
+              <span>차량 방문 시 참고하실 수 있는 정보</span>
+            </div>
+          </div>
+
+          <div class="section-intro">
+            <p>차량으로 방문하시는 분들을 위해 주차 관련 내용을 정리하는 공간입니다. 위치와 이용 방법을 간단히 적어 두시면 도움이 됩니다.</p>
+          </div>
+
           <div class="info-grid">
             <div class="info-card">
               <h3>주차 위치</h3>
@@ -832,12 +956,27 @@
 
       <section id="stay" class="tab">
         <div class="section-box">
-          <h2>숙박시설 안내</h2>
+          <div class="section-heading">
+            <div class="section-heading-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M3 21V7a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v14"></path>
+                <path d="M9 21V14h4v7"></path>
+                <path d="M18 21V11h3v10"></path>
+                <path d="M7 9h.01M12 9h.01"></path>
+              </svg>
+            </div>
+            <div class="section-heading-text">
+              <h2>숙박시설 안내</h2>
+              <span>회관 인근 숙박시설과 이동 참고 정보</span>
+            </div>
+          </div>
 
-          <p>
-            먼 곳에서 오시는 형제자매들을 위해 회관 인근 숙박시설을 안내드립니다.
-            편안히 쉬실 수 있는 숙소를 살펴보시고, 예약 시에는 회관까지의 이동 거리와 대중교통 편의성도 함께 확인해 주시기 바랍니다.
-          </p>
+          <div class="section-intro">
+            <p>
+              먼 곳에서 오시는 형제자매들을 위해 회관 인근 숙박시설을 안내드립니다.
+              편안히 쉬실 수 있는 숙소를 살펴보시고, 예약 시에는 회관까지의 이동 거리와 대중교통 편의성도 함께 확인해 주시기 바랍니다.
+            </p>
+          </div>
 
           <div class="stay-grid">
 
@@ -859,7 +998,7 @@
                   <a href="https://map.naver.com/p/search/%EC%A4%91%EB%9E%91%EA%B5%AC%20%EC%83%81%EB%B4%89%EB%A1%9C28%EA%B8%B8%207" target="_blank" rel="noopener noreferrer">중랑구 상봉로28길 7</a>
                 </li>
                 <li><span class="stay-label">위치</span> 망우역 1번 출구에서 444m</li>
-                <li><span class="stay-label">회관까지</span> 차량 기준 약 15~20분 내외</li>
+                <li><span class="stay-label">회관까지</span> 차량 기준 약 15~20분 (약 5.7km)</li>
                 <li><span class="stay-label">연락처</span> <a href="tel:01068213342">010-6821-3342</a></li>
                 <li><span class="stay-label">링크</span> <a href="https://blog.naver.com/greatenhotel" target="_blank" rel="noopener noreferrer">블로그 바로가기</a></li>
               </ul>
@@ -883,7 +1022,7 @@
                   <a href="https://map.naver.com/p/search/%EC%A4%91%EB%9E%91%EA%B5%AC%20%EC%83%81%EB%B4%89%EB%A1%9C28%EA%B8%B8%2013" target="_blank" rel="noopener noreferrer">중랑구 상봉로28길 13</a>
                 </li>
                 <li><span class="stay-label">위치</span> 망우역 1번 출구에서 471m</li>
-                <li><span class="stay-label">회관까지</span> 차량 기준 약 15~20분 내외</li>
+                <li><span class="stay-label">회관까지</span> 차량 기준 약 15~20분 (약 5.8km)</li>
                 <li><span class="stay-label">연락처</span> <a href="tel:01077003403">010-7700-3403</a></li>
                 <li><span class="stay-label">링크</span> <a href="https://www.instagram.com/aankhotel.official" target="_blank" rel="noopener noreferrer">인스타그램 바로가기</a></li>
               </ul>
@@ -907,7 +1046,7 @@
                   <a href="https://map.naver.com/p/search/%EC%A4%91%EB%9E%91%EA%B5%AC%20%EB%A7%9D%EC%9A%B0%EB%A1%9C52%EA%B8%B8%2028" target="_blank" rel="noopener noreferrer">중랑구 망우로52길 28</a>
                 </li>
                 <li><span class="stay-label">위치</span> 상봉역 2번 출구에서 475m</li>
-                <li><span class="stay-label">회관까지</span> 차량 기준 약 15~20분 내외</li>
+                <li><span class="stay-label">회관까지</span> 차량 기준 약 15~20분 (약 5.5km)</li>
                 <li><span class="stay-label">연락처</span> <a href="tel:024931100">02-493-1100</a></li>
               </ul>
             </div>
@@ -930,7 +1069,7 @@
                   <a href="https://map.naver.com/p/search/%EC%A4%91%EB%9E%91%EA%B5%AC%20%EB%A7%9D%EC%9A%B0%EB%A1%9C%20232" target="_blank" rel="noopener noreferrer">중랑구 망우로 232</a>
                 </li>
                 <li><span class="stay-label">위치</span> 중랑역 3번 출구에서 242m</li>
-                <li><span class="stay-label">회관까지</span> 차량 기준 약 12~18분 내외</li>
+                <li><span class="stay-label">회관까지</span> 차량 기준 약 12~18분 (약 4.8km)</li>
                 <li><span class="stay-label">연락처</span> <a href="tel:050714276888">0507-1427-6888</a></li>
                 <li><span class="stay-label">링크</span> <a href="http://lacozistay.com" target="_blank" rel="noopener noreferrer">홈페이지 바로가기</a></li>
               </ul>
@@ -954,7 +1093,7 @@
                   <a href="https://map.naver.com/p/search/%EC%A4%91%EB%9E%91%EA%B5%AC%20%EB%8F%99%EC%9D%BC%EB%A1%9C%20866" target="_blank" rel="noopener noreferrer">중랑구 동일로 866</a>
                 </li>
                 <li><span class="stay-label">위치</span> 먹골역 4번 출구에서 241m</li>
-                <li><span class="stay-label">회관까지</span> 차량 기준 약 18~25분 내외</li>
+                <li><span class="stay-label">회관까지</span> 차량 기준 약 18~25분 (약 6.6km)</li>
                 <li><span class="stay-label">연락처</span> <a href="tel:029759380">02-975-9380</a></li>
               </ul>
             </div>
