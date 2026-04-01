@@ -31,6 +31,9 @@
       --radius-lg: 24px;
       --radius-md: 18px;
       --transition: 0.28s ease;
+      --accent: #7fc0a0;
+      --accent-soft: #99cfb0;
+      --danger-soft: #f8dfd8;
     }
 
     body {
@@ -329,7 +332,8 @@
     }
 
     .info-grid,
-    .stay-grid {
+    .stay-grid,
+    .tour-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
@@ -339,7 +343,10 @@
 
     .info-card,
     .section-panel,
-    .stay-card {
+    .stay-card,
+    .tour-card,
+    .board-form,
+    .board-list-wrap {
       padding: 22px 20px;
       border-radius: var(--radius-md);
       background: linear-gradient(135deg, #fff9f5 0%, #f2fbf4 100%);
@@ -348,7 +355,8 @@
     }
 
     .info-card,
-    .stay-card {
+    .stay-card,
+    .tour-card {
       height: 100%;
       display: flex;
       flex-direction: column;
@@ -356,20 +364,26 @@
     }
 
     .info-grid > *,
-    .stay-grid > * {
+    .stay-grid > *,
+    .tour-grid > * {
       min-height: 100%;
     }
 
     .info-card h3,
     .section-panel h3,
-    .stay-note h3 {
+    .stay-note h3,
+    .tour-card h3,
+    .board-form h3,
+    .board-list-wrap h3 {
       margin: 0 0 10px;
       font-size: 1.08rem;
       color: var(--menu-green);
     }
 
     .info-card p,
-    .section-panel p {
+    .section-panel p,
+    .tour-card p,
+    .board-note {
       margin: 0;
       color: var(--body-text);
       line-height: 1.8;
@@ -437,10 +451,13 @@
       margin-top: 14px;
     }
 
-    .contact-phone a {
+    .contact-phone a,
+    .board-submit,
+    .board-delete {
       display: inline-block;
       padding: 9px 16px;
       border-radius: 999px;
+      border: none;
       background: linear-gradient(135deg, #7fc0a0, #99cfb0);
       color: #fff;
       text-decoration: none;
@@ -448,9 +465,12 @@
       font-weight: 700;
       box-shadow: 0 8px 18px rgba(95, 127, 104, 0.14);
       transition: transform 0.18s ease, box-shadow 0.18s ease;
+      cursor: pointer;
     }
 
-    .contact-phone a:hover {
+    .contact-phone a:hover,
+    .board-submit:hover,
+    .board-delete:hover {
       transform: translateY(-1px);
       box-shadow: 0 12px 22px rgba(95, 127, 104, 0.18);
     }
@@ -519,12 +539,14 @@
       text-underline-offset: 2px;
     }
 
-    .stay-card {
+    .stay-card,
+    .tour-card {
       background: linear-gradient(135deg, #fffaf6 0%, #f2fbf4 100%);
       border: 1px solid #e8f0ea;
     }
 
-    .stay-title {
+    .stay-title,
+    .tour-title {
       display: flex;
       align-items: center;
       gap: 10px;
@@ -535,7 +557,8 @@
       min-height: 3em;
     }
 
-    .stay-icon {
+    .stay-icon,
+    .tour-icon {
       width: 38px;
       height: 38px;
       border-radius: 12px;
@@ -548,31 +571,37 @@
       box-shadow: 0 6px 14px rgba(95, 127, 104, 0.1);
     }
 
-    .stay-icon svg {
+    .stay-icon svg,
+    .tour-icon svg {
       width: 18px;
       height: 18px;
       stroke-width: 1.8;
     }
 
-    .stay-list {
+    .stay-list,
+    .tour-list,
+    .board-list {
       margin: 0;
       padding: 0;
       list-style: none;
       flex: 1;
     }
 
-    .stay-list li {
+    .stay-list li,
+    .tour-list li {
       margin-bottom: 10px;
       color: var(--body-text);
       line-height: 1.8;
       word-break: keep-all;
     }
 
-    .stay-list li:last-child {
+    .stay-list li:last-child,
+    .tour-list li:last-child {
       margin-bottom: 0;
     }
 
-    .stay-label {
+    .stay-label,
+    .tour-label {
       display: inline-block;
       min-width: 78px;
       font-weight: 700;
@@ -581,7 +610,8 @@
       vertical-align: top;
     }
 
-    .stay-list a {
+    .stay-list a,
+    .tour-list a {
       color: #6a5d54;
       text-decoration: underline;
       text-underline-offset: 2px;
@@ -600,6 +630,127 @@
       margin: 0;
       color: var(--body-text);
       line-height: 1.85;
+    }
+
+    .board-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 18px;
+      margin-top: 24px;
+      align-items: start;
+    }
+
+    .board-form form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .board-field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .board-field label {
+      font-size: 0.94rem;
+      font-weight: 700;
+      color: var(--menu-green);
+    }
+
+    .board-field input,
+    .board-field textarea {
+      width: 100%;
+      border: 1px solid #d8e7dc;
+      border-radius: 14px;
+      padding: 12px 14px;
+      font: inherit;
+      color: var(--text);
+      background: #fff;
+      outline: none;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .board-field input:focus,
+    .board-field textarea:focus {
+      border-color: #98c8ab;
+      box-shadow: 0 0 0 4px rgba(127, 192, 160, 0.12);
+    }
+
+    .board-field textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .board-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .board-helper {
+      font-size: 0.88rem;
+      color: #8a7f75;
+      line-height: 1.7;
+    }
+
+    .board-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .board-item {
+      background: #fff;
+      border: 1px solid #e3ede6;
+      border-radius: 18px;
+      padding: 16px;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.025);
+    }
+
+    .board-item-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+
+    .board-author {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--title);
+    }
+
+    .board-date {
+      font-size: 0.83rem;
+      color: #8a7f75;
+      white-space: nowrap;
+    }
+
+    .board-message {
+      margin: 0;
+      color: var(--body-text);
+      line-height: 1.85;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .board-delete {
+      padding: 7px 12px;
+      font-size: 0.82rem;
+      margin-top: 12px;
+      background: linear-gradient(135deg, #caa79b, #d6b3a8);
+      box-shadow: 0 8px 18px rgba(111, 90, 82, 0.12);
+    }
+
+    .board-empty {
+      border: 1px dashed #d8e7dc;
+      border-radius: 18px;
+      padding: 20px;
+      text-align: center;
+      color: #8a7f75;
+      background: rgba(255, 255, 255, 0.72);
+      line-height: 1.8;
     }
 
     footer {
@@ -638,6 +789,10 @@
 
       .hero-copy h1 {
         font-size: 3.3rem;
+      }
+
+      .board-layout {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -743,27 +898,37 @@
 
       .info-grid,
       .stay-grid,
-      .contact-grid {
+      .contact-grid,
+      .tour-grid {
         grid-template-columns: 1fr;
       }
 
       .info-card,
       .section-panel,
-      .stay-card {
+      .stay-card,
+      .tour-card,
+      .board-form,
+      .board-list-wrap {
         padding: 20px 18px;
       }
 
-      .stay-title {
+      .stay-title,
+      .tour-title {
         font-size: 1rem;
         min-height: auto;
       }
 
-      .stay-label {
+      .stay-label,
+      .tour-label {
         min-width: 66px;
       }
 
       .contact-card {
         padding-top: 22px;
+      }
+
+      .board-item-header {
+        flex-direction: column;
       }
     }
 
@@ -810,9 +975,11 @@
         <button onclick="showTab('area', this)">구역 소개</button>
         <button onclick="showTab('service', this)">봉사 안내</button>
         <button onclick="showTab('meeting', this)">집회 안내</button>
+        <button onclick="showTab('tour', this)">관광지</button>
         <button onclick="showTab('contact', this)">문의하기</button>
         <button onclick="showTab('parking', this)">주차장 안내</button>
         <button onclick="showTab('stay', this)">숙박시설 안내</button>
+        <button onclick="showTab('board', this)">게시판</button>
       </div>
     </div>
   </nav>
@@ -1041,6 +1208,114 @@
               시간 : 24시간 운영<br>
               요금 : 2시간 - 2,400원 (5분당 100원 추가)<br>
               기타 : 주차장에서 도보로 약 11분 거리
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="tour" class="tab">
+        <div class="section-box">
+          <div class="section-heading">
+            <div class="section-heading-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M3 12l9-8 9 8"></path>
+                <path d="M5 10v10h14V10"></path>
+              </svg>
+            </div>
+            <div class="section-heading-text">
+              <h2>관광지</h2>
+              <span>방문 전후로 둘러보기 좋은 주변 장소 안내</span>
+            </div>
+          </div>
+
+          <div class="section-intro">
+            <p>
+              집회나 봉사 일정 전후에 잠시 들르기 좋은 장소를 정리해 두는 메뉴입니다.
+              아래 내용은 예시 형식으로 넣어 두었으니, 실제로 소개하고 싶은 장소명과 링크로 바꾸어 사용하시면 됩니다.
+            </p>
+          </div>
+
+          <div class="tour-grid">
+            <div class="tour-card">
+              <h3 class="tour-title">
+                <span class="tour-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M12 21s7-4.35 7-11a7 7 0 1 0-14 0c0 6.65 7 11 7 11z"></path>
+                    <circle cx="12" cy="10" r="2.5"></circle>
+                  </svg>
+                </span>
+                용마산
+              </h3>
+              <ul class="tour-list">
+                <li><span class="tour-label">분류</span> 산책 · 전망</li>
+                <li><span class="tour-label">특징</span> 짧게 걷기 좋은 코스와 시원한 전망을 함께 즐길 수 있습니다.</li>
+                <li><span class="tour-label">추천</span> 아침 산책이나 일정 후 가벼운 이동</li>
+                <li><span class="tour-label">메모</span> 실제 방문 안내 링크를 연결해 두면 활용하기 좋습니다.</li>
+              </ul>
+            </div>
+
+            <div class="tour-card">
+              <h3 class="tour-title">
+                <span class="tour-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M4 7h16"></path>
+                    <path d="M6 7l1.2 11h9.6L18 7"></path>
+                    <path d="M9 7V5a3 3 0 0 1 6 0v2"></path>
+                  </svg>
+                </span>
+                전통시장
+              </h3>
+              <ul class="tour-list">
+                <li><span class="tour-label">분류</span> 먹거리 · 지역 분위기</li>
+                <li><span class="tour-label">특징</span> 지역의 일상적인 분위기를 느끼기 좋고 간단한 식사도 가능합니다.</li>
+                <li><span class="tour-label">추천</span> 점심 식사 또는 짧은 휴식 시간</li>
+                <li><span class="tour-label">메모</span> 시장 이름과 영업시간을 적어 두시면 더 편리합니다.</li>
+              </ul>
+            </div>
+
+            <div class="tour-card">
+              <h3 class="tour-title">
+                <span class="tour-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M12 6v12"></path>
+                    <path d="M6 12h12"></path>
+                    <circle cx="12" cy="12" r="9"></circle>
+                  </svg>
+                </span>
+                공원
+              </h3>
+              <ul class="tour-list">
+                <li><span class="tour-label">분류</span> 휴식 · 가족 방문</li>
+                <li><span class="tour-label">특징</span> 조용히 쉬기 좋고 사진을 남기기에도 좋은 공간입니다.</li>
+                <li><span class="tour-label">추천</span> 가족 단위 방문자 또는 어린 자녀 동반 시</li>
+                <li><span class="tour-label">메모</span> 화장실, 주차, 벤치 유무 같은 정보도 함께 적어 두면 좋습니다.</li>
+              </ul>
+            </div>
+
+            <div class="tour-card">
+              <h3 class="tour-title">
+                <span class="tour-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M4 19h16"></path>
+                    <path d="M7 19V9l5-4 5 4v10"></path>
+                  </svg>
+                </span>
+                실내 문화 공간
+              </h3>
+              <ul class="tour-list">
+                <li><span class="tour-label">분류</span> 전시 · 실내 휴식</li>
+                <li><span class="tour-label">특징</span> 날씨 영향을 덜 받고 짧게 둘러보기 좋습니다.</li>
+                <li><span class="tour-label">추천</span> 비 오는 날이나 더운 날 이동</li>
+                <li><span class="tour-label">메모</span> 운영 시간과 휴관일을 적어 두면 유용합니다.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="stay-note">
+            <h3>안내</h3>
+            <p>
+              관광지 메뉴는 회중 방문자들이 지역을 조금 더 편안하게 이해하도록 돕는 용도로 활용하실 수 있습니다.
+              실제 장소 정보가 정리되면 위 카드 형식에 맞춰 이름, 링크, 특징만 바꾸어도 깔끔하게 사용할 수 있습니다.
             </p>
           </div>
         </div>
@@ -1412,6 +1687,60 @@
         </div>
       </section>
 
+      <section id="board" class="tab">
+        <div class="section-box">
+          <div class="section-heading">
+            <div class="section-heading-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M4 6a2 2 0 0 1 2-2h12v12l-4-3H6a2 2 0 0 1-2-2z"></path>
+              </svg>
+            </div>
+            <div class="section-heading-text">
+              <h2>게시판</h2>
+              <span>방문자들이 자유롭게 인사를 남길 수 있는 공간</span>
+            </div>
+          </div>
+
+          <div class="section-intro">
+            <p>
+              방문하신 분들이 간단한 인사말이나 소감을 남길 수 있도록 게시판을 추가했습니다.
+              이 게시판은 현재 브라우저의 저장소(localStorage)를 이용하므로, 같은 기기와 같은 브라우저에서만 글이 유지됩니다.
+            </p>
+          </div>
+
+          <div class="board-layout">
+            <div class="board-form">
+              <h3>글 남기기</h3>
+              <p class="board-note" style="margin-bottom: 16px;">
+                이름과 내용을 입력한 뒤 등록해 주세요. 연락처나 민감한 개인정보는 적지 않도록 안내하는 편이 좋습니다.
+              </p>
+
+              <form id="guestbookForm">
+                <div class="board-field">
+                  <label for="guestName">이름</label>
+                  <input id="guestName" name="guestName" type="text" maxlength="20" placeholder="이름 또는 닉네임을 입력하세요" required />
+                </div>
+
+                <div class="board-field">
+                  <label for="guestMessage">내용</label>
+                  <textarea id="guestMessage" name="guestMessage" maxlength="500" placeholder="방문 소감이나 인사말을 남겨 주세요" required></textarea>
+                </div>
+
+                <div class="board-actions">
+                  <button type="submit" class="board-submit">등록하기</button>
+                  <span class="board-helper">최대 500자까지 작성할 수 있습니다.</span>
+                </div>
+              </form>
+            </div>
+
+            <div class="board-list-wrap">
+              <h3>방문 글</h3>
+              <div id="boardList" class="board-list"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </div>
   </main>
 
@@ -1427,13 +1756,14 @@
         <div class="quick-label">집회 안내</div>
       </div>
 
-      <div class="quick-item" onclick="goTab('parking')">
+      <div class="quick-item" onclick="goTab('tour')">
         <div class="quick-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path d="M7 17V6h5a4 4 0 0 1 0 8H7"></path>
+            <path d="M3 12l9-8 9 8"></path>
+            <path d="M5 10v10h14V10"></path>
           </svg>
         </div>
-        <div class="quick-label">주차장 안내</div>
+        <div class="quick-label">관광지</div>
       </div>
 
       <div class="quick-item" onclick="goTab('service')">
@@ -1446,13 +1776,13 @@
         <div class="quick-label">봉사 안내</div>
       </div>
 
-      <div class="quick-item" onclick="goTab('contact')">
+      <div class="quick-item" onclick="goTab('board')">
         <div class="quick-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
             <path d="M4 6a2 2 0 0 1 2-2h12v12l-4-3H6a2 2 0 0 1-2-2z"></path>
           </svg>
         </div>
-        <div class="quick-label">문의하기</div>
+        <div class="quick-label">게시판</div>
       </div>
     </div>
   </div>
@@ -1462,6 +1792,8 @@
   </footer>
 
   <script>
+    const STORAGE_KEY = 'smnc_guestbook_posts_v1';
+
     function showTab(id, el) {
       document.querySelectorAll('.tab').forEach(tab => {
         tab.classList.remove('active');
@@ -1479,6 +1811,8 @@
       if (el) {
         el.classList.add('active');
       }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function goTab(id) {
@@ -1489,14 +1823,125 @@
         area: '구역 소개',
         service: '봉사 안내',
         meeting: '집회 안내',
+        tour: '관광지',
         contact: '문의하기',
         parking: '주차장 안내',
-        stay: '숙박시설 안내'
+        stay: '숙박시설 안내',
+        board: '게시판'
       };
 
       const targetButton = buttons.find(btn => btn.textContent.trim() === map[id]);
       showTab(id, targetButton || null);
     }
+
+    function escapeHtml(value) {
+      return value
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    function getPosts() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        return saved ? JSON.parse(saved) : [];
+      } catch (error) {
+        console.error('게시판 데이터를 불러오지 못했습니다.', error);
+        return [];
+      }
+    }
+
+    function savePosts(posts) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(posts));
+    }
+
+    function formatDate(dateString) {
+      const date = new Date(dateString);
+      if (Number.isNaN(date.getTime())) return '';
+      return new Intl.DateTimeFormat('ko-KR', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      }).format(date);
+    }
+
+    function renderPosts() {
+      const boardList = document.getElementById('boardList');
+      if (!boardList) return;
+
+      const posts = getPosts();
+
+      if (!posts.length) {
+        boardList.innerHTML = '<div class="board-empty">아직 등록된 글이 없습니다.<br>첫 번째 방문 글을 남겨 보세요.</div>';
+        return;
+      }
+
+      boardList.innerHTML = posts.map(post => `
+        <article class="board-item">
+          <div class="board-item-header">
+            <div>
+              <div class="board-author">${escapeHtml(post.name)}</div>
+              <div class="board-date">${formatDate(post.createdAt)}</div>
+            </div>
+          </div>
+          <p class="board-message">${escapeHtml(post.message)}</p>
+          <button type="button" class="board-delete" data-id="${post.id}">삭제</button>
+        </article>
+      `).join('');
+
+      boardList.querySelectorAll('.board-delete').forEach(button => {
+        button.addEventListener('click', () => deletePost(button.dataset.id));
+      });
+    }
+
+    function addPost(name, message) {
+      const posts = getPosts();
+      posts.unshift({
+        id: crypto.randomUUID ? crypto.randomUUID() : String(Date.now()),
+        name,
+        message,
+        createdAt: new Date().toISOString()
+      });
+      savePosts(posts);
+      renderPosts();
+    }
+
+    function deletePost(id) {
+      const current = getPosts();
+      const next = current.filter(post => post.id !== id);
+      savePosts(next);
+      renderPosts();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderPosts();
+
+      const form = document.getElementById('guestbookForm');
+      if (!form) return;
+
+      form.addEventListener('submit', event => {
+        event.preventDefault();
+
+        const nameInput = document.getElementById('guestName');
+        const messageInput = document.getElementById('guestMessage');
+
+        const name = nameInput.value.trim();
+        const message = messageInput.value.trim();
+
+        if (!name || !message) {
+          alert('이름과 내용을 모두 입력해 주세요.');
+          return;
+        }
+
+        addPost(name, message);
+        form.reset();
+        alert('방문 글이 등록되었습니다.');
+      });
+    });
   </script>
 </body>
 </html>
