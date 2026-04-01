@@ -31,9 +31,6 @@
       --radius-lg: 24px;
       --radius-md: 18px;
       --transition: 0.28s ease;
-      --accent: #7fc0a0;
-      --accent-soft: #99cfb0;
-      --danger-soft: #f8dfd8;
     }
 
     body {
@@ -228,13 +225,6 @@
       padding: 88px 30px 30px;
     }
 
-    .hero-main::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.02), rgba(0,0,0,0.04));
-    }
-
     .hero-copy {
       position: relative;
       z-index: 1;
@@ -351,22 +341,7 @@
       border-radius: var(--radius-md);
       background: linear-gradient(135deg, #fff9f5 0%, #f2fbf4 100%);
       border: 1px solid #eaf1eb;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .info-card,
-    .stay-card,
-    .tour-card {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-    }
-
-    .info-grid > *,
-    .stay-grid > *,
-    .tour-grid > * {
-      min-height: 100%;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.035);
     }
 
     .info-card h3,
@@ -396,28 +371,27 @@
       margin-bottom: 12px;
     }
 
-    .panel-icon {
+    .panel-icon,
+    .stay-icon,
+    .tour-icon {
       width: 40px;
       height: 40px;
       border-radius: 12px;
-      flex-shrink: 0;
       display: flex;
       align-items: center;
       justify-content: center;
       background: linear-gradient(135deg, #ffe5d8, #e4f3e7);
       color: var(--menu-green);
       box-shadow: 0 6px 14px rgba(95, 127, 104, 0.1);
+      flex-shrink: 0;
     }
 
-    .panel-icon svg {
+    .panel-icon svg,
+    .stay-icon svg,
+    .tour-icon svg {
       width: 18px;
       height: 18px;
       stroke-width: 1.8;
-    }
-
-    .panel-header h3 {
-      margin: 0;
-      padding-top: 6px;
     }
 
     .contact-grid {
@@ -475,76 +449,6 @@
       box-shadow: 0 12px 22px rgba(95, 127, 104, 0.18);
     }
 
-    .quick-menu-wrap {
-      max-width: 1240px;
-      margin: 0 auto;
-      padding: 0 18px 12px;
-      display: flex;
-      justify-content: center;
-    }
-
-    .quick-menu {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(90px, 1fr));
-      gap: 12px;
-      max-width: 520px;
-      width: 100%;
-    }
-
-    .quick-item {
-      background: rgba(255, 255, 255, 0.92);
-      border: 1px solid #eaf1eb;
-      border-radius: 14px;
-      padding: 11px 8px;
-      text-align: center;
-      cursor: pointer;
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .quick-item:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.06);
-    }
-
-    .quick-icon {
-      width: 36px;
-      height: 36px;
-      margin: 0 auto 7px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #ffe5d8, #e4f3e7);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--menu-green);
-    }
-
-    .quick-icon svg {
-      width: 17px;
-      height: 17px;
-      stroke-width: 1.8;
-    }
-
-    .quick-label {
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: #6a5d54;
-      line-height: 1.35;
-    }
-
-    .inline-link {
-      color: inherit;
-      text-decoration: underline;
-      text-underline-offset: 2px;
-    }
-
-    .stay-card,
-    .tour-card {
-      background: linear-gradient(135deg, #fffaf6 0%, #f2fbf4 100%);
-      border: 1px solid #e8f0ea;
-    }
-
     .stay-title,
     .tour-title {
       display: flex;
@@ -554,28 +458,6 @@
       font-size: 1.08rem;
       color: var(--title);
       line-height: 1.4;
-      min-height: 3em;
-    }
-
-    .stay-icon,
-    .tour-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 12px;
-      flex: 0 0 38px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #ffe5d8, #e4f3e7);
-      color: var(--menu-green);
-      box-shadow: 0 6px 14px rgba(95, 127, 104, 0.1);
-    }
-
-    .stay-icon svg,
-    .tour-icon svg {
-      width: 18px;
-      height: 18px;
-      stroke-width: 1.8;
     }
 
     .stay-list,
@@ -584,7 +466,6 @@
       margin: 0;
       padding: 0;
       list-style: none;
-      flex: 1;
     }
 
     .stay-list li,
@@ -592,12 +473,6 @@
       margin-bottom: 10px;
       color: var(--body-text);
       line-height: 1.8;
-      word-break: keep-all;
-    }
-
-    .stay-list li:last-child,
-    .tour-list li:last-child {
-      margin-bottom: 0;
     }
 
     .stay-label,
@@ -608,13 +483,6 @@
       color: var(--menu-green);
       margin-right: 8px;
       vertical-align: top;
-    }
-
-    .stay-list a,
-    .tour-list a {
-      color: #6a5d54;
-      text-decoration: underline;
-      text-underline-offset: 2px;
     }
 
     .stay-note {
@@ -753,17 +621,80 @@
       line-height: 1.8;
     }
 
+    .board-status {
+      margin-top: 12px;
+      font-size: 0.9rem;
+      color: #8a7f75;
+    }
+
+    .quick-menu-wrap {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 18px 12px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .quick-menu {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(90px, 1fr));
+      gap: 12px;
+      max-width: 520px;
+      width: 100%;
+    }
+
+    .quick-item {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid #eaf1eb;
+      border-radius: 14px;
+      padding: 11px 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
+    }
+
+    .quick-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .quick-icon {
+      width: 36px;
+      height: 36px;
+      margin: 0 auto 7px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ffe5d8, #e4f3e7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--menu-green);
+    }
+
+    .quick-icon svg {
+      width: 17px;
+      height: 17px;
+      stroke-width: 1.8;
+    }
+
+    .quick-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #6a5d54;
+      line-height: 1.35;
+    }
+
+    .inline-link {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
     footer {
       text-align: center;
       padding: 18px 18px 30px;
       color: #8a7f75;
       font-size: 0.93rem;
-    }
-
-    @media (max-width: 1100px) {
-      .contact-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
     }
 
     @media (max-width: 980px) {
@@ -791,48 +722,13 @@
         font-size: 3.3rem;
       }
 
+      .contact-grid,
       .board-layout {
         grid-template-columns: 1fr;
       }
     }
 
     @media (max-width: 760px) {
-      nav {
-        position: sticky;
-      }
-
-      .nav-inner {
-        padding: 12px 12px 10px;
-      }
-
-      .brand-mark {
-        min-width: auto;
-        justify-content: center;
-        gap: 10px;
-      }
-
-      .brand-symbol {
-        width: 44px;
-        height: 44px;
-      }
-
-      .brand-monogram {
-        font-size: 0.74rem;
-      }
-
-      .brand-divider {
-        height: 30px;
-      }
-
-      .brand-ko {
-        font-size: 1rem;
-      }
-
-      .brand-en {
-        font-size: 0.58rem;
-        letter-spacing: 0.1em;
-      }
-
       .menu {
         justify-content: flex-start;
         overflow-x: auto;
@@ -857,7 +753,6 @@
 
       .content-shell {
         border-radius: 22px;
-        min-height: auto;
       }
 
       .hero-main {
@@ -874,10 +769,6 @@
         font-size: 1rem;
       }
 
-      .quick-menu-wrap {
-        padding: 0 12px 12px;
-      }
-
       .quick-menu {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         max-width: 100%;
@@ -885,71 +776,17 @@
 
       .section-box {
         padding: 28px 18px 32px;
-        min-height: auto;
-      }
-
-      .section-heading {
-        align-items: flex-start;
-      }
-
-      .section-heading-text h2 {
-        font-size: 1.6rem;
       }
 
       .info-grid,
       .stay-grid,
-      .contact-grid,
-      .tour-grid {
+      .tour-grid,
+      .contact-grid {
         grid-template-columns: 1fr;
-      }
-
-      .info-card,
-      .section-panel,
-      .stay-card,
-      .tour-card,
-      .board-form,
-      .board-list-wrap {
-        padding: 20px 18px;
-      }
-
-      .stay-title,
-      .tour-title {
-        font-size: 1rem;
-        min-height: auto;
-      }
-
-      .stay-label,
-      .tour-label {
-        min-width: 66px;
-      }
-
-      .contact-card {
-        padding-top: 22px;
       }
 
       .board-item-header {
         flex-direction: column;
-      }
-    }
-
-    @media (max-width: 430px) {
-      .hero-copy h1 {
-        font-size: 2.15rem;
-      }
-
-      .hero-eyebrow {
-        font-size: 0.74rem;
-        letter-spacing: 0.18em;
-      }
-
-      .section-heading-icon {
-        width: 42px;
-        height: 42px;
-      }
-
-      .section-heading-icon svg {
-        width: 20px;
-        height: 20px;
       }
     }
   </style>
@@ -1014,23 +851,11 @@
               <span>서울 면목 북부 회중에 대한 기본 안내</span>
             </div>
           </div>
-
           <div class="section-intro">
             <p>
-서울 면목 북부 회중으로 오신 모든 분들을 진심을 환영합니다.<br>
-대도시 캠페인을 통해 함께하게되신 모든 분들이 즐겁고 행복한 봉사하실 수 있기를 바랍니다.
-</p>
-          </div>
-          
-          <div class="info-grid">
-            <div class="info-card">
-              <h3>기본 안내</h3>
-              <p>회중의 전반적인 소개와 분위기를 적어 두실 수 있습니다.</p>
-            </div>
-            <div class="info-card">
-              <h3>방문 참고</h3>
-              <p>처음 오시는 분들을 위한 짧은 안내를 정리해 두시면 좋습니다.</p>
-            </div>
+              서울 면목 북부 회중으로 오신 모든 분들을 진심으로 환영합니다.<br>
+              대도시 캠페인을 통해 함께하게 되신 모든 분들이 즐겁고 행복한 봉사를 하실 수 있기를 바랍니다.
+            </p>
           </div>
         </div>
       </section>
@@ -1049,20 +874,8 @@
               <span>주변 지역과 이동 참고 정보</span>
             </div>
           </div>
-
           <div class="section-intro">
             <p>이곳에는 구역과 관련된 안내를 넣을 수 있습니다. 주변 환경이나 이동 시 참고할 수 있는 내용을 보기 좋게 정리하시면 도움이 됩니다.</p>
-          </div>
-
-          <div class="info-grid">
-            <div class="info-card">
-              <h3>지역 특징</h3>
-              <p>주요 지역과 기준점이 되는 장소를 적어 두실 수 있습니다.</p>
-            </div>
-            <div class="info-card">
-              <h3>이동 참고</h3>
-              <p>대중교통이나 도보 이동에 관한 참고 내용을 넣을 수 있습니다.</p>
-            </div>
           </div>
         </div>
       </section>
@@ -1082,20 +895,8 @@
               <span>봉사와 관련된 일정 및 참고 사항</span>
             </div>
           </div>
-
           <div class="section-intro">
             <p>봉사와 관련된 일정과 기본 안내를 적는 공간입니다. 처음 참석하시는 분들도 쉽게 이해할 수 있도록 정리해 두시면 좋습니다.</p>
-          </div>
-
-          <div class="info-grid">
-            <div class="info-card">
-              <h3>정기 봉사 모임</h3>
-              <p>요일, 시간, 집합 장소 같은 정보를 넣을 수 있습니다.</p>
-            </div>
-            <div class="info-card">
-              <h3>참석 안내</h3>
-              <p>준비할 점이나 간단한 참고 사항을 적어 두실 수 있습니다.</p>
-            </div>
           </div>
         </div>
       </section>
@@ -1114,101 +915,8 @@
               <span>집회 시간과 회관 관련 정보</span>
             </div>
           </div>
-
           <div class="section-intro">
-            <p>
-              서울 면목 북부 회중의 집회 시간을 안내드립니다.
-              대도시 캠페인에 참여하시는 형제자매 여러분을 진심으로 환영합니다.
-            </p>
-          </div>
-
-          <div class="section-panel" style="margin-top: 24px;">
-            <div class="panel-header">
-              <div class="panel-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path d="M12 21s7-4.35 7-11a7 7 0 1 0-14 0c0 6.65 7 11 7 11z"></path>
-                  <circle cx="12" cy="10" r="2.5"></circle>
-                </svg>
-              </div>
-              <h3>회관 주소</h3>
-            </div>
-            <p>
-              도로명 주소 :
-              <a
-                href="https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%EC%8B%9C%20%EC%A4%91%EB%9E%91%EA%B5%AC%20%EC%9A%A9%EB%A7%88%EC%82%B0%EB%A1%9C94%EB%8B%A4%EA%B8%B8%2035%201%EC%B8%B5"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-link"
-              >
-                서울시 중랑구 용마산로94다길 35 1층
-              </a>
-              <br>
-              지번 주소 : 서울시 중랑구 면목동 7 1층
-            </p>
-          </div>
-
-          <div class="info-grid">
-            <div class="info-card">
-              <div class="panel-header">
-                <div class="panel-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <rect x="3" y="5" width="18" height="16" rx="2"></rect>
-                    <path d="M16 3v4M8 3v4M3 10h18"></path>
-                  </svg>
-                </div>
-                <h3>주중 집회 - 생활과 봉사 집회</h3>
-              </div>
-              <p>
-                집회 요일 : 매주 금요일<br>
-                집회 시간 : 저녁 7시 30분
-              </p>
-            </div>
-
-            <div class="info-card">
-              <div class="panel-header">
-                <div class="panel-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <rect x="3" y="5" width="18" height="16" rx="2"></rect>
-                    <path d="M16 3v4M8 3v4M3 10h18"></path>
-                  </svg>
-                </div>
-                <h3>주말 집회 - 성서 공개 강연 및 파수대 집회</h3>
-              </div>
-              <p>
-                집회 요일 : 매주 일요일<br>
-                집회 시간 : 오후 1시 30분
-              </p>
-            </div>
-          </div>
-
-          <div class="section-panel" style="margin-top: 18px;">
-            <div class="panel-header">
-              <div class="panel-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path d="M7 17V6h5a4 4 0 0 1 0 8H7"></path>
-                </svg>
-              </div>
-              <h3>회관 주차 안내</h3>
-            </div>
-            <p>
-              회관 주차장이 매우 협소하기 때문에 차량을 가지고 오실 경우, 인근 면일초등학교 공영 주차장을 이용해 주시기 바랍니다.
-            </p>
-
-            <p style="margin-top: 12px;">
-              면일 초등학교 공영 주차장<br>
-              주소 :
-              <a
-                href="https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%EC%8B%9C%20%EC%A4%91%EB%9E%91%EA%B5%AC%20%EC%9A%A9%EB%A7%88%EC%82%B0%EB%A1%9C100%EA%B8%B8%2013%20%EB%A9%B4%EC%9D%BC%EC%B4%88%EB%93%B1%ED%95%99%EA%B5%90"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-link"
-              >
-                서울시 중랑구 용마산로100길 13 면일초등학교
-              </a><br>
-              시간 : 24시간 운영<br>
-              요금 : 2시간 - 2,400원 (5분당 100원 추가)<br>
-              기타 : 주차장에서 도보로 약 11분 거리
-            </p>
+            <p>서울 면목 북부 회중의 집회 시간을 안내드립니다.</p>
           </div>
         </div>
       </section>
@@ -1228,13 +936,6 @@
             </div>
           </div>
 
-          <div class="section-intro">
-            <p>
-              집회나 봉사 일정 전후에 잠시 들르기 좋은 장소를 정리해 두는 메뉴입니다.
-              아래 내용은 예시 형식으로 넣어 두었으니, 실제로 소개하고 싶은 장소명과 링크로 바꾸어 사용하시면 됩니다.
-            </p>
-          </div>
-
           <div class="tour-grid">
             <div class="tour-card">
               <h3 class="tour-title">
@@ -1248,9 +949,7 @@
               </h3>
               <ul class="tour-list">
                 <li><span class="tour-label">분류</span> 산책 · 전망</li>
-                <li><span class="tour-label">특징</span> 짧게 걷기 좋은 코스와 시원한 전망을 함께 즐길 수 있습니다.</li>
-                <li><span class="tour-label">추천</span> 아침 산책이나 일정 후 가벼운 이동</li>
-                <li><span class="tour-label">메모</span> 실제 방문 안내 링크를 연결해 두면 활용하기 좋습니다.</li>
+                <li><span class="tour-label">특징</span> 짧게 걷기 좋은 코스와 전망</li>
               </ul>
             </div>
 
@@ -1267,63 +966,16 @@
               </h3>
               <ul class="tour-list">
                 <li><span class="tour-label">분류</span> 먹거리 · 지역 분위기</li>
-                <li><span class="tour-label">특징</span> 지역의 일상적인 분위기를 느끼기 좋고 간단한 식사도 가능합니다.</li>
-                <li><span class="tour-label">추천</span> 점심 식사 또는 짧은 휴식 시간</li>
-                <li><span class="tour-label">메모</span> 시장 이름과 영업시간을 적어 두시면 더 편리합니다.</li>
+                <li><span class="tour-label">특징</span> 간단한 식사와 짧은 휴식</li>
               </ul>
             </div>
-
-            <div class="tour-card">
-              <h3 class="tour-title">
-                <span class="tour-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M12 6v12"></path>
-                    <path d="M6 12h12"></path>
-                    <circle cx="12" cy="12" r="9"></circle>
-                  </svg>
-                </span>
-                공원
-              </h3>
-              <ul class="tour-list">
-                <li><span class="tour-label">분류</span> 휴식 · 가족 방문</li>
-                <li><span class="tour-label">특징</span> 조용히 쉬기 좋고 사진을 남기기에도 좋은 공간입니다.</li>
-                <li><span class="tour-label">추천</span> 가족 단위 방문자 또는 어린 자녀 동반 시</li>
-                <li><span class="tour-label">메모</span> 화장실, 주차, 벤치 유무 같은 정보도 함께 적어 두면 좋습니다.</li>
-              </ul>
-            </div>
-
-            <div class="tour-card">
-              <h3 class="tour-title">
-                <span class="tour-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M4 19h16"></path>
-                    <path d="M7 19V9l5-4 5 4v10"></path>
-                  </svg>
-                </span>
-                실내 문화 공간
-              </h3>
-              <ul class="tour-list">
-                <li><span class="tour-label">분류</span> 전시 · 실내 휴식</li>
-                <li><span class="tour-label">특징</span> 날씨 영향을 덜 받고 짧게 둘러보기 좋습니다.</li>
-                <li><span class="tour-label">추천</span> 비 오는 날이나 더운 날 이동</li>
-                <li><span class="tour-label">메모</span> 운영 시간과 휴관일을 적어 두면 유용합니다.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="stay-note">
-            <h3>안내</h3>
-            <p>
-              관광지 메뉴는 회중 방문자들이 지역을 조금 더 편안하게 이해하도록 돕는 용도로 활용하실 수 있습니다.
-              실제 장소 정보가 정리되면 위 카드 형식에 맞춰 이름, 링크, 특징만 바꾸어도 깔끔하게 사용할 수 있습니다.
-            </p>
           </div>
         </div>
       </section>
 
       <section id="contact" class="tab">
         <div class="section-box">
-          <div class="section-heading" style="margin-bottom: 18px;">
+          <div class="section-heading">
             <div class="section-heading-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
                 <path d="M4 6a2 2 0 0 1 2-2h12v12l-4-3H6a2 2 0 0 1-2-2z"></path>
@@ -1335,20 +987,11 @@
             </div>
           </div>
 
-          <div class="section-intro">
-            <p>
-              대도시 캠페인과 관련하여 문의가 있으신 형제 자매들께서는 아래 담당 형제에게 연락주시기 바랍니다.
-            </p>
-          </div>
-
           <div class="info-grid contact-grid">
             <div class="info-card contact-card">
               <img src="kim.jpg" alt="김석환 형제" class="contact-img">
               <h3>조정자</h3>
               <strong class="contact-name">김석환 형제</strong>
-              <p>
-                회중의 전반적인 안내 및 집회와 관련된 사항에 대해 문의하실 수 있습니다.
-              </p>
               <div class="contact-phone">
                 <a href="tel:01022278129">전화 번호 : 010-2227-8129</a>
               </div>
@@ -1358,9 +1001,6 @@
               <img src="kwon.jpg" alt="권혁인 형제" class="contact-img">
               <h3>인원 담당 형제</h3>
               <strong class="contact-name">권혁인 형제</strong>
-              <p>
-                참여 인원 확인 및 수정, 일정 등에 대한 문의를 안내해 드립니다.
-              </p>
               <div class="contact-phone">
                 <a href="tel:01064345512">전화 번호 : 010-6434-5512</a>
               </div>
@@ -1370,9 +1010,6 @@
               <img src="won.jpg" alt="원제헌 형제" class="contact-img">
               <h3>구역 담당 형제</h3>
               <strong class="contact-name">원제헌 형제</strong>
-              <p>
-                봉사 구역 및 모임 장소, 봉사 진행과 관련된 사항을 안내해 드립니다.
-              </p>
               <div class="contact-phone">
                 <a href="tel:01088808114">전화 번호 : 010-8880-8114</a>
               </div>
@@ -1394,154 +1031,6 @@
               <span>차량 방문 시 참고하실 수 있는 정보</span>
             </div>
           </div>
-
-          <div class="section-intro">
-            <p>
-              차량으로 방문하시는 분들을 위해 구역 내 주차 시설(공영주차장)을 안내드립니다.
-              주말에는 이용객이 많아 주차가 어려울 수 있으니, 가급적 여유 있게 도착하시거나
-              인근 대중교통 이용도 함께 고려해 주시기 바랍니다.
-              방문 일정에 맞추어 미리 주차 가능 여부를 확인해 주시면 더욱 원활한 이용에 도움이 됩니다.
-            </p>
-          </div>
-
-          <div class="stay-grid">
-
-            <div class="stay-card">
-              <h3 class="stay-title">
-                <span class="stay-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M7 17V6h5a4 4 0 0 1 0 8H7"></path>
-                  </svg>
-                </span>
-                우림시장 노상 공영주차장
-              </h3>
-              <ul class="stay-list">
-                <li><span class="stay-label">주소</span><a href="https://map.naver.com/v5/search/%EC%84%9C%EC%9A%B8%20%EC%A4%91%EB%9E%91%EA%B5%AC%20%EB%A7%9D%EC%9A%B0%EB%8F%99%20536-11" target="_blank" rel="noopener noreferrer">서울 중랑구 망우동 536-11</a></li>
-                <li><span class="stay-label">위치</span> 망우역 1번 출구에서 902m</li>
-                <li><span class="stay-label">요금</span> 120분 (6,000원), 30분 (1,500원)</li>
-                <li><span class="stay-label">시간</span> 19:00에 영업 종료</li>
-                <li><span class="stay-label">특징</span> 노상 공영 주차장으로 길가에 주차를 하셔야 합니다.</li>
-              </ul>
-            </div>
-
-            <div class="stay-card">
-              <h3 class="stay-title">
-                <span class="stay-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M7 17V6h5a4 4 0 0 1 0 8H7"></path>
-                  </svg>
-                </span>
-                망우본동 공영 주차장
-              </h3>
-              <ul class="stay-list">
-                <li><span class="stay-label">주소</span><a href="https://map.naver.com/v5/search/%EC%84%9C%EC%9A%B8%20%EC%A4%91%EB%9E%91%EA%B5%AC%20%EB%A7%9D%EC%9A%B0%EB%8F%99%20463-8" target="_blank" rel="noopener noreferrer">서울 중랑구 망우동 463-8</a></li>
-                <li><span class="stay-label">위치</span> 망우역 1번 출구에서 762m</li>
-                <li><span class="stay-label">요금</span> 120분 (2,400원), 30분 (600원)</li>
-                <li><span class="stay-label">시간</span> 24시간 영업, 연중무휴</li>
-                <li><span class="stay-label">특징</span> 저렴하지만, 바로 옆 시장이 있어서 빈자리가 많지 않습니다.</li>
-              </ul>
-            </div>
-
-            <div class="stay-card">
-              <h3 class="stay-title">
-                <span class="stay-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M7 17V6h5a4 4 0 0 1 0 8H7"></path>
-                  </svg>
-                </span>
-                면일초등학교 공영 주차장
-              </h3>
-              <ul class="stay-list">
-                <li><span class="stay-label">주소</span><a href="https://map.naver.com/v5/search/%EC%84%9C%EC%9A%B8%20%EC%A4%91%EB%9E%91%EA%B5%AC%20%EB%A7%9D%EC%9A%B0%EB%8F%99%20440" target="_blank" rel="noopener noreferrer">서울 중랑구 망우동 440</a></li>
-                <li><span class="stay-label">위치</span> 면목역 2번 출구에서 1.1km</li>
-                <li><span class="stay-label">요금</span> 120분 (2,400원), 30분 (600원)</li>
-                <li><span class="stay-label">시간</span> 24시간 영업, 연중무휴</li>
-                <li><span class="stay-label">특징</span> 구역 외부에 있기 때문에 구역 봉사 시에 조금 걸어야하는 불편함이 있습니다.</li>
-              </ul>
-            </div>
-
-            <div class="stay-card">
-              <h3 class="stay-title">
-                <span class="stay-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M7 17V6h5a4 4 0 0 1 0 8H7"></path>
-                  </svg>
-                </span>
-                늘봄공원 공영 주차장
-              </h3>
-              <ul class="stay-list">
-                <li><span class="stay-label">주소</span><a href="https://map.naver.com/v5/search/%EC%84%9C%EC%9A%B8%20%EC%A4%91%EB%9E%91%EA%B5%AC%20%EB%A9%B4%EB%AA%A9%EB%8F%99%2022-12" target="_blank" rel="noopener noreferrer">서울 중랑구 면목동 22-12</a></li>
-                <li><span class="stay-label">위치</span> 면목역 2번 출구에서 845m</li>
-                <li><span class="stay-label">요금</span> 120분 (2,400원), 30분 (600원)</li>
-                <li><span class="stay-label">시간</span> 24시간 영업, 연중무휴</li>
-                <li><span class="stay-label">특징</span> 기계식 주차, 저녁에는 월주차로 인하여 주차 불가합니다.</li>
-              </ul>
-            </div>
-
-            <div class="stay-card">
-              <h3 class="stay-title">
-                <span class="stay-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M7 17V6h5a4 4 0 0 1 0 8H7"></path>
-                  </svg>
-                </span>
-                망우3동공영주차장
-              </h3>
-              <ul class="stay-list">
-                <li><span class="stay-label">주소</span><a href="https://map.naver.com/v5/search/%EC%84%9C%EC%9A%B8%20%EC%A4%91%EB%9E%91%EA%B5%AC%20%EB%A7%9D%EC%9A%B0%EB%8F%99%20529-2" target="_blank" rel="noopener noreferrer">서울 중랑구 망우동 529-2</a></li>
-                <li><span class="stay-label">위치</span> 면목역 2번 출구에서 866m</li>
-                <li><span class="stay-label">요금</span> 120분 (2,400원), 30분 (600원)</li>
-                <li><span class="stay-label">시간</span> 24시간 영업, 연중무휴</li>
-                <li><span class="stay-label">특징</span> 주차 가능 대수가 생각보다 적습니다.</li>
-              </ul>
-            </div>
-
-            <div class="stay-card">
-              <h3 class="stay-title">
-                <span class="stay-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M7 17V6h5a4 4 0 0 1 0 8H7"></path>
-                  </svg>
-                </span>
-                동원시장 공영주차장
-              </h3>
-              <ul class="stay-list">
-                <li><span class="stay-label">주소</span><a href="https://map.naver.com/v5/search/%EC%84%9C%EC%9A%B8%20%EC%A4%91%EB%9E%91%EA%B5%AC%20%EB%A9%B4%EB%AA%A9%EB%8F%99%2074-33" target="_blank" rel="noopener noreferrer">서울 중랑구 면목동 74-33</a></li>
-                <li><span class="stay-label">위치</span> 면목역 2번 출구에서 500m</li>
-                <li><span class="stay-label">요금</span> 120분 (2,400원), 30분 (600원)</li>
-                <li><span class="stay-label">혜택</span> 동원시장 물품 구매 후 주차할인권 지참 시 30분 무료</li>
-                <li><span class="stay-label">시간</span> 24시간 영업, 연중무휴</li>
-                <li><span class="stay-label">특징</span> 시장을 이용하시는 분들이 많아 자리가 거의 없습니다.</li>
-              </ul>
-            </div>
-
-            <div class="stay-card">
-              <h3 class="stay-title">
-                <span class="stay-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M7 17V6h5a4 4 0 0 1 0 8H7"></path>
-                  </svg>
-                </span>
-                면목2동공영주차장
-              </h3>
-              <ul class="stay-list">
-                <li><span class="stay-label">주소</span><a href="https://map.naver.com/v5/search/%EC%84%9C%EC%9A%B8%20%EC%A4%91%EB%9E%91%EA%B5%AC%20%EB%A9%B4%EB%AA%A9%EB%8F%99%20146-1" target="_blank" rel="noopener noreferrer">서울 중랑구 면목동 146-1</a></li>
-                <li><span class="stay-label">위치</span> 면목역 3번 출구에서 681m</li>
-                <li><span class="stay-label">요금</span> 120분 (2,400원), 30분 (600원)</li>
-                <li><span class="stay-label">시간</span> 24시간 영업, 연중무휴</li>
-                <li><span class="stay-label">특징</span> 구역의 끝자락에 위치한 주차장으로 주차가능 대수가 가장 많습니다.</li>
-              </ul>
-            </div>
-
-          </div>
-
-          <div class="stay-note">
-            <h3>안내</h3>
-            <p>
-              • 주차 공간이 제한되어 있으므로, 만차 시 인근 주차장을 이용해 주시기 바랍니다.<br>
-              • 원활한 이용을 위해 주차장 이용에 다소 불편이 있을 수 있는 점 양해 부탁드립니다.
-            </p>
-          </div>
         </div>
       </section>
 
@@ -1552,137 +1041,12 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
                 <path d="M3 21V7a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v14"></path>
                 <path d="M9 21V14h4v7"></path>
-                <path d="M18 21V11h3v10"></path>
-                <path d="M7 9h.01M12 9h.01"></path>
               </svg>
             </div>
             <div class="section-heading-text">
               <h2>숙박시설 안내</h2>
               <span>회관 인근 숙박시설과 이동 참고 정보</span>
             </div>
-          </div>
-
-          <div class="section-intro">
-            <p>
-              먼 곳에서 오시는 형제자매들을 위해 회관 인근 숙박시설을 안내드립니다.
-              편안히 쉬실 수 있는 숙소를 살펴보시고, 예약 시에는 회관까지의 이동 거리와 대중교통 편의성도 함께 확인해 주시기 바랍니다.
-            </p>
-          </div>
-
-          <div class="stay-grid">
-
-            <div class="stay-card">
-              <h3 class="stay-title">
-                <span class="stay-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M3 21V7a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v14"></path>
-                    <path d="M9 21V14h4v7"></path>
-                    <path d="M18 21V11h3v10"></path>
-                    <path d="M7 9h.01M12 9h.01"></path>
-                  </svg>
-                </span>
-                그레이튼 호텔
-              </h3>
-              <ul class="stay-list">
-                <li><span class="stay-label">주소</span><a href="https://map.naver.com/p/search/%EC%A4%91%EB%9E%91%EA%B5%AC%20%EC%83%81%EB%B4%89%EB%A1%9C28%EA%B8%B8%207" target="_blank" rel="noopener noreferrer">중랑구 상봉로28길 7</a></li>
-                <li><span class="stay-label">위치</span> 망우역 1번 출구에서 444m</li>
-                <li><span class="stay-label">회관까지</span> 차량 기준 약 15~20분 (약 5.7km)</li>
-                <li><span class="stay-label">연락처</span> <a href="tel:01068213342">010-6821-3342</a></li>
-                <li><span class="stay-label">링크</span> <a href="https://blog.naver.com/greatenhotel" target="_blank" rel="noopener noreferrer">블로그 바로가기</a></li>
-              </ul>
-            </div>
-
-            <div class="stay-card">
-              <h3 class="stay-title">
-                <span class="stay-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M3 21V7a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v14"></path>
-                    <path d="M9 21V14h4v7"></path>
-                    <path d="M18 21V11h3v10"></path>
-                    <path d="M7 9h.01M12 9h.01"></path>
-                  </svg>
-                </span>
-                소원 료칸 앤 호텔 by 아늑 상봉점
-              </h3>
-              <ul class="stay-list">
-                <li><span class="stay-label">주소</span><a href="https://map.naver.com/p/search/%EC%A4%91%EB%9E%91%EA%B5%AC%20%EC%83%81%EB%B4%89%EB%A1%9C28%EA%B8%B8%2013" target="_blank" rel="noopener noreferrer">중랑구 상봉로28길 13</a></li>
-                <li><span class="stay-label">위치</span> 망우역 1번 출구에서 471m</li>
-                <li><span class="stay-label">회관까지</span> 차량 기준 약 15~20분 (약 5.8km)</li>
-                <li><span class="stay-label">연락처</span> <a href="tel:01077003403">010-7700-3403</a></li>
-                <li><span class="stay-label">링크</span> <a href="https://www.instagram.com/aankhotel.official" target="_blank" rel="noopener noreferrer">인스타그램 바로가기</a></li>
-              </ul>
-            </div>
-
-            <div class="stay-card">
-              <h3 class="stay-title">
-                <span class="stay-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M3 21V7a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v14"></path>
-                    <path d="M9 21V14h4v7"></path>
-                    <path d="M18 21V11h3v10"></path>
-                    <path d="M7 9h.01M12 9h.01"></path>
-                  </svg>
-                </span>
-                메이호텔
-              </h3>
-              <ul class="stay-list">
-                <li><span class="stay-label">주소</span><a href="https://map.naver.com/p/search/%EC%A4%91%EB%9E%91%EA%B5%AC%20%EB%A7%9D%EC%9A%B0%EB%A1%9C52%EA%B8%B8%2028" target="_blank" rel="noopener noreferrer">중랑구 망우로52길 28</a></li>
-                <li><span class="stay-label">위치</span> 상봉역 2번 출구에서 475m</li>
-                <li><span class="stay-label">회관까지</span> 차량 기준 약 15~20분 (약 5.5km)</li>
-                <li><span class="stay-label">연락처</span> <a href="tel:024931100">02-493-1100</a></li>
-              </ul>
-            </div>
-
-            <div class="stay-card">
-              <h3 class="stay-title">
-                <span class="stay-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M3 21V7a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v14"></path>
-                    <path d="M9 21V14h4v7"></path>
-                    <path d="M18 21V11h3v10"></path>
-                    <path d="M7 9h.01M12 9h.01"></path>
-                  </svg>
-                </span>
-                라코지스테이 서울
-              </h3>
-              <ul class="stay-list">
-                <li><span class="stay-label">주소</span><a href="https://map.naver.com/p/search/%EC%A4%91%EB%9E%91%EA%B5%AC%20%EB%A7%9D%EC%9A%B0%EB%A1%9C%20232" target="_blank" rel="noopener noreferrer">중랑구 망우로 232</a></li>
-                <li><span class="stay-label">위치</span> 중랑역 3번 출구에서 242m</li>
-                <li><span class="stay-label">회관까지</span> 차량 기준 약 12~18분 (약 4.8km)</li>
-                <li><span class="stay-label">연락처</span> <a href="tel:050714276888">0507-1427-6888</a></li>
-                <li><span class="stay-label">링크</span> <a href="http://lacozistay.com" target="_blank" rel="noopener noreferrer">홈페이지 바로가기</a></li>
-              </ul>
-            </div>
-
-            <div class="stay-card">
-              <h3 class="stay-title">
-                <span class="stay-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M3 21V7a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v14"></path>
-                    <path d="M9 21V14h4v7"></path>
-                    <path d="M18 21V11h3v10"></path>
-                    <path d="M7 9h.01M12 9h.01"></path>
-                  </svg>
-                </span>
-                호텔드씨엘
-              </h3>
-              <ul class="stay-list">
-                <li><span class="stay-label">주소</span><a href="https://map.naver.com/p/search/%EC%A4%91%EB%9E%91%EA%B5%AC%20%EB%8F%99%EC%9D%BC%EB%A1%9C%20866" target="_blank" rel="noopener noreferrer">중랑구 동일로 866</a></li>
-                <li><span class="stay-label">위치</span> 먹골역 4번 출구에서 241m</li>
-                <li><span class="stay-label">회관까지</span> 차량 기준 약 18~25분 (약 6.6km)</li>
-                <li><span class="stay-label">연락처</span> <a href="tel:029759380">02-975-9380</a></li>
-              </ul>
-            </div>
-
-          </div>
-
-          <div class="stay-note">
-            <h3>안내</h3>
-            <p>
-              숙박시설의 예약 가능 여부와 요금은 시기에 따라 달라질 수 있습니다.
-              방문 일정에 맞추어 미리 확인해 주시기 바라며, 자세한 이동이나 지역 안내가 필요하신 경우
-              문의하기 메뉴를 통해 담당 형제에게 연락하실 수 있습니다.
-            </p>
           </div>
         </div>
       </section>
@@ -1703,8 +1067,7 @@
 
           <div class="section-intro">
             <p>
-              방문하신 분들이 간단한 인사말이나 소감을 남길 수 있도록 게시판을 추가했습니다.
-              이 게시판은 현재 브라우저의 저장소(localStorage)를 이용하므로, 같은 기기와 같은 브라우저에서만 글이 유지됩니다.
+              이 게시판은 실제 데이터베이스에 저장되므로, 방문자가 남긴 글을 다른 사람도 함께 볼 수 있습니다.
             </p>
           </div>
 
@@ -1712,13 +1075,18 @@
             <div class="board-form">
               <h3>글 남기기</h3>
               <p class="board-note" style="margin-bottom: 16px;">
-                이름과 내용을 입력한 뒤 등록해 주세요. 연락처나 민감한 개인정보는 적지 않도록 안내하는 편이 좋습니다.
+                이름과 내용을 입력한 뒤 등록해 주세요. 연락처와 민감한 개인정보는 적지 않도록 해 주세요.
               </p>
 
               <form id="guestbookForm">
                 <div class="board-field">
                   <label for="guestName">이름</label>
-                  <input id="guestName" name="guestName" type="text" maxlength="20" placeholder="이름 또는 닉네임을 입력하세요" required />
+                  <input id="guestName" name="guestName" type="text" maxlength="20" placeholder="이름 또는 닉네임" required />
+                </div>
+
+                <div class="board-field">
+                  <label for="guestPassword">삭제 비밀번호</label>
+                  <input id="guestPassword" name="guestPassword" type="password" maxlength="30" placeholder="삭제할 때 사용할 비밀번호" required />
                 </div>
 
                 <div class="board-field">
@@ -1730,6 +1098,8 @@
                   <button type="submit" class="board-submit">등록하기</button>
                   <span class="board-helper">최대 500자까지 작성할 수 있습니다.</span>
                 </div>
+
+                <div id="boardStatus" class="board-status"></div>
               </form>
             </div>
 
@@ -1792,25 +1162,13 @@
   </footer>
 
   <script>
-    const STORAGE_KEY = 'smnc_guestbook_posts_v1';
-
     function showTab(id, el) {
-      document.querySelectorAll('.tab').forEach(tab => {
-        tab.classList.remove('active');
-      });
-
-      document.querySelectorAll('.menu button').forEach(button => {
-        button.classList.remove('active');
-      });
+      document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+      document.querySelectorAll('.menu button').forEach(button => button.classList.remove('active'));
 
       const targetTab = document.getElementById(id);
-      if (targetTab) {
-        targetTab.classList.add('active');
-      }
-
-      if (el) {
-        el.classList.add('active');
-      }
+      if (targetTab) targetTab.classList.add('active');
+      if (el) el.classList.add('active');
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -1829,32 +1187,17 @@
         stay: '숙박시설 안내',
         board: '게시판'
       };
-
       const targetButton = buttons.find(btn => btn.textContent.trim() === map[id]);
       showTab(id, targetButton || null);
     }
 
     function escapeHtml(value) {
-      return value
+      return String(value)
         .replace(/&/g, '&amp;')
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;')
         .replace(/'/g, '&#039;');
-    }
-
-    function getPosts() {
-      try {
-        const saved = localStorage.getItem(STORAGE_KEY);
-        return saved ? JSON.parse(saved) : [];
-      } catch (error) {
-        console.error('게시판 데이터를 불러오지 못했습니다.', error);
-        return [];
-      }
-    }
-
-    function savePosts(posts) {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(posts));
     }
 
     function formatDate(dateString) {
@@ -1869,77 +1212,128 @@
       }).format(date);
     }
 
-    function renderPosts() {
+    function setStatus(message, isError = false) {
+      const el = document.getElementById('boardStatus');
+      if (!el) return;
+      el.textContent = message || '';
+      el.style.color = isError ? '#b05a5a' : '#7a8b7e';
+    }
+
+    async function loadPosts() {
       const boardList = document.getElementById('boardList');
       if (!boardList) return;
 
-      const posts = getPosts();
+      boardList.innerHTML = '<div class="board-empty">게시글을 불러오는 중입니다.</div>';
 
-      if (!posts.length) {
-        boardList.innerHTML = '<div class="board-empty">아직 등록된 글이 없습니다.<br>첫 번째 방문 글을 남겨 보세요.</div>';
-        return;
-      }
+      try {
+        const res = await fetch('/api/guestbook');
+        const data = await res.json();
 
-      boardList.innerHTML = posts.map(post => `
-        <article class="board-item">
-          <div class="board-item-header">
-            <div>
-              <div class="board-author">${escapeHtml(post.name)}</div>
-              <div class="board-date">${formatDate(post.createdAt)}</div>
+        if (!res.ok) {
+          throw new Error(data.error || '게시글을 불러오지 못했습니다.');
+        }
+
+        const posts = data.posts || [];
+
+        if (!posts.length) {
+          boardList.innerHTML = '<div class="board-empty">아직 등록된 글이 없습니다.<br>첫 번째 방문 글을 남겨 보세요.</div>';
+          return;
+        }
+
+        boardList.innerHTML = posts.map(post => `
+          <article class="board-item">
+            <div class="board-item-header">
+              <div>
+                <div class="board-author">${escapeHtml(post.name)}</div>
+                <div class="board-date">${formatDate(post.created_at)}</div>
+              </div>
             </div>
-          </div>
-          <p class="board-message">${escapeHtml(post.message)}</p>
-          <button type="button" class="board-delete" data-id="${post.id}">삭제</button>
-        </article>
-      `).join('');
+            <p class="board-message">${escapeHtml(post.message)}</p>
+            <div class="board-field" style="margin-top:12px;">
+              <label for="delete-${post.id}">삭제 비밀번호</label>
+              <input id="delete-${post.id}" type="password" maxlength="30" placeholder="글 작성 시 입력한 비밀번호" />
+            </div>
+            <button type="button" class="board-delete" data-id="${post.id}">삭제</button>
+          </article>
+        `).join('');
 
-      boardList.querySelectorAll('.board-delete').forEach(button => {
-        button.addEventListener('click', () => deletePost(button.dataset.id));
-      });
-    }
+        boardList.querySelectorAll('.board-delete').forEach(button => {
+          button.addEventListener('click', async () => {
+            const id = button.dataset.id;
+            const passwordInput = document.getElementById(`delete-${id}`);
+            const password = passwordInput ? passwordInput.value.trim() : '';
 
-    function addPost(name, message) {
-      const posts = getPosts();
-      posts.unshift({
-        id: crypto.randomUUID ? crypto.randomUUID() : String(Date.now()),
-        name,
-        message,
-        createdAt: new Date().toISOString()
-      });
-      savePosts(posts);
-      renderPosts();
-    }
+            if (!password) {
+              alert('삭제 비밀번호를 입력해 주세요.');
+              return;
+            }
 
-    function deletePost(id) {
-      const current = getPosts();
-      const next = current.filter(post => post.id !== id);
-      savePosts(next);
-      renderPosts();
+            if (!confirm('이 글을 삭제하시겠습니까?')) return;
+
+            try {
+              const res = await fetch('/api/guestbook', {
+                method: 'DELETE',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id, password })
+              });
+
+              const data = await res.json();
+
+              if (!res.ok) {
+                throw new Error(data.error || '삭제하지 못했습니다.');
+              }
+
+              alert('게시글이 삭제되었습니다.');
+              await loadPosts();
+            } catch (error) {
+              alert(error.message || '삭제 중 오류가 발생했습니다.');
+            }
+          });
+        });
+      } catch (error) {
+        boardList.innerHTML = `<div class="board-empty">${escapeHtml(error.message || '오류가 발생했습니다.')}</div>`;
+      }
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      renderPosts();
+      loadPosts();
 
       const form = document.getElementById('guestbookForm');
       if (!form) return;
 
-      form.addEventListener('submit', event => {
+      form.addEventListener('submit', async event => {
         event.preventDefault();
 
-        const nameInput = document.getElementById('guestName');
-        const messageInput = document.getElementById('guestMessage');
+        const name = document.getElementById('guestName').value.trim();
+        const password = document.getElementById('guestPassword').value.trim();
+        const message = document.getElementById('guestMessage').value.trim();
 
-        const name = nameInput.value.trim();
-        const message = messageInput.value.trim();
-
-        if (!name || !message) {
-          alert('이름과 내용을 모두 입력해 주세요.');
+        if (!name || !password || !message) {
+          setStatus('이름, 삭제 비밀번호, 내용을 모두 입력해 주세요.', true);
           return;
         }
 
-        addPost(name, message);
-        form.reset();
-        alert('방문 글이 등록되었습니다.');
+        setStatus('등록하는 중입니다.');
+
+        try {
+          const res = await fetch('/api/guestbook', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, password, message })
+          });
+
+          const data = await res.json();
+
+          if (!res.ok) {
+            throw new Error(data.error || '등록하지 못했습니다.');
+          }
+
+          form.reset();
+          setStatus('방문 글이 등록되었습니다.');
+          await loadPosts();
+        } catch (error) {
+          setStatus(error.message || '등록 중 오류가 발생했습니다.', true);
+        }
       });
     });
   </script>
