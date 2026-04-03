@@ -72,39 +72,44 @@ export default async function handler(req, res) {
     }
 
     if (req.method === 'DELETE') {
-      const { id, password } = req.body || {};
+  const { id, password } = req.body || {};
 
-      if (!id || !password) {
-        return res.status(400).json({ error: '삭제에 필요한 정보가 없습니다.' });
-      }
+  if (!id || !password) {
+    return res.status(400).json({ error: '삭제에 필요한 정보가 없습니다.' });
+  }
 
-      const { data, error } = await supabase
-        .from('guestbook_posts')
-        .select('id, password_hash')
-        .eq('id', id)
-        .single();
+  const trimmedPassword = String(password).trim();
+  const adminPassword = String(process.env.ADMIN_DELETE_PASSWORD || '').trim();
 
-      if (error || !data) {
-        return res.status(404).json({ error: '게시글을 찾지 못했습니다.' });
-      }
+  const { data, error } = await supabase
+    .from('guestbook_posts')
+    .select('id, password_hash')
+    .eq('id', id)
+    .single();
 
-      const incomingHash = hashPassword(String(password).trim());
+  if (error || !data) {
+    return res.status(404).json({ error: '게시글을 찾지 못했습니다.' });
+  }
 
-      if (incomingHash !== data.password_hash) {
-        return res.status(403).json({ error: '비밀번호가 올바르지 않습니다.' });
-      }
+  const incomingHash = hashPassword(trimmedPassword);
+  const isAuthorPassword = incomingHash === data.password_hash;
+  const isAdminPassword = adminPassword && trimmedPassword === adminPassword;
 
-      const { error: deleteError } = await supabase
-        .from('guestbook_posts')
-        .delete()
-        .eq('id', id);
+  if (!isAuthorPassword && !isAdminPassword) {
+    return res.status(403).json({ error: '비밀번호가 올바르지 않습니다.' });
+  }
 
-      if (deleteError) {
-        return res.status(500).json({ error: '게시글을 삭제하지 못했습니다.' });
-      }
+  const { error: deleteError } = await supabase
+    .from('guestbook_posts')
+    .delete()
+    .eq('id', id);
 
-      return res.status(200).json({ ok: true });
-    }
+  if (deleteError) {
+    return res.status(500).json({ error: '게시글을 삭제하지 못했습니다.' });
+  }
+
+  return res.status(200).json({ ok: true });
+}
 
     return res.status(405).json({ error: '허용되지 않은 요청 방식입니다.' });
   } catch (error) {
