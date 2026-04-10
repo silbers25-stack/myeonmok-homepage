@@ -611,7 +611,6 @@
       box-shadow: 0 8px 18px rgba(111, 90, 82, 0.12);
     }
 
-    
     .tour-category-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -727,7 +726,7 @@
       display: block;
     }
 
-.board-empty {
+    .board-empty {
       border: 1px dashed #d8e7dc;
       border-radius: 18px;
       padding: 20px;
@@ -753,9 +752,9 @@
 
     .quick-menu {
       display: grid;
-      grid-template-columns: repeat(4, minmax(90px, 1fr));
+      grid-template-columns: repeat(6, minmax(90px, 1fr));
       gap: 12px;
-      max-width: 520px;
+      max-width: 900px;
       width: 100%;
     }
 
@@ -1128,7 +1127,6 @@
         </div>
       </section>
 
-      
       <section id="tour" class="tab">
         <div class="section-box">
           <div class="section-heading">
@@ -1484,7 +1482,6 @@
           </div>
         </div>
       </section>
-
 
       <section id="contact" class="tab">
         <div class="section-box">
@@ -1901,6 +1898,16 @@
 
   <div class="quick-menu-wrap">
     <div class="quick-menu">
+      <div class="quick-item" onclick="goTab('service')">
+        <div class="quick-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M8 12l4 4 4-4"></path>
+            <path d="M12 16V4"></path>
+          </svg>
+        </div>
+        <div class="quick-label">봉사 안내</div>
+      </div>
+
       <div class="quick-item" onclick="goTab('meeting')">
         <div class="quick-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -1921,14 +1928,13 @@
         <div class="quick-label">관광지</div>
       </div>
 
-      <div class="quick-item" onclick="goTab('service')">
+      <div class="quick-item" onclick="goTab('contact')">
         <div class="quick-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path d="M8 12l4 4 4-4"></path>
-            <path d="M12 16V4"></path>
+            <path d="M4 6a2 2 0 0 1 2-2h12v12l-4-3H6a2 2 0 0 1-2-2z"></path>
           </svg>
         </div>
-        <div class="quick-label">봉사 안내</div>
+        <div class="quick-label">문의하기</div>
       </div>
 
       <div class="quick-item" onclick="goTab('board')">
@@ -1938,6 +1944,16 @@
           </svg>
         </div>
         <div class="quick-label">게시판</div>
+      </div>
+
+      <div class="quick-item" onclick="scrollToTop()">
+        <div class="quick-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M12 19V5"></path>
+            <path d="M6 11l6-6 6 6"></path>
+          </svg>
+        </div>
+        <div class="quick-label">맨위로</div>
       </div>
     </div>
   </div>
@@ -1988,6 +2004,10 @@
           tourTab.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       }
+    }
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function goTab(id) {
