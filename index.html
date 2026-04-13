@@ -880,23 +880,40 @@
       text-underline-offset: 2px;
     }
 
-    .contact-schedule-panel {
-      padding-top: 20px;
-    }
-
-    .leader-list {
+    .weekly-schedule {
+      margin-top: 18px;
       display: grid;
       gap: 12px;
     }
 
-    .leader-row-card {
+    .weekly-schedule-header,
+    .weekly-schedule-row {
       display: grid;
-      grid-template-columns: 120px minmax(0, 1fr);
-      gap: 14px;
+      grid-template-columns: 120px repeat(4, minmax(0, 1fr));
+      gap: 12px;
       align-items: stretch;
     }
 
-    .leader-day-col {
+    .weekly-schedule-corner {
+      border-radius: 18px;
+      background: transparent;
+    }
+
+    .weekly-schedule-head {
+      border-radius: 18px;
+      background: linear-gradient(135deg, #ffe5d8, #e4f3e7);
+      color: var(--menu-green);
+      font-weight: 800;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 12px;
+      box-shadow: 0 8px 18px rgba(95, 127, 104, 0.08);
+      text-align: center;
+    }
+
+    .weekly-schedule-day {
       border-radius: 18px;
       background: linear-gradient(135deg, #fff3eb, #eef7f0);
       color: var(--title);
@@ -905,53 +922,94 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 18px 14px;
+      padding: 16px 12px;
       box-shadow: 0 8px 18px rgba(95, 127, 104, 0.08);
       text-align: center;
     }
 
-    .leader-items-col {
+    .weekly-schedule-cell {
+      background: #fff;
+      border: 1px solid #e3ede6;
+      border-radius: 18px;
+      padding: 14px 14px 12px;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.025);
+      min-height: 138px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 8px;
+    }
+
+    .weekly-schedule-type {
+      color: var(--menu-green);
+      font-size: 0.84rem;
+      font-weight: 700;
+      line-height: 1.5;
+      min-height: 40px;
+    }
+
+    .weekly-schedule-name {
+      color: var(--body-text);
+      font-size: 0.95rem;
+      font-weight: 700;
+      line-height: 1.55;
+      min-height: 30px;
+    }
+
+    .weekly-schedule-phone a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #7fc0a0, #99cfb0);
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 700;
+      box-shadow: 0 8px 18px rgba(95, 127, 104, 0.14);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      white-space: nowrap;
+      width: fit-content;
+      margin-top: auto;
+    }
+
+    .weekly-schedule-phone a:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 22px rgba(95, 127, 104, 0.18);
+    }
+
+    .weekly-schedule-empty {
+      background: #fcfdfc;
+    }
+
+    .weekly-schedule-empty .weekly-schedule-type,
+    .weekly-schedule-empty .weekly-schedule-name {
+      color: #bcc2bc;
+    }
+
+    .weekly-schedule-stack {
       display: grid;
       gap: 10px;
     }
 
-    .leader-item {
-      background: #fff;
-      border: 1px solid #e3ede6;
-      border-radius: 18px;
-      padding: 14px 16px;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.025);
+    .weekly-schedule-sub {
       display: grid;
-      gap: 5px;
+      gap: 4px;
     }
 
-    .leader-time {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+    .weekly-schedule-date {
+      display: inline-block;
       width: fit-content;
-      min-width: 64px;
-      padding: 5px 10px;
+      padding: 4px 8px;
       border-radius: 999px;
       background: #f4f8f5;
       border: 1px solid #dfe9e2;
       color: var(--menu-green);
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 800;
     }
 
-    .leader-service {
-      color: var(--menu-green);
-      font-size: 0.87rem;
-      font-weight: 700;
-      line-height: 1.5;
-    }
-
-    .leader-person {
-      color: var(--body-text);
-      font-size: 0.96rem;
-      line-height: 1.55;
-    }
 
     .stay-overview {
       margin-top: 24px;
@@ -1044,7 +1102,8 @@
     }
 
     @media (max-width: 1100px) {
-      .weekly-row {
+      .weekly-schedule-header,
+      .weekly-schedule-row {
         grid-template-columns: 90px repeat(2, minmax(0, 1fr));
       }
     }
@@ -1149,12 +1208,25 @@
         height: 34px;
       }
 
-      .leader-row-card {
+      .weekly-schedule-header,
+      .weekly-schedule-row {
         grid-template-columns: 1fr;
       }
 
-      .leader-day-col {
+      .weekly-schedule-corner {
+        display: none;
+      }
+
+      .weekly-schedule-head {
         justify-content: flex-start;
+      }
+
+      .weekly-schedule-day {
+        justify-content: flex-start;
+      }
+
+      .weekly-schedule-cell {
+        min-height: auto;
       }
     }
   </style>
@@ -1770,13 +1842,6 @@
             </div>
           </div>
 
-          <div class="section-intro">
-            <p>
-              봉사 마련이나 참석과 관련해 도움이 필요하시면 아래 담당 형제들에게 연락하실 수 있습니다.
-              요일별 인도자는 아래 일정표를 참고해 주시기 바랍니다.
-            </p>
-          </div>
-
           <div class="info-grid contact-grid">
             <div class="info-card contact-card">
               <img src="kim.jpg" alt="김석환 형제" class="contact-img">
@@ -1806,7 +1871,7 @@
             </div>
           </div>
 
-          <div class="section-panel contact-schedule-panel" style="margin-top: 24px;">
+          <div class="section-panel" style="margin-top: 24px;">
             <div class="panel-header">
               <div class="panel-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -1817,147 +1882,215 @@
               <h3>회중 요일별 인도자</h3>
             </div>
 
-            <div class="leader-list">
-              <div class="leader-row-card">
-                <div class="leader-day-col">월요일</div>
-                <div class="leader-items-col">
-                  <div class="leader-item">
-                    <span class="leader-time">오전</span>
-                    <span class="leader-service">호별봉사</span>
-                    <strong class="leader-person">원제헌 형제</strong>
-                  </div>
+            <div class="weekly-schedule">
+              <div class="weekly-schedule-header">
+                <div class="weekly-schedule-corner"></div>
+                <div class="weekly-schedule-head">아침</div>
+                <div class="weekly-schedule-head">오전</div>
+                <div class="weekly-schedule-head">오후</div>
+                <div class="weekly-schedule-head">저녁</div>
+              </div>
+
+              <div class="weekly-schedule-row">
+                <div class="weekly-schedule-day">월요일</div>
+
+                <div class="weekly-schedule-cell weekly-schedule-empty">
+                  <div class="weekly-schedule-type">-</div>
+                  <div class="weekly-schedule-name">-</div>
+                </div>
+
+                <div class="weekly-schedule-cell">
+                  <div class="weekly-schedule-type">호별봉사</div>
+                  <div class="weekly-schedule-name">원제헌 형제</div>
+                  <div class="weekly-schedule-phone"><a href="tel:01000000000">전화하기</a></div>
+                </div>
+
+                <div class="weekly-schedule-cell weekly-schedule-empty">
+                  <div class="weekly-schedule-type">-</div>
+                  <div class="weekly-schedule-name">-</div>
+                </div>
+
+                <div class="weekly-schedule-cell weekly-schedule-empty">
+                  <div class="weekly-schedule-type">-</div>
+                  <div class="weekly-schedule-name">-</div>
                 </div>
               </div>
 
-              <div class="leader-row-card">
-                <div class="leader-day-col">화요일</div>
-                <div class="leader-items-col">
-                  <div class="leader-item">
-                    <span class="leader-time">아침</span>
-                    <span class="leader-service">순회구 지하철 봉사 (전시대)</span>
-                    <strong class="leader-person">순회구 인도자</strong>
-                  </div>
-                  <div class="leader-item">
-                    <span class="leader-time">오전</span>
-                    <span class="leader-service">호별봉사</span>
-                    <strong class="leader-person">김동범 형제</strong>
-                  </div>
-                  <div class="leader-item">
-                    <span class="leader-time">오후</span>
-                    <span class="leader-service">공개증거 (전시대)</span>
-                    <strong class="leader-person">김석환 형제</strong>
-                  </div>
-                  <div class="leader-item">
-                    <span class="leader-time">저녁</span>
-                    <span class="leader-service">순회구 지하철 봉사 (전시대)</span>
-                    <strong class="leader-person">순회구 인도자</strong>
-                  </div>
+              <div class="weekly-schedule-row">
+                <div class="weekly-schedule-day">화요일</div>
+
+                <div class="weekly-schedule-cell">
+                  <div class="weekly-schedule-type">순회구 지하철 봉사<br>(전시대)</div>
+                  <div class="weekly-schedule-name">순회구 인도자</div>
+                  <div class="weekly-schedule-phone"><a href="tel:01000000000">전화하기</a></div>
+                </div>
+
+                <div class="weekly-schedule-cell">
+                  <div class="weekly-schedule-type">호별봉사</div>
+                  <div class="weekly-schedule-name">김동범 형제</div>
+                  <div class="weekly-schedule-phone"><a href="tel:01000000000">전화하기</a></div>
+                </div>
+
+                <div class="weekly-schedule-cell">
+                  <div class="weekly-schedule-type">공개증거<br>(전시대)</div>
+                  <div class="weekly-schedule-name">김석환 형제</div>
+                  <div class="weekly-schedule-phone"><a href="tel:01000000000">전화하기</a></div>
+                </div>
+
+                <div class="weekly-schedule-cell">
+                  <div class="weekly-schedule-type">순회구 지하철 봉사<br>(전시대)</div>
+                  <div class="weekly-schedule-name">순회구 인도자</div>
+                  <div class="weekly-schedule-phone"><a href="tel:01000000000">전화하기</a></div>
                 </div>
               </div>
 
-              <div class="leader-row-card">
-                <div class="leader-day-col">수요일</div>
-                <div class="leader-items-col">
-                  <div class="leader-item">
-                    <span class="leader-time">오전</span>
-                    <span class="leader-service">호별봉사</span>
-                    <strong class="leader-person">원제헌 형제</strong>
-                  </div>
-                  <div class="leader-item">
-                    <span class="leader-time">저녁</span>
-                    <span class="leader-service">공개증거 (전시대)</span>
-                    <strong class="leader-person">국승진 형제</strong>
-                  </div>
+              <div class="weekly-schedule-row">
+                <div class="weekly-schedule-day">수요일</div>
+
+                <div class="weekly-schedule-cell weekly-schedule-empty">
+                  <div class="weekly-schedule-type">-</div>
+                  <div class="weekly-schedule-name">-</div>
+                </div>
+
+                <div class="weekly-schedule-cell">
+                  <div class="weekly-schedule-type">호별봉사</div>
+                  <div class="weekly-schedule-name">원제헌 형제</div>
+                  <div class="weekly-schedule-phone"><a href="tel:01000000000">전화하기</a></div>
+                </div>
+
+                <div class="weekly-schedule-cell weekly-schedule-empty">
+                  <div class="weekly-schedule-type">-</div>
+                  <div class="weekly-schedule-name">-</div>
+                </div>
+
+                <div class="weekly-schedule-cell">
+                  <div class="weekly-schedule-type">공개증거<br>(전시대)</div>
+                  <div class="weekly-schedule-name">국승진 형제</div>
+                  <div class="weekly-schedule-phone"><a href="tel:01000000000">전화하기</a></div>
                 </div>
               </div>
 
-              <div class="leader-row-card">
-                <div class="leader-day-col">목요일</div>
-                <div class="leader-items-col">
-                  <div class="leader-item">
-                    <span class="leader-time">아침</span>
-                    <span class="leader-service">순회구 지하철 봉사 (전시대)</span>
-                    <strong class="leader-person">순회구 인도자</strong>
-                  </div>
-                  <div class="leader-item">
-                    <span class="leader-time">오전</span>
-                    <span class="leader-service">편지봉사</span>
-                    <strong class="leader-person">김정상 형제</strong>
-                  </div>
-                  <div class="leader-item">
-                    <span class="leader-time">오후</span>
-                    <span class="leader-service">공개증거 (가두)</span>
-                    <strong class="leader-person">원제헌 형제</strong>
-                  </div>
-                  <div class="leader-item">
-                    <span class="leader-time">저녁</span>
-                    <span class="leader-service">순회구 지하철 봉사 (전시대)</span>
-                    <strong class="leader-person">순회구 인도자</strong>
-                  </div>
+              <div class="weekly-schedule-row">
+                <div class="weekly-schedule-day">목요일</div>
+
+                <div class="weekly-schedule-cell">
+                  <div class="weekly-schedule-type">순회구 지하철 봉사<br>(전시대)</div>
+                  <div class="weekly-schedule-name">순회구 인도자</div>
+                  <div class="weekly-schedule-phone"><a href="tel:01000000000">전화하기</a></div>
+                </div>
+
+                <div class="weekly-schedule-cell">
+                  <div class="weekly-schedule-type">편지봉사</div>
+                  <div class="weekly-schedule-name">김정상 형제</div>
+                  <div class="weekly-schedule-phone"><a href="tel:01000000000">전화하기</a></div>
+                </div>
+
+                <div class="weekly-schedule-cell">
+                  <div class="weekly-schedule-type">공개증거<br>(가두)</div>
+                  <div class="weekly-schedule-name">원제헌 형제</div>
+                  <div class="weekly-schedule-phone"><a href="tel:01000000000">전화하기</a></div>
+                </div>
+
+                <div class="weekly-schedule-cell">
+                  <div class="weekly-schedule-type">순회구 지하철 봉사<br>(전시대)</div>
+                  <div class="weekly-schedule-name">순회구 인도자</div>
+                  <div class="weekly-schedule-phone"><a href="tel:01000000000">전화하기</a></div>
                 </div>
               </div>
 
-              <div class="leader-row-card">
-                <div class="leader-day-col">금요일</div>
-                <div class="leader-items-col">
-                  <div class="leader-item">
-                    <span class="leader-time">아침</span>
-                    <span class="leader-service">공개증거 (전시대)</span>
-                    <strong class="leader-person">유진근 형제</strong>
-                  </div>
-                  <div class="leader-item">
-                    <span class="leader-time">오전</span>
-                    <span class="leader-service">호별봉사</span>
-                    <strong class="leader-person">유진근 형제</strong>
-                  </div>
-                  <div class="leader-item">
-                    <span class="leader-time">오후</span>
-                    <span class="leader-service">순회구 대학교 봉사 (가두 및 전시대)</span>
-                    <strong class="leader-person">순회구 인도자</strong>
-                  </div>
+              <div class="weekly-schedule-row">
+                <div class="weekly-schedule-day">금요일</div>
+
+                <div class="weekly-schedule-cell">
+                  <div class="weekly-schedule-type">공개증거<br>(전시대)</div>
+                  <div class="weekly-schedule-name">유진근 형제</div>
+                  <div class="weekly-schedule-phone"><a href="tel:01000000000">전화하기</a></div>
+                </div>
+
+                <div class="weekly-schedule-cell">
+                  <div class="weekly-schedule-type">호별봉사</div>
+                  <div class="weekly-schedule-name">유진근 형제</div>
+                  <div class="weekly-schedule-phone"><a href="tel:01000000000">전화하기</a></div>
+                </div>
+
+                <div class="weekly-schedule-cell">
+                  <div class="weekly-schedule-type">순회구 대학교 봉사<br>(가두 및 전시대)</div>
+                  <div class="weekly-schedule-name">순회구 인도자</div>
+                  <div class="weekly-schedule-phone"><a href="tel:01000000000">전화하기</a></div>
+                </div>
+
+                <div class="weekly-schedule-cell weekly-schedule-empty">
+                  <div class="weekly-schedule-type">-</div>
+                  <div class="weekly-schedule-name">-</div>
                 </div>
               </div>
 
-              <div class="leader-row-card">
-                <div class="leader-day-col">토요일</div>
-                <div class="leader-items-col">
-                  <div class="leader-item">
-                    <span class="leader-time">오전</span>
-                    <span class="leader-service">공개증거 (전시대)</span>
-                    <strong class="leader-person">김석환 형제</strong>
-                  </div>
-                  <div class="leader-item">
-                    <span class="leader-time">오후</span>
-                    <span class="leader-service">호별봉사</span>
-                    <strong class="leader-person">지용민 형제</strong>
-                  </div>
-                  <div class="leader-item">
-                    <span class="leader-time">저녁</span>
-                    <span class="leader-service">순회구 공개 증거</span>
-                    <strong class="leader-person">순회구 인도자</strong>
-                  </div>
+              <div class="weekly-schedule-row">
+                <div class="weekly-schedule-day">토요일</div>
+
+                <div class="weekly-schedule-cell weekly-schedule-empty">
+                  <div class="weekly-schedule-type">-</div>
+                  <div class="weekly-schedule-name">-</div>
+                </div>
+
+                <div class="weekly-schedule-cell">
+                  <div class="weekly-schedule-type">공개증거<br>(전시대)</div>
+                  <div class="weekly-schedule-name">김석환 형제</div>
+                  <div class="weekly-schedule-phone"><a href="tel:01000000000">전화하기</a></div>
+                </div>
+
+                <div class="weekly-schedule-cell">
+                  <div class="weekly-schedule-type">호별봉사</div>
+                  <div class="weekly-schedule-name">지용민 형제</div>
+                  <div class="weekly-schedule-phone"><a href="tel:01000000000">전화하기</a></div>
+                </div>
+
+                <div class="weekly-schedule-cell">
+                  <div class="weekly-schedule-type">순회구 공개 증거</div>
+                  <div class="weekly-schedule-name">순회구 인도자</div>
+                  <div class="weekly-schedule-phone"><a href="tel:01000000000">전화하기</a></div>
                 </div>
               </div>
 
-              <div class="leader-row-card">
-                <div class="leader-day-col">일요일</div>
-                <div class="leader-items-col">
-                  <div class="leader-item">
-                    <span class="leader-time">17일 오후</span>
-                    <span class="leader-service">호별봉사</span>
-                    <strong class="leader-person">국승진 형제</strong>
+              <div class="weekly-schedule-row">
+                <div class="weekly-schedule-day">일요일</div>
+
+                <div class="weekly-schedule-cell weekly-schedule-empty">
+                  <div class="weekly-schedule-type">-</div>
+                  <div class="weekly-schedule-name">-</div>
+                </div>
+
+                <div class="weekly-schedule-cell weekly-schedule-empty">
+                  <div class="weekly-schedule-type">-</div>
+                  <div class="weekly-schedule-name">-</div>
+                </div>
+
+                <div class="weekly-schedule-cell">
+                  <div class="weekly-schedule-type">호별봉사</div>
+                  <div class="weekly-schedule-stack">
+                    <div class="weekly-schedule-sub">
+                      <div class="weekly-schedule-date">17일</div>
+                      <div class="weekly-schedule-name">국승진 형제</div>
+                      <div class="weekly-schedule-phone"><a href="tel:01000000000">전화하기</a></div>
+                    </div>
+                    <div class="weekly-schedule-sub">
+                      <div class="weekly-schedule-date">24일</div>
+                      <div class="weekly-schedule-name">정영진 형제</div>
+                      <div class="weekly-schedule-phone"><a href="tel:01000000000">전화하기</a></div>
+                    </div>
                   </div>
-                  <div class="leader-item">
-                    <span class="leader-time">24일 오후</span>
-                    <span class="leader-service">호별봉사</span>
-                    <strong class="leader-person">정영진 형제</strong>
-                  </div>
+                </div>
+
+                <div class="weekly-schedule-cell weekly-schedule-empty">
+                  <div class="weekly-schedule-type">-</div>
+                  <div class="weekly-schedule-name">-</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
+
 
       <section id="parking" class="tab">
         <div class="section-box">
