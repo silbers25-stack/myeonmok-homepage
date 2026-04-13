@@ -880,6 +880,63 @@
       text-underline-offset: 2px;
     }
 
+    .leader-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.leader-card {
+  padding: 20px 18px;
+  border-radius: 18px;
+  background: #fff;
+  border: 1px solid #e3ede6;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.025);
+}
+
+.leader-day {
+  margin: 0 0 12px;
+  font-size: 1.02rem;
+  font-weight: 800;
+  color: var(--title);
+}
+
+.leader-entry {
+  margin-bottom: 10px;
+  color: var(--body-text);
+  line-height: 1.8;
+}
+
+.leader-entry:last-child {
+  margin-bottom: 0;
+}
+
+.leader-role {
+  display: inline-block;
+  min-width: 72px;
+  font-weight: 700;
+  color: var(--menu-green);
+  margin-right: 8px;
+}
+
+.leader-phone {
+  margin-top: 6px;
+  font-size: 0.95rem;
+}
+
+.leader-phone a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+@media (max-width: 760px) {
+  .leader-grid {
+    grid-template-columns: 1fr;
+  }
+}
+    
     footer {
       text-align: center;
       padding: 18px 18px 30px;
@@ -1629,34 +1686,122 @@
           </div>
 
           <div class="section-panel" style="margin-top: 24px;">
-            <div class="panel-header">
-              <div class="panel-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <rect x="3" y="5" width="18" height="16" rx="2"></rect>
-                  <path d="M16 3v4M8 3v4M3 10h18"></path>
-                </svg>
-              </div>
-              <h3>회중 요일별 인도자</h3>
-            </div>
+  <div class="panel-header">
+    <div class="panel-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <rect x="3" y="5" width="18" height="16" rx="2"></rect>
+        <path d="M16 3v4M8 3v4M3 10h18"></path>
+      </svg>
+    </div>
+    <h3>회중 요일별 인도자</h3>
+  </div>
 
-            <ul class="stay-list">
-              <li><span class="stay-label">월요일</span> 인도자 원제헌 형제 (<a href="tel:01000000000" class="inline-link">전화 번호 : 010-0000-0000</a>)</li>
+  <div class="leader-grid">
+    <div class="leader-card">
+      <h4 class="leader-day">월요일</h4>
+      <div class="leader-entry">
+        <span class="leader-role">인도자</span> 원제헌 형제
+        <div class="leader-phone">
+          <a href="tel:01000000000">전화 번호 : 010-0000-0000</a>
+        </div>
+      </div>
+    </div>
 
-              <li><span class="stay-label">화요일</span> 오전 인도자 김동범 형제 (<a href="tel:01000000000" class="inline-link">전화 번호 : 010-0000-0000</a>)<br>오후 인도자 김석환 형제 (<a href="tel:01000000000" class="inline-link">전화 번호 : 010-0000-0000</a>)</li>
+    <div class="leader-card">
+      <h4 class="leader-day">화요일</h4>
+      <div class="leader-entry">
+        <span class="leader-role">오전</span> 김동범 형제
+        <div class="leader-phone">
+          <a href="tel:01000000000">전화 번호 : 010-0000-0000</a>
+        </div>
+      </div>
+      <div class="leader-entry">
+        <span class="leader-role">오후</span> 김석환 형제
+        <div class="leader-phone">
+          <a href="tel:01000000000">전화 번호 : 010-0000-0000</a>
+        </div>
+      </div>
+    </div>
 
-              <li><span class="stay-label">수요일</span> 오전 인도자 원제헌 형제 (<a href="tel:01000000000" class="inline-link">전화 번호 : 010-0000-0000</a>)<br>저녁 인도자 국승진 형제 (<a href="tel:01000000000" class="inline-link">전화 번호 : 010-0000-0000</a>)</li>
+    <div class="leader-card">
+      <h4 class="leader-day">수요일</h4>
+      <div class="leader-entry">
+        <span class="leader-role">오전</span> 원제헌 형제
+        <div class="leader-phone">
+          <a href="tel:01000000000">전화 번호 : 010-0000-0000</a>
+        </div>
+      </div>
+      <div class="leader-entry">
+        <span class="leader-role">저녁</span> 국승진 형제
+        <div class="leader-phone">
+          <a href="tel:01000000000">전화 번호 : 010-0000-0000</a>
+        </div>
+      </div>
+    </div>
 
-              <li><span class="stay-label">목요일</span> 오전 인도자 김정상 형제 (<a href="tel:01000000000" class="inline-link">전화 번호 : 010-0000-0000</a>)<br>오후 인도자 원제헌 형제 (<a href="tel:01000000000" class="inline-link">전화 번호 : 010-0000-0000</a>)</li>
+    <div class="leader-card">
+      <h4 class="leader-day">목요일</h4>
+      <div class="leader-entry">
+        <span class="leader-role">오전</span> 김정상 형제
+        <div class="leader-phone">
+          <a href="tel:01000000000">전화 번호 : 010-0000-0000</a>
+        </div>
+      </div>
+      <div class="leader-entry">
+        <span class="leader-role">오후</span> 원제헌 형제
+        <div class="leader-phone">
+          <a href="tel:01000000000">전화 번호 : 010-0000-0000</a>
+        </div>
+      </div>
+    </div>
 
-              <li><span class="stay-label">금요일</span> 아침, 오전 인도자 유진근 형제 (<a href="tel:01000000000" class="inline-link">전화 번호 : 010-0000-0000</a>)</li>
+    <div class="leader-card">
+      <h4 class="leader-day">금요일</h4>
+      <div class="leader-entry">
+        <span class="leader-role">아침, 오전</span> 유진근 형제
+        <div class="leader-phone">
+          <a href="tel:01000000000">전화 번호 : 010-0000-0000</a>
+        </div>
+      </div>
+    </div>
 
-              <li><span class="stay-label">토요일</span> 오전 인도자 김석환 형제 (<a href="tel:01000000000" class="inline-link">전화 번호 : 010-0000-0000</a>)<br>오후 인도자 지용민 형제 (<a href="tel:01000000000" class="inline-link">전화 번호 : 010-0000-0000</a>)</li>
+    <div class="leader-card">
+      <h4 class="leader-day">토요일</h4>
+      <div class="leader-entry">
+        <span class="leader-role">오전</span> 김석환 형제
+        <div class="leader-phone">
+          <a href="tel:01000000000">전화 번호 : 010-0000-0000</a>
+        </div>
+      </div>
+      <div class="leader-entry">
+        <span class="leader-role">오후</span> 지용민 형제
+        <div class="leader-phone">
+          <a href="tel:01000000000">전화 번호 : 010-0000-0000</a>
+        </div>
+      </div>
+    </div>
 
-              <li><span class="stay-label">일요일 (17일)</span> 오후 인도자 국승진 형제 (<a href="tel:01000000000" class="inline-link">전화 번호 : 010-0000-0000</a>)</li>
+    <div class="leader-card">
+      <h4 class="leader-day">일요일 (17일)</h4>
+      <div class="leader-entry">
+        <span class="leader-role">오후</span> 국승진 형제
+        <div class="leader-phone">
+          <a href="tel:01000000000">전화 번호 : 010-0000-0000</a>
+        </div>
+      </div>
+    </div>
 
-              <li><span class="stay-label">일요일 (24일)</span> 오후 인도자 정영진 형제 (<a href="tel:01000000000" class="inline-link">전화 번호 : 010-0000-0000</a>)</li>
-            </ul>
-          </div>
+    <div class="leader-card">
+      <h4 class="leader-day">일요일 (24일)</h4>
+      <div class="leader-entry">
+        <span class="leader-role">오후</span> 정영진 형제
+        <div class="leader-phone">
+          <a href="tel:01000000000">전화 번호 : 010-0000-0000</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
         </div>
       </section>
 
