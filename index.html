@@ -912,10 +912,10 @@
       border-radius: 18px;
       padding: 14px 14px 12px;
       box-shadow: 0 8px 18px rgba(0, 0, 0, 0.025);
-      min-height: 110px;
+      min-height: 132px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: flex-start;
     }
 
     .weekly-label {
@@ -939,30 +939,7 @@
       font-size: 0.94rem;
       font-weight: 600;
       line-height: 1.6;
-      min-height: 42px;
-    }
-
-    .weekly-phone {
-      margin-top: 10px;
-    }
-
-    .weekly-phone a {
-      display: inline-block;
-      padding: 8px 13px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, #7fc0a0, #99cfb0);
-      color: #fff;
-      text-decoration: none;
-      font-size: 0.84rem;
-      font-weight: 700;
-      box-shadow: 0 8px 18px rgba(95, 127, 104, 0.14);
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
-      white-space: nowrap;
-    }
-
-    .weekly-phone a:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 12px 22px rgba(95, 127, 104, 0.18);
+      min-height: 56px;
     }
 
     .weekly-empty .weekly-name {
@@ -984,6 +961,30 @@
       font-size: 0.8rem;
       font-weight: 800;
       color: var(--menu-green);
+    }
+
+    @media (max-width: 1100px) {
+      .weekly-row {
+        grid-template-columns: 90px repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .weekly-row {
+        grid-template-columns: 1fr;
+      }
+
+      .weekly-day {
+        justify-content: flex-start;
+      }
+
+      .weekly-cell {
+        min-height: auto;
+      }
+
+      .weekly-name {
+        min-height: auto;
+      }
     }
 
     footer {
@@ -1763,6 +1764,7 @@
               <h3>회중 요일별 인도자</h3>
             </div>
 
+
             <div class="weekly-table">
 
               <div class="weekly-row">
@@ -1779,9 +1781,6 @@
                   <div>
                     <div class="weekly-label">오전</div>
                     <div class="weekly-name">원제헌 형제</div>
-                  </div>
-                  <div class="weekly-phone">
-                    <a href="tel:01000000000">010-0000-0000</a>
                   </div>
                 </div>
 
@@ -1803,13 +1802,10 @@
               <div class="weekly-row">
                 <div class="weekly-day">화요일</div>
 
-                <div class="weekly-cell weekly-empty">
+                <div class="weekly-cell">
                   <div>
                     <div class="weekly-label">아침 - 순회구 지하철 봉사 (전시대)</div>
                     <div class="weekly-name">순회구 인도자</div>
-                  </div>
-                  <div class="weekly-phone">
-                    <a href="tel:01000000000">010-0000-0000</a>
                   </div>
                 </div>
 
@@ -1818,9 +1814,6 @@
                     <div class="weekly-label">오전 - 호별봉사</div>
                     <div class="weekly-name">김동범 형제</div>
                   </div>
-                  <div class="weekly-phone">
-                    <a href="tel:01000000000">010-0000-0000</a>
-                  </div>
                 </div>
 
                 <div class="weekly-cell">
@@ -1828,18 +1821,12 @@
                     <div class="weekly-label">오후 - 공개증거(전시대)</div>
                     <div class="weekly-name">김석환 형제</div>
                   </div>
-                  <div class="weekly-phone">
-                    <a href="tel:01000000000">010-0000-0000</a>
-                  </div>
                 </div>
 
-                <div class="weekly-cell weekly-empty">
+                <div class="weekly-cell">
                   <div>
                     <div class="weekly-label">저녁 - 순회구 지하철 봉사 (전시대)</div>
                     <div class="weekly-name">순회구 인도자</div>
-                  </div>
-                  <div class="weekly-phone">
-                    <a href="tel:01000000000">010-0000-0000</a>
                   </div>
                 </div>
               </div>
@@ -1859,9 +1846,6 @@
                     <div class="weekly-label">오전 - 호별봉사</div>
                     <div class="weekly-name">원제헌 형제</div>
                   </div>
-                  <div class="weekly-phone">
-                    <a href="tel:01000000000">010-0000-0000</a>
-                  </div>
                 </div>
 
                 <div class="weekly-cell weekly-empty">
@@ -1876,22 +1860,16 @@
                     <div class="weekly-label">저녁 공개증거(전시대)</div>
                     <div class="weekly-name">국승진 형제</div>
                   </div>
-                  <div class="weekly-phone">
-                    <a href="tel:01000000000">010-0000-0000</a>
-                  </div>
                 </div>
               </div>
 
               <div class="weekly-row">
                 <div class="weekly-day">목요일</div>
 
-                <div class="weekly-cell weekly-empty">
+                <div class="weekly-cell">
                   <div>
                     <div class="weekly-label">아침 - 순회구 지하철 봉사 (전시대)</div>
                     <div class="weekly-name">순회구 인도자</div>
-                  </div>
-                  <div class="weekly-phone">
-                    <a href="tel:01000000000">010-0000-0000</a>
                   </div>
                 </div>
 
@@ -1900,9 +1878,6 @@
                     <div class="weekly-label">오전 - 편지봉사</div>
                     <div class="weekly-name">김정상 형제</div>
                   </div>
-                  <div class="weekly-phone">
-                    <a href="tel:01000000000">010-0000-0000</a>
-                  </div>
                 </div>
 
                 <div class="weekly-cell">
@@ -1910,18 +1885,12 @@
                     <div class="weekly-label">오후 공개증거(가두)</div>
                     <div class="weekly-name">원제헌 형제</div>
                   </div>
-                  <div class="weekly-phone">
-                    <a href="tel:01000000000">010-0000-0000</a>
-                  </div>
                 </div>
 
-                <div class="weekly-cell weekly-empty">
+                <div class="weekly-cell">
                   <div>
                     <div class="weekly-label">저녁 - 순회구 지하철 봉사 (전시대)</div>
                     <div class="weekly-name">순회구 인도자</div>
-                  </div>
-                  <div class="weekly-phone">
-                    <a href="tel:01000000000">010-0000-0000</a>
                   </div>
                 </div>
               </div>
@@ -1934,9 +1903,6 @@
                     <div class="weekly-label">아침 - 공개증거(전시대)</div>
                     <div class="weekly-name">유진근 형제</div>
                   </div>
-                  <div class="weekly-phone">
-                    <a href="tel:01000000000">010-0000-0000</a>
-                  </div>
                 </div>
 
                 <div class="weekly-cell">
@@ -1944,18 +1910,12 @@
                     <div class="weekly-label">오전 - 호별봉사</div>
                     <div class="weekly-name">유진근 형제</div>
                   </div>
-                  <div class="weekly-phone">
-                    <a href="tel:01000000000">010-0000-0000</a>
-                  </div>
                 </div>
 
-                <div class="weekly-cell weekly-empty">
+                <div class="weekly-cell">
                   <div>
                     <div class="weekly-label">오후 - 순회구 대학교 봉사 (가두 및 전시대)</div>
                     <div class="weekly-name">순회구 인도자</div>
-                  </div>
-                  <div class="weekly-phone">
-                    <a href="tel:01000000000">010-0000-0000</a>
                   </div>
                 </div>
 
@@ -1982,9 +1942,6 @@
                     <div class="weekly-label">오전 - 공개증거(전시대)</div>
                     <div class="weekly-name">김석환 형제</div>
                   </div>
-                  <div class="weekly-phone">
-                    <a href="tel:01000000000">010-0000-0000</a>
-                  </div>
                 </div>
 
                 <div class="weekly-cell">
@@ -1992,18 +1949,12 @@
                     <div class="weekly-label">오후 - 호별봉사</div>
                     <div class="weekly-name">지용민 형제</div>
                   </div>
-                  <div class="weekly-phone">
-                    <a href="tel:01000000000">010-0000-0000</a>
-                  </div>
                 </div>
 
-                <div class="weekly-cell weekly-empty">
+                <div class="weekly-cell">
                   <div>
                     <div class="weekly-label">저녁 - 순회구 공개 증거</div>
                     <div class="weekly-name">순회구 인도자</div>
-                  </div>
-                  <div class="weekly-phone">
-                    <a href="tel:01000000000">010-0000-0000</a>
                   </div>
                 </div>
               </div>
@@ -2031,16 +1982,10 @@
                     <div class="weekly-subitem">
                       <div class="weekly-subtitle">17일</div>
                       <div class="weekly-name">국승진 형제</div>
-                      <div class="weekly-phone">
-                        <a href="tel:01000000000">010-0000-0000</a>
-                      </div>
                     </div>
                     <div class="weekly-subitem">
                       <div class="weekly-subtitle">24일</div>
                       <div class="weekly-name">정영진 형제</div>
-                      <div class="weekly-phone">
-                        <a href="tel:01000000000">010-0000-0000</a>
-                      </div>
                     </div>
                   </div>
                 </div>
