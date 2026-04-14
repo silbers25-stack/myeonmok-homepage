@@ -880,135 +880,235 @@
       text-underline-offset: 2px;
     }
 
-    .weekly-schedule {
-      margin-top: 18px;
-      display: grid;
-      gap: 12px;
+    .contact-highlight {
+      margin-top: 24px;
+      padding: 24px 22px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, #fff6f0 0%, #f3fbf5 100%);
+      border: 1px solid #eaf1eb;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
     }
 
-    .weekly-schedule-header,
-    .weekly-schedule-row {
-      display: grid;
-      grid-template-columns: 120px repeat(4, minmax(0, 1fr));
-      gap: 12px;
-      align-items: stretch;
-    }
-
-    .weekly-schedule-corner {
-      border-radius: 18px;
-      background: transparent;
-    }
-
-    .weekly-schedule-head {
-      border-radius: 18px;
-      background: linear-gradient(135deg, #ffe5d8, #e4f3e7);
-      color: var(--menu-green);
-      font-weight: 800;
-      font-size: 0.95rem;
+    .contact-highlight-header {
       display: flex;
       align-items: center;
-      justify-content: center;
-      padding: 14px 12px;
-      box-shadow: 0 8px 18px rgba(95, 127, 104, 0.08);
-      text-align: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
     }
 
-    .weekly-schedule-day {
-      border-radius: 18px;
-      background: linear-gradient(135deg, #fff3eb, #eef7f0);
+    .contact-highlight-title {
+      margin: 0;
+      font-size: 1.16rem;
       color: var(--title);
-      font-weight: 800;
-      font-size: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px 12px;
-      box-shadow: 0 8px 18px rgba(95, 127, 104, 0.08);
-      text-align: center;
     }
 
-    .weekly-schedule-cell {
-      background: #fff;
-      border: 1px solid #e3ede6;
-      border-radius: 18px;
-      padding: 14px 14px 12px;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.025);
-      min-height: 138px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      gap: 8px;
-    }
-
-    .weekly-schedule-type {
-      color: var(--menu-green);
-      font-size: 0.84rem;
-      font-weight: 700;
-      line-height: 1.5;
-      min-height: 40px;
-    }
-
-    .weekly-schedule-name {
-      color: var(--body-text);
-      font-size: 0.95rem;
-      font-weight: 700;
-      line-height: 1.55;
-      min-height: 30px;
-    }
-
-    .weekly-schedule-phone a {
+    .contact-highlight-day {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 7px 12px;
+      padding: 6px 10px;
       border-radius: 999px;
-      background: linear-gradient(135deg, #7fc0a0, #99cfb0);
-      color: #fff;
-      text-decoration: none;
-      font-size: 0.82rem;
-      font-weight: 700;
-      box-shadow: 0 8px 18px rgba(95, 127, 104, 0.14);
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      background: #fff;
+      border: 1px solid #e4ece7;
+      color: var(--menu-green);
+      font-size: 0.84rem;
+      font-weight: 800;
       white-space: nowrap;
-      width: fit-content;
-      margin-top: auto;
     }
 
-    .weekly-schedule-phone a:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 12px 22px rgba(95, 127, 104, 0.18);
+    .contact-highlight-desc {
+      margin: 0 0 16px;
+      color: var(--body-text);
+      line-height: 1.75;
     }
 
-    .weekly-schedule-empty {
-      background: #fcfdfc;
-    }
-
-    .weekly-schedule-empty .weekly-schedule-type,
-    .weekly-schedule-empty .weekly-schedule-name {
-      color: #bcc2bc;
-    }
-
-    .weekly-schedule-stack {
+    .today-leaders-list,
+    .contact-day-list {
       display: grid;
+      gap: 12px;
+    }
+
+    .today-leader-item,
+    .contact-time-item {
+      background: #fff;
+      border: 1px solid #e3ede6;
+      border-radius: 18px;
+      padding: 16px;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.025);
+    }
+
+    .today-leader-top,
+    .contact-time-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
     }
 
-    .weekly-schedule-sub {
-      display: grid;
-      gap: 4px;
-    }
-
-    .weekly-schedule-date {
-      display: inline-block;
+    .today-leader-time,
+    .contact-time-label,
+    .today-leader-date {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       width: fit-content;
-      padding: 4px 8px;
+      padding: 5px 10px;
       border-radius: 999px;
       background: #f4f8f5;
       border: 1px solid #dfe9e2;
       color: var(--menu-green);
-      font-size: 0.78rem;
+      font-size: 0.8rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .today-leader-date {
+      background: #fff7f1;
+      border-color: #f0ddd1;
+      color: #9a6e60;
+    }
+
+    .today-leader-type,
+    .contact-time-type {
+      margin: 0;
+      color: var(--menu-green);
+      font-size: 0.95rem;
+      font-weight: 700;
+      line-height: 1.6;
+    }
+
+    .today-leader-name,
+    .contact-time-name {
+      margin: 6px 0 0;
+      color: var(--body-text);
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.6;
+    }
+
+    .today-leader-phone,
+    .contact-time-phone {
+      margin-top: 12px;
+    }
+
+    .today-leader-phone a,
+    .contact-time-phone a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #7fc0a0, #99cfb0);
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.86rem;
+      font-weight: 700;
+      box-shadow: 0 8px 18px rgba(95, 127, 104, 0.14);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      width: fit-content;
+    }
+
+    .today-leader-phone a:hover,
+    .contact-time-phone a:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 22px rgba(95, 127, 104, 0.18);
+    }
+
+    .today-leaders-empty {
+      border: 1px dashed #d8e7dc;
+      border-radius: 18px;
+      padding: 18px 16px;
+      text-align: center;
+      color: #8a7f75;
+      background: rgba(255, 255, 255, 0.72);
+      line-height: 1.8;
+    }
+
+    .contact-accordion {
+      margin-top: 18px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .contact-accordion-item {
+      border-radius: var(--radius-md);
+      border: 1px solid #eaf1eb;
+      background: linear-gradient(135deg, #fff9f5 0%, #f2fbf4 100%);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.035);
+      overflow: hidden;
+    }
+
+    .contact-accordion-button {
+      width: 100%;
+      border: none;
+      background: transparent;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      cursor: pointer;
+      text-align: left;
+      font: inherit;
+    }
+
+    .contact-accordion-button::-webkit-details-marker {
+      display: none;
+    }
+
+    .contact-accordion-day {
+      color: var(--title);
+      font-size: 1rem;
       font-weight: 800;
     }
+
+    .contact-accordion-summary {
+      color: #8a7f75;
+      font-size: 0.88rem;
+      line-height: 1.5;
+      margin-top: 4px;
+    }
+
+    .contact-accordion-arrow {
+      color: var(--menu-green);
+      font-size: 1rem;
+      font-weight: 800;
+      transition: transform 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .contact-accordion-item[open] .contact-accordion-arrow {
+      transform: rotate(180deg);
+    }
+
+    .contact-accordion-body {
+      padding: 0 20px 20px;
+    }
+
+    @media (max-width: 760px) {
+      .contact-highlight {
+        padding: 20px 16px;
+      }
+
+      .contact-accordion-button {
+        padding: 16px;
+        align-items: flex-start;
+      }
+
+      .contact-accordion-body {
+        padding: 0 16px 16px;
+      }
+
+      .today-leader-phone a,
+      .contact-time-phone a {
+        width: 100%;
+      }
+    }
+
 
 
     .stay-overview {
@@ -1099,13 +1199,6 @@
       padding: 18px 18px 30px;
       color: #8a7f75;
       font-size: 0.93rem;
-    }
-
-    @media (max-width: 1100px) {
-      .weekly-schedule-header,
-      .weekly-schedule-row {
-        grid-template-columns: 90px repeat(2, minmax(0, 1fr));
-      }
     }
 
     @media (max-width: 980px) {
@@ -1206,27 +1299,6 @@
       .stay-map-hit {
         width: 34px;
         height: 34px;
-      }
-
-      .weekly-schedule-header,
-      .weekly-schedule-row {
-        grid-template-columns: 1fr;
-      }
-
-      .weekly-schedule-corner {
-        display: none;
-      }
-
-      .weekly-schedule-head {
-        justify-content: flex-start;
-      }
-
-      .weekly-schedule-day {
-        justify-content: flex-start;
-      }
-
-      .weekly-schedule-cell {
-        min-height: auto;
       }
     }
   </style>
@@ -1828,6 +1900,7 @@
         </div>
       </section>
 
+      
       <section id="contact" class="tab">
         <div class="section-box">
           <div class="section-heading">
@@ -1871,6 +1944,15 @@
             </div>
           </div>
 
+          <div class="contact-highlight">
+            <div class="contact-highlight-header">
+              <h3 class="contact-highlight-title">오늘의 인도자</h3>
+              <div id="todayLeaderDay" class="contact-highlight-day">오늘</div>
+            </div>
+            <p class="contact-highlight-desc">접속한 날짜의 요일에 맞는 인도자를 자동으로 보여드립니다.</p>
+            <div id="todayLeaders" class="today-leaders-list"></div>
+          </div>
+
           <div class="section-panel" style="margin-top: 24px;">
             <div class="panel-header">
               <div class="panel-icon">
@@ -1881,212 +1963,8 @@
               </div>
               <h3>회중 요일별 인도자</h3>
             </div>
-
-            <div class="weekly-schedule">
-              <div class="weekly-schedule-header">
-                <div class="weekly-schedule-corner"></div>
-                <div class="weekly-schedule-head">아침</div>
-                <div class="weekly-schedule-head">오전</div>
-                <div class="weekly-schedule-head">오후</div>
-                <div class="weekly-schedule-head">저녁</div>
-              </div>
-
-              <div class="weekly-schedule-row">
-                <div class="weekly-schedule-day">월요일</div>
-
-                <div class="weekly-schedule-cell weekly-schedule-empty">
-                  <div class="weekly-schedule-type">-</div>
-                  <div class="weekly-schedule-name">-</div>
-                </div>
-
-                <div class="weekly-schedule-cell">
-                  <div class="weekly-schedule-type">호별봉사</div>
-                  <div class="weekly-schedule-name">원제헌 형제</div>
-                  <div class="weekly-schedule-phone"><a href="tel:01000000000">전화하기</a></div>
-                </div>
-
-                <div class="weekly-schedule-cell weekly-schedule-empty">
-                  <div class="weekly-schedule-type">-</div>
-                  <div class="weekly-schedule-name">-</div>
-                </div>
-
-                <div class="weekly-schedule-cell weekly-schedule-empty">
-                  <div class="weekly-schedule-type">-</div>
-                  <div class="weekly-schedule-name">-</div>
-                </div>
-              </div>
-
-              <div class="weekly-schedule-row">
-                <div class="weekly-schedule-day">화요일</div>
-
-                <div class="weekly-schedule-cell">
-                  <div class="weekly-schedule-type">순회구 지하철 봉사<br>(전시대)</div>
-                  <div class="weekly-schedule-name">순회구 인도자</div>
-                  <div class="weekly-schedule-phone"><a href="tel:01000000000">전화하기</a></div>
-                </div>
-
-                <div class="weekly-schedule-cell">
-                  <div class="weekly-schedule-type">호별봉사</div>
-                  <div class="weekly-schedule-name">김동범 형제</div>
-                  <div class="weekly-schedule-phone"><a href="tel:01000000000">전화하기</a></div>
-                </div>
-
-                <div class="weekly-schedule-cell">
-                  <div class="weekly-schedule-type">공개증거<br>(전시대)</div>
-                  <div class="weekly-schedule-name">김석환 형제</div>
-                  <div class="weekly-schedule-phone"><a href="tel:01000000000">전화하기</a></div>
-                </div>
-
-                <div class="weekly-schedule-cell">
-                  <div class="weekly-schedule-type">순회구 지하철 봉사<br>(전시대)</div>
-                  <div class="weekly-schedule-name">순회구 인도자</div>
-                  <div class="weekly-schedule-phone"><a href="tel:01000000000">전화하기</a></div>
-                </div>
-              </div>
-
-              <div class="weekly-schedule-row">
-                <div class="weekly-schedule-day">수요일</div>
-
-                <div class="weekly-schedule-cell weekly-schedule-empty">
-                  <div class="weekly-schedule-type">-</div>
-                  <div class="weekly-schedule-name">-</div>
-                </div>
-
-                <div class="weekly-schedule-cell">
-                  <div class="weekly-schedule-type">호별봉사</div>
-                  <div class="weekly-schedule-name">원제헌 형제</div>
-                  <div class="weekly-schedule-phone"><a href="tel:01000000000">전화하기</a></div>
-                </div>
-
-                <div class="weekly-schedule-cell weekly-schedule-empty">
-                  <div class="weekly-schedule-type">-</div>
-                  <div class="weekly-schedule-name">-</div>
-                </div>
-
-                <div class="weekly-schedule-cell">
-                  <div class="weekly-schedule-type">공개증거<br>(전시대)</div>
-                  <div class="weekly-schedule-name">국승진 형제</div>
-                  <div class="weekly-schedule-phone"><a href="tel:01000000000">전화하기</a></div>
-                </div>
-              </div>
-
-              <div class="weekly-schedule-row">
-                <div class="weekly-schedule-day">목요일</div>
-
-                <div class="weekly-schedule-cell">
-                  <div class="weekly-schedule-type">순회구 지하철 봉사<br>(전시대)</div>
-                  <div class="weekly-schedule-name">순회구 인도자</div>
-                  <div class="weekly-schedule-phone"><a href="tel:01000000000">전화하기</a></div>
-                </div>
-
-                <div class="weekly-schedule-cell">
-                  <div class="weekly-schedule-type">편지봉사</div>
-                  <div class="weekly-schedule-name">김정상 형제</div>
-                  <div class="weekly-schedule-phone"><a href="tel:01000000000">전화하기</a></div>
-                </div>
-
-                <div class="weekly-schedule-cell">
-                  <div class="weekly-schedule-type">공개증거<br>(가두)</div>
-                  <div class="weekly-schedule-name">원제헌 형제</div>
-                  <div class="weekly-schedule-phone"><a href="tel:01000000000">전화하기</a></div>
-                </div>
-
-                <div class="weekly-schedule-cell">
-                  <div class="weekly-schedule-type">순회구 지하철 봉사<br>(전시대)</div>
-                  <div class="weekly-schedule-name">순회구 인도자</div>
-                  <div class="weekly-schedule-phone"><a href="tel:01000000000">전화하기</a></div>
-                </div>
-              </div>
-
-              <div class="weekly-schedule-row">
-                <div class="weekly-schedule-day">금요일</div>
-
-                <div class="weekly-schedule-cell">
-                  <div class="weekly-schedule-type">공개증거<br>(전시대)</div>
-                  <div class="weekly-schedule-name">유진근 형제</div>
-                  <div class="weekly-schedule-phone"><a href="tel:01000000000">전화하기</a></div>
-                </div>
-
-                <div class="weekly-schedule-cell">
-                  <div class="weekly-schedule-type">호별봉사</div>
-                  <div class="weekly-schedule-name">유진근 형제</div>
-                  <div class="weekly-schedule-phone"><a href="tel:01000000000">전화하기</a></div>
-                </div>
-
-                <div class="weekly-schedule-cell">
-                  <div class="weekly-schedule-type">순회구 대학교 봉사<br>(가두 및 전시대)</div>
-                  <div class="weekly-schedule-name">순회구 인도자</div>
-                  <div class="weekly-schedule-phone"><a href="tel:01000000000">전화하기</a></div>
-                </div>
-
-                <div class="weekly-schedule-cell weekly-schedule-empty">
-                  <div class="weekly-schedule-type">-</div>
-                  <div class="weekly-schedule-name">-</div>
-                </div>
-              </div>
-
-              <div class="weekly-schedule-row">
-                <div class="weekly-schedule-day">토요일</div>
-
-                <div class="weekly-schedule-cell weekly-schedule-empty">
-                  <div class="weekly-schedule-type">-</div>
-                  <div class="weekly-schedule-name">-</div>
-                </div>
-
-                <div class="weekly-schedule-cell">
-                  <div class="weekly-schedule-type">공개증거<br>(전시대)</div>
-                  <div class="weekly-schedule-name">김석환 형제</div>
-                  <div class="weekly-schedule-phone"><a href="tel:01000000000">전화하기</a></div>
-                </div>
-
-                <div class="weekly-schedule-cell">
-                  <div class="weekly-schedule-type">호별봉사</div>
-                  <div class="weekly-schedule-name">지용민 형제</div>
-                  <div class="weekly-schedule-phone"><a href="tel:01000000000">전화하기</a></div>
-                </div>
-
-                <div class="weekly-schedule-cell">
-                  <div class="weekly-schedule-type">순회구 공개 증거</div>
-                  <div class="weekly-schedule-name">순회구 인도자</div>
-                  <div class="weekly-schedule-phone"><a href="tel:01000000000">전화하기</a></div>
-                </div>
-              </div>
-
-              <div class="weekly-schedule-row">
-                <div class="weekly-schedule-day">일요일</div>
-
-                <div class="weekly-schedule-cell weekly-schedule-empty">
-                  <div class="weekly-schedule-type">-</div>
-                  <div class="weekly-schedule-name">-</div>
-                </div>
-
-                <div class="weekly-schedule-cell weekly-schedule-empty">
-                  <div class="weekly-schedule-type">-</div>
-                  <div class="weekly-schedule-name">-</div>
-                </div>
-
-                <div class="weekly-schedule-cell">
-                  <div class="weekly-schedule-type">호별봉사</div>
-                  <div class="weekly-schedule-stack">
-                    <div class="weekly-schedule-sub">
-                      <div class="weekly-schedule-date">17일</div>
-                      <div class="weekly-schedule-name">국승진 형제</div>
-                      <div class="weekly-schedule-phone"><a href="tel:01000000000">전화하기</a></div>
-                    </div>
-                    <div class="weekly-schedule-sub">
-                      <div class="weekly-schedule-date">24일</div>
-                      <div class="weekly-schedule-name">정영진 형제</div>
-                      <div class="weekly-schedule-phone"><a href="tel:01000000000">전화하기</a></div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="weekly-schedule-cell weekly-schedule-empty">
-                  <div class="weekly-schedule-type">-</div>
-                  <div class="weekly-schedule-name">-</div>
-                </div>
-              </div>
-            </div>
+            <p class="board-note">요일을 누르시면 시간대별 인도자를 확인하실 수 있습니다.</p>
+            <div id="contactScheduleAccordion" class="contact-accordion"></div>
           </div>
         </div>
       </section>
@@ -2635,6 +2513,137 @@
   </footer>
 
   <script>
+
+    const contactScheduleData = [
+      {
+        day: '월요일',
+        items: [
+          { time: '오전', type: '호별봉사', name: '원제헌 형제', phone: '01000000000' }
+        ]
+      },
+      {
+        day: '화요일',
+        items: [
+          { time: '아침', type: '순회구 지하철 봉사<br>(전시대)', name: '순회구 인도자', phone: '01000000000' },
+          { time: '오전', type: '호별봉사', name: '김동범 형제', phone: '01000000000' },
+          { time: '오후', type: '공개증거<br>(전시대)', name: '김석환 형제', phone: '01000000000' },
+          { time: '저녁', type: '순회구 지하철 봉사<br>(전시대)', name: '순회구 인도자', phone: '01000000000' }
+        ]
+      },
+      {
+        day: '수요일',
+        items: [
+          { time: '오전', type: '호별봉사', name: '원제헌 형제', phone: '01000000000' },
+          { time: '저녁', type: '공개증거<br>(전시대)', name: '국승진 형제', phone: '01000000000' }
+        ]
+      },
+      {
+        day: '목요일',
+        items: [
+          { time: '아침', type: '순회구 지하철 봉사<br>(전시대)', name: '순회구 인도자', phone: '01000000000' },
+          { time: '오전', type: '편지봉사', name: '김정상 형제', phone: '01000000000' },
+          { time: '오후', type: '공개증거<br>(가두)', name: '원제헌 형제', phone: '01000000000' },
+          { time: '저녁', type: '순회구 지하철 봉사<br>(전시대)', name: '순회구 인도자', phone: '01000000000' }
+        ]
+      },
+      {
+        day: '금요일',
+        items: [
+          { time: '아침', type: '공개증거<br>(전시대)', name: '유진근 형제', phone: '01000000000' },
+          { time: '오전', type: '호별봉사', name: '유진근 형제', phone: '01000000000' },
+          { time: '오후', type: '순회구 대학교 봉사<br>(가두 및 전시대)', name: '순회구 인도자', phone: '01000000000' }
+        ]
+      },
+      {
+        day: '토요일',
+        items: [
+          { time: '오전', type: '공개증거<br>(전시대)', name: '김석환 형제', phone: '01000000000' },
+          { time: '오후', type: '호별봉사', name: '지용민 형제', phone: '01000000000' },
+          { time: '저녁', type: '순회구 공개 증거', name: '순회구 인도자', phone: '01000000000' }
+        ]
+      },
+      {
+        day: '일요일',
+        items: [
+          { time: '오후', type: '호별봉사', name: '국승진 형제', phone: '01000000000', dateLabel: '17일', dayOfMonth: 17 },
+          { time: '오후', type: '호별봉사', name: '정영진 형제', phone: '01000000000', dateLabel: '24일', dayOfMonth: 24 }
+        ]
+      }
+    ];
+
+    const dayNames = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'];
+
+    function createContactItemMarkup(item) {
+      return `
+        <div class="contact-time-item">
+          <div class="contact-time-top">
+            <span class="contact-time-label">${item.time}</span>
+            ${item.dateLabel ? `<span class="today-leader-date">${item.dateLabel}</span>` : ''}
+          </div>
+          <p class="contact-time-type">${item.type}</p>
+          <p class="contact-time-name">${item.name}</p>
+          <div class="contact-time-phone"><a href="tel:${item.phone}">전화하기</a></div>
+        </div>
+      `;
+    }
+
+    function createTodayItemMarkup(item) {
+      return `
+        <div class="today-leader-item">
+          <div class="today-leader-top">
+            <span class="today-leader-time">${item.time}</span>
+            ${item.dateLabel ? `<span class="today-leader-date">${item.dateLabel}</span>` : ''}
+          </div>
+          <p class="today-leader-type">${item.type}</p>
+          <p class="today-leader-name">${item.name}</p>
+          <div class="today-leader-phone"><a href="tel:${item.phone}">전화하기</a></div>
+        </div>
+      `;
+    }
+
+    function renderContactSchedule() {
+      const accordion = document.getElementById('contactScheduleAccordion');
+      const todayLeaders = document.getElementById('todayLeaders');
+      const todayLeaderDay = document.getElementById('todayLeaderDay');
+      if (!accordion || !todayLeaders || !todayLeaderDay) return;
+
+      const now = new Date();
+      const todayName = dayNames[now.getDay()];
+      const todayDate = now.getDate();
+
+      todayLeaderDay.textContent = todayName;
+
+      accordion.innerHTML = contactScheduleData.map((dayData, index) => {
+        const summaryText = dayData.items.map(item => item.time).join(' · ');
+        return `
+          <details class="contact-accordion-item" ${dayData.day === todayName || (todayName !== dayData.day && index === 0) ? 'open' : ''}>
+            <summary class="contact-accordion-button">
+              <div>
+                <div class="contact-accordion-day">${dayData.day}</div>
+                <div class="contact-accordion-summary">${summaryText}</div>
+              </div>
+              <span class="contact-accordion-arrow">⌄</span>
+            </summary>
+            <div class="contact-accordion-body">
+              <div class="contact-day-list">
+                ${dayData.items.map(createContactItemMarkup).join('')}
+              </div>
+            </div>
+          </details>
+        `;
+      }).join('');
+
+      const todayData = contactScheduleData.find(dayData => dayData.day === todayName);
+      if (!todayData || !todayData.items.length) {
+        todayLeaders.innerHTML = '<div class="today-leaders-empty">오늘 안내되는 인도자가 없습니다.</div>';
+        return;
+      }
+
+      const exactDateItems = todayData.items.filter(item => item.dayOfMonth === todayDate);
+      const itemsToShow = exactDateItems.length ? exactDateItems : todayData.items;
+      todayLeaders.innerHTML = itemsToShow.map(createTodayItemMarkup).join('');
+    }
+
     function showTab(id, el) {
       document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
       document.querySelectorAll('.menu button').forEach(button => button.classList.remove('active'));
@@ -2876,6 +2885,7 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
+      renderContactSchedule();
       loadPosts();
       showTourOverview(true);
       showParkingOverview(true);
