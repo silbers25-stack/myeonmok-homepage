@@ -1201,6 +1201,55 @@
       font-size: 0.93rem;
     }
 
+    .footer-counter-wrap {
+      max-width: 1240px;
+      margin: 10px auto 0;
+      padding: 0 18px 8px;
+    }
+
+    .footer-counter {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .footer-counter-item {
+      min-width: 148px;
+      padding: 12px 16px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid #eaf1eb;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.035);
+      text-align: center;
+    }
+
+    .footer-counter-label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #8a7f75;
+      line-height: 1.4;
+    }
+
+    .footer-counter-value {
+      display: block;
+      font-size: 1.08rem;
+      font-weight: 800;
+      color: var(--title);
+      letter-spacing: -0.02em;
+    }
+
+    .footer-counter-note {
+      margin-top: 8px;
+      text-align: center;
+      font-size: 0.78rem;
+      color: #9a928a;
+      line-height: 1.6;
+    }
+
+
     @media (max-width: 980px) {
       .nav-inner {
         flex-direction: column;
@@ -2508,7 +2557,22 @@
     </div>
   </div>
 
-  <footer>
+  
+  <div class="footer-counter-wrap">
+    <div class="footer-counter">
+      <div class="footer-counter-item">
+        <span class="footer-counter-label">오늘 방문자</span>
+        <strong id="todayVisitorCount" class="footer-counter-value">12</strong>
+      </div>
+      <div class="footer-counter-item">
+        <span class="footer-counter-label">총 방문자</span>
+        <strong id="totalVisitorCount" class="footer-counter-value">384</strong>
+      </div>
+    </div>
+    <div class="footer-counter-note">샘플 표시입니다. 실제 집계 서버를 연결하면 자동으로 반영됩니다.</div>
+  </div>
+
+<footer>
     © 2026 서울면목북부회중
   </footer>
 
@@ -2884,12 +2948,60 @@
       }
     }
 
+
+    async function loadVisitorCounts() {
+      const todayEl = document.getElementById('todayVisitorCount');
+      const totalEl = document.getElementById('totalVisitorCount');
+      if (!todayEl || !totalEl) return;
+
+      const workerUrl = '';
+      const sampleData = { today: 12, total: 384 };
+
+      if (!workerUrl) {
+        todayEl.textContent = Number(sampleData.today).toLocaleString('ko-KR');
+        totalEl.textContent = Number(sampleData.total).toLocaleString('ko-KR');
+        return;
+      }
+
+      try {
+        const localDate = new Date();
+        const yyyy = localDate.getFullYear();
+        const mm = String(localDate.getMonth() + 1).padStart(2, '0');
+        const dd = String(localDate.getDate()).padStart(2, '0');
+        const visitMarkerKey = `site-visited-${yyyy}-${mm}-${dd}`;
+        const shouldCount = !localStorage.getItem(visitMarkerKey);
+
+        const response = await fetch(workerUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ countVisit: shouldCount })
+        });
+
+        if (!response.ok) {
+          throw new Error('방문자 수를 불러오지 못했습니다.');
+        }
+
+        const data = await response.json();
+        todayEl.textContent = Number(data.today || 0).toLocaleString('ko-KR');
+        totalEl.textContent = Number(data.total || 0).toLocaleString('ko-KR');
+
+        if (shouldCount) {
+          localStorage.setItem(visitMarkerKey, '1');
+        }
+      } catch (error) {
+        console.error(error);
+        todayEl.textContent = Number(sampleData.today).toLocaleString('ko-KR');
+        totalEl.textContent = Number(sampleData.total).toLocaleString('ko-KR');
+      }
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
       renderContactSchedule();
       loadPosts();
       showTourOverview(true);
       showParkingOverview(true);
       showStayOverview(true);
+      loadVisitorCounts();
 
       const form = document.getElementById('guestbookForm');
       if (!form) return;
