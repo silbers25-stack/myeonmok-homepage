@@ -2613,10 +2613,10 @@
 
       todayLeaderDay.textContent = todayName;
 
-      accordion.innerHTML = contactScheduleData.map((dayData, index) => {
+      accordion.innerHTML = contactScheduleData.map((dayData) => {
         const summaryText = dayData.items.map(item => item.time).join(' · ');
         return `
-          <details class="contact-accordion-item" ${dayData.day === todayName || (todayName !== dayData.day && index === 0) ? 'open' : ''}>
+          <details class="contact-accordion-item">
             <summary class="contact-accordion-button">
               <div>
                 <div class="contact-accordion-day">${dayData.day}</div>
