@@ -2559,14 +2559,14 @@
 
   
   <div class="footer-counter-wrap">
-    <div class="footer-counter">
-      <div class="footer-counter-item">
-        <span class="footer-counter-label">총 방문자</span>
-        <strong id="goat-total-count" class="footer-counter-value">집계 중</strong>
-      </div>
+  <div class="footer-counter">
+    <div class="footer-counter-item">
+      <span class="footer-counter-label">총 방문자</span>
+      <strong id="goat-total-count" class="footer-counter-value">집계 중</strong>
     </div>
-    <div class="footer-counter-note">방문자 수는 자동으로 집계됩니다.</div>
   </div>
+  <div class="footer-counter-note">방문자 수는 자동으로 집계됩니다.</div>
+</div>
 
 <footer>
     © 2026 서울면목북부회중
@@ -2704,39 +2704,13 @@
       todayLeaders.innerHTML = itemsToShow.map(createTodayItemMarkup).join('');
     }
 
-    
-    const TAB_LABEL_MAP = {
-      home: '홈',
-      about: '회중 소개',
-      area: '구역 소개',
-      service: '회중 봉사 안내',
-      circuitService: '순회구 봉사 안내',
-      meeting: '집회 안내',
-      tour: '관광지',
-      contact: '문의하기',
-      parking: '주차장 안내',
-      stay: '숙박시설 안내',
-      board: '게시판'
-    };
-
-    function getMenuButtonByTabId(id) {
-      const buttons = Array.from(document.querySelectorAll('.menu button'));
-      return buttons.find(btn => btn.textContent.trim() === TAB_LABEL_MAP[id]) || null;
-    }
-
-    function showTab(id, el, options = {}) {
-      const targetTab = document.getElementById(id);
-      if (!targetTab) return;
-
-      const { updateHistory = true, smoothScroll = true } = options;
-
+    function showTab(id, el) {
       document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
       document.querySelectorAll('.menu button').forEach(button => button.classList.remove('active'));
 
-      targetTab.classList.add('active');
-      if (el) {
-        el.classList.add('active');
-      }
+      const targetTab = document.getElementById(id);
+      if (targetTab) targetTab.classList.add('active');
+      if (el) el.classList.add('active');
 
       if (id === 'tour') {
         showTourOverview(true);
@@ -2750,21 +2724,118 @@
         showStayOverview(true);
       }
 
-      if (updateHistory) {
-        const nextHash = `#${id}`;
-        if (window.location.hash !== nextHash) {
-          window.location.hash = id;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function showTourCategory(categoryId) {
+      const overview = document.getElementById('tourOverview');
+      if (overview) overview.style.display = 'none';
+
+      document.querySelectorAll('.tour-detail-view').forEach(view => {
+        view.classList.remove('active');
+      });
+
+      const target = document.getElementById(categoryId);
+      if (target) target.classList.add('active');
+    }
+
+    function showTourOverview(skipScroll = false) {
+      const overview = document.getElementById('tourOverview');
+      if (overview) overview.style.display = 'grid';
+
+      document.querySelectorAll('.tour-detail-view').forEach(view => {
+        view.classList.remove('active');
+      });
+
+      if (!skipScroll) {
+        const tourTab = document.getElementById('tour');
+        if (tourTab) {
+          tourTab.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       }
+    }
 
-      window.scrollTo({ top: 0, behavior: smoothScroll ? 'smooth' : 'auto' });
+    function showParkingDetail(detailId) {
+      const overview = document.getElementById('parkingOverview');
+      if (overview) overview.style.display = 'none';
+
+      document.querySelectorAll('.parking-detail-view').forEach(view => {
+        view.classList.remove('active');
+      });
+
+      const target = document.getElementById(detailId);
+      if (target) {
+        target.classList.add('active');
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    function showParkingOverview(skipScroll = false) {
+      const overview = document.getElementById('parkingOverview');
+      if (overview) overview.style.display = 'block';
+
+      document.querySelectorAll('.parking-detail-view').forEach(view => {
+        view.classList.remove('active');
+      });
+
+      if (!skipScroll) {
+        const parkingTab = document.getElementById('parking');
+        if (parkingTab) {
+          parkingTab.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    }
+
+    function showStayDetail(detailId) {
+      const overview = document.getElementById('stayOverview');
+      if (overview) overview.style.display = 'none';
+
+      document.querySelectorAll('.stay-detail-view').forEach(view => {
+        view.classList.remove('active');
+      });
+
+      const target = document.getElementById(detailId);
+      if (target) {
+        target.classList.add('active');
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    function showStayOverview(skipScroll = false) {
+      const overview = document.getElementById('stayOverview');
+      if (overview) overview.style.display = 'block';
+
+      document.querySelectorAll('.stay-detail-view').forEach(view => {
+        view.classList.remove('active');
+      });
+
+      if (!skipScroll) {
+        const stayTab = document.getElementById('stay');
+        if (stayTab) {
+          stayTab.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    }
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function goTab(id) {
-      const targetButton = getMenuButtonByTabId(id);
-      showTab(id, targetButton, { updateHistory: true, smoothScroll: true });
-    }
-;
+      const buttons = Array.from(document.querySelectorAll('.menu button'));
+      const map = {
+        home: '홈',
+        about: '회중 소개',
+        area: '구역 소개',
+        service: '회중 봉사 안내',
+        circuitService: '순회구 봉사 안내',
+        meeting: '집회 안내',
+        tour: '관광지',
+        contact: '문의하기',
+        parking: '주차장 안내',
+        stay: '숙박시설 안내',
+        board: '게시판'
+      };
       const targetButton = buttons.find(btn => btn.textContent.trim() === map[id]);
       showTab(id, targetButton || null);
     }
@@ -2890,7 +2961,6 @@
       }
     }
 
-    
     document.addEventListener('DOMContentLoaded', () => {
       renderContactSchedule();
       loadPosts();
@@ -2898,28 +2968,6 @@
       showParkingOverview(true);
       showStayOverview(true);
       loadVisitorCounts();
-
-      const initialTabId = (() => {
-        const hashId = window.location.hash.replace('#', '').trim();
-        if (hashId && document.getElementById(hashId) && TAB_LABEL_MAP[hashId]) {
-          return hashId;
-        }
-        return 'home';
-      })();
-
-      showTab(initialTabId, getMenuButtonByTabId(initialTabId), {
-        updateHistory: false,
-        smoothScroll: false
-      });
-
-      window.addEventListener('hashchange', () => {
-        const hashId = window.location.hash.replace('#', '').trim();
-        const nextTabId = (hashId && document.getElementById(hashId) && TAB_LABEL_MAP[hashId]) ? hashId : 'home';
-        showTab(nextTabId, getMenuButtonByTabId(nextTabId), {
-          updateHistory: false,
-          smoothScroll: false
-        });
-      });
 
       const form = document.getElementById('guestbookForm');
       if (!form) return;
@@ -2944,22 +2992,6 @@
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ name, password, message })
           });
-
-          const data = await res.json();
-
-          if (!res.ok) {
-            throw new Error(data.error || '등록하지 못했습니다.');
-          }
-
-          form.reset();
-          setStatus('방문 글이 등록되었습니다.');
-          await loadPosts();
-        } catch (error) {
-          setStatus(error.message || '등록 중 오류가 발생했습니다.', true);
-        }
-      });
-    });
-
 
           const data = await res.json();
 
