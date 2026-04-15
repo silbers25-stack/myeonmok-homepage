@@ -2559,18 +2559,14 @@
 
   
   <div class="footer-counter-wrap">
-  <div class="footer-counter">
-    <div class="footer-counter-item">
-      <span class="footer-counter-label">오늘 방문자</span>
-      <strong id="todayVisitorCount" class="footer-counter-value">0</strong>
+    <div class="footer-counter">
+      <div class="footer-counter-item">
+        <span class="footer-counter-label">총 방문자</span>
+        <strong id="goat-total-count" class="footer-counter-value">집계 중</strong>
+      </div>
     </div>
-    <div class="footer-counter-item">
-      <span class="footer-counter-label">총 방문자</span>
-      <strong id="totalVisitorCount" class="footer-counter-value">0</strong>
-    </div>
+    <div class="footer-counter-note">방문자 수는 자동으로 집계됩니다.</div>
   </div>
-  <div class="footer-counter-note">방문자 수는 자동으로 집계됩니다.</div>
-</div>
 
 <footer>
     © 2026 서울면목북부회중
@@ -2949,50 +2945,33 @@
     }
 
 
-    async function loadVisitorCounts() {
-      const todayEl = document.getElementById('todayVisitorCount');
-      const totalEl = document.getElementById('totalVisitorCount');
-      if (!todayEl || !totalEl) return;
+    function loadVisitorCounts() {
+      const target = document.getElementById('goat-total-count');
+      if (!target) return;
 
-      const workerUrl = '';
-      const sampleData = { today: 12, total: 384 };
+      let retryCount = 0;
+      const maxRetries = 60;
 
-      if (!workerUrl) {
-        todayEl.textContent = Number(sampleData.today).toLocaleString('ko-KR');
-        totalEl.textContent = Number(sampleData.total).toLocaleString('ko-KR');
-        return;
-      }
+      const timer = setInterval(() => {
+        retryCount += 1;
 
-      try {
-        const localDate = new Date();
-        const yyyy = localDate.getFullYear();
-        const mm = String(localDate.getMonth() + 1).padStart(2, '0');
-        const dd = String(localDate.getDate()).padStart(2, '0');
-        const visitMarkerKey = `site-visited-${yyyy}-${mm}-${dd}`;
-        const shouldCount = !localStorage.getItem(visitMarkerKey);
+        if (window.goatcounter && typeof window.goatcounter.visit_count === 'function') {
+          clearInterval(timer);
 
-        const response = await fetch(workerUrl, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ countVisit: shouldCount })
-        });
-
-        if (!response.ok) {
-          throw new Error('방문자 수를 불러오지 못했습니다.');
+          window.goatcounter.visit_count({
+            path: location.pathname,
+            selector: '#goat-total-count',
+            type: 'html',
+            append: 'replace',
+            no_branding: true
+          });
         }
 
-        const data = await response.json();
-        todayEl.textContent = Number(data.today || 0).toLocaleString('ko-KR');
-        totalEl.textContent = Number(data.total || 0).toLocaleString('ko-KR');
-
-        if (shouldCount) {
-          localStorage.setItem(visitMarkerKey, '1');
+        if (retryCount >= maxRetries) {
+          clearInterval(timer);
+          target.textContent = '확인 필요';
         }
-      } catch (error) {
-        console.error(error);
-        todayEl.textContent = Number(sampleData.today).toLocaleString('ko-KR');
-        totalEl.textContent = Number(sampleData.total).toLocaleString('ko-KR');
-      }
+      }, 200);
     }
 
     document.addEventListener('DOMContentLoaded', () => {
