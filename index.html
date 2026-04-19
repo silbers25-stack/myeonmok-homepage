@@ -1018,6 +1018,21 @@
       box-shadow: 0 12px 22px rgba(95, 127, 104, 0.18);
     }
 
+    .today-leader-phone span,
+    .contact-time-phone span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: #edf3ef;
+      color: #7d8d83;
+      font-size: 0.86rem;
+      font-weight: 700;
+      border: 1px solid #dde8df;
+      width: fit-content;
+    }
+
     .today-leaders-empty {
       border: 1px dashed #d8e7dc;
       border-radius: 18px;
@@ -1194,6 +1209,192 @@
       grid-template-columns: 1fr;
     }
 
+
+    .service-schedule-wrap {
+      margin-top: 24px;
+    }
+
+    .service-schedule-intro {
+      padding: 20px 22px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, #fff8f3 0%, #f3fbf5 100%);
+      border: 1px solid #e8f0ea;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.03);
+    }
+
+    .service-schedule-intro p {
+      margin: 0;
+      color: var(--body-text);
+      line-height: 1.8;
+    }
+
+    .service-week-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .service-week-card {
+      padding: 22px 20px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, #fff9f5 0%, #f2fbf4 100%);
+      border: 1px solid #eaf1eb;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.035);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .service-week-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .service-week-day {
+      margin: 0;
+      font-size: 1.2rem;
+      color: var(--title);
+    }
+
+    .service-week-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid #e3ede6;
+      color: var(--menu-green);
+      font-size: 0.82rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .service-week-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .service-slot {
+      background: #fff;
+      border: 1px solid #e3ede6;
+      border-radius: 18px;
+      padding: 16px;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.025);
+    }
+
+    .service-slot-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .service-slot-time {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: #f4f8f5;
+      border: 1px solid #dfe9e2;
+      color: var(--menu-green);
+      font-size: 0.8rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .service-slot-type {
+      margin: 0;
+      color: var(--menu-green);
+      font-size: 0.95rem;
+      font-weight: 700;
+      line-height: 1.65;
+    }
+
+    .service-slot-leader {
+      margin: 8px 0 0;
+      color: var(--title);
+      font-size: 1.06rem;
+      font-weight: 800;
+      line-height: 1.6;
+    }
+
+    .service-slot-meta {
+      display: grid;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .service-meta-row {
+      display: grid;
+      gap: 4px;
+      color: var(--body-text);
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+
+    .service-meta-label {
+      font-weight: 700;
+      color: var(--menu-green);
+    }
+
+    .service-slot-service-box {
+      margin-top: 4px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #f4faf6, #edf7f0);
+      border: 1px solid #deebe1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .service-slot-service-label {
+      color: #7d8c80;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .service-slot-service-hours {
+      color: var(--title);
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+
+    .service-card-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, #7fc0a0, #99cfb0);
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 700;
+      box-shadow: 0 8px 18px rgba(95, 127, 104, 0.14);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 2px;
+    }
+
+    .service-card-button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 22px rgba(95, 127, 104, 0.18);
+    }
+
     footer {
       text-align: center;
       padding: 18px 18px 30px;
@@ -1249,6 +1450,13 @@
       line-height: 1.6;
     }
 
+
+
+    @media (max-width: 1180px) {
+      .service-week-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
 
     @media (max-width: 980px) {
       .nav-inner {
@@ -1336,7 +1544,8 @@
       .tour-grid,
       .contact-grid,
       .tour-category-grid,
-      .tour-photo-grid {
+      .tour-photo-grid,
+      .service-week-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1454,11 +1663,229 @@
             </div>
             <div class="section-heading-text">
               <h2>회중 봉사 안내</h2>
-              <span>회중 봉사와 관련된 일정 및 참고 사항</span>
+              <span>요일별로 확인할 수 있는 회중 봉사 마련</span>
             </div>
           </div>
           <div class="section-intro">
-            <p>회중 봉사와 관련된 일정과 기본 안내를 적는 공간입니다. 처음 참석하시는 분들도 쉽게 이해할 수 있도록 정리해 두시면 좋습니다.</p>
+            <p>면목북부 회중의 봉사 마련표 입니다. 아래의 "요일 인도자 연락처 보기"를 누르시면 해당 요일의 인도자 연락처를 보실 수 있습니다.</p>
+          </div>
+
+          <div class="service-schedule-wrap">
+            <div class="service-week-grid">
+              <article class="service-week-card">
+                <div class="service-week-head">
+                  <h3 class="service-week-day">일요일</h3>
+                  <span class="service-week-badge">2명 인도</span>
+                </div>
+                <div class="service-week-list">
+                  <div class="service-slot">
+                    <div class="service-slot-top">
+                      <span class="service-slot-time">오후</span>
+                    </div>
+                    <p class="service-slot-type">호별 봉사</p>
+                    <p class="service-slot-leader">국승진 형제 · 정영진 형제</p>
+                    <div class="service-slot-meta">
+                      <div class="service-meta-row"><span class="service-meta-label">모임 시간</span><span>오후 3시 30분</span></div>
+                      <div class="service-meta-row"><span class="service-meta-label">모임 장소</span><span>왕국 회관 (집회 후)</span></div>
+                      <div class="service-slot-service-box"><span class="service-slot-service-label">봉사 시간</span><span class="service-slot-service-hours">4:00 - 6:00</span></div>
+                    </div>
+                  </div>
+                  <button type="button" class="service-card-button" onclick="openContactDay('일요일')">요일 인도자 연락처 보기</button>
+                </div>
+              </article>
+
+              <article class="service-week-card">
+                <div class="service-week-head">
+                  <h3 class="service-week-day">월요일</h3>
+                  <span class="service-week-badge">1개 마련</span>
+                </div>
+                <div class="service-week-list">
+                  <div class="service-slot">
+                    <div class="service-slot-top">
+                      <span class="service-slot-time">오전</span>
+                    </div>
+                    <p class="service-slot-type">공개 증거 (전시대)</p>
+                    <p class="service-slot-leader">원제헌 형제</p>
+                    <div class="service-slot-meta">
+                      <div class="service-meta-row"><span class="service-meta-label">모임 시간</span><span>오전 9시 30분</span></div>
+                      <div class="service-meta-row"><span class="service-meta-label">모임 장소</span><span>각 봉사 장소 앞</span></div>
+                      <div class="service-slot-service-box"><span class="service-slot-service-label">봉사 시간</span><span class="service-slot-service-hours">10:00 - 12:00</span></div>
+                    </div>
+                  </div>
+                  <button type="button" class="service-card-button" onclick="openContactDay('월요일')">요일 인도자 연락처 보기</button>
+                </div>
+              </article>
+
+              <article class="service-week-card">
+                <div class="service-week-head">
+                  <h3 class="service-week-day">화요일</h3>
+                  <span class="service-week-badge">2개 마련</span>
+                </div>
+                <div class="service-week-list">
+                  <div class="service-slot">
+                    <div class="service-slot-top">
+                      <span class="service-slot-time">오전</span>
+                    </div>
+                    <p class="service-slot-type">호별 봉사</p>
+                    <p class="service-slot-leader">김동범 형제</p>
+                    <div class="service-slot-meta">
+                      <div class="service-meta-row"><span class="service-meta-label">모임 시간</span><span>오전 9시 30분</span></div>
+                      <div class="service-meta-row"><span class="service-meta-label">모임 장소</span><span>줌 (656-950-0746)</span></div>
+                      <div class="service-slot-service-box"><span class="service-slot-service-label">봉사 시간</span><span class="service-slot-service-hours">10:00 - 12:00</span></div>
+                    </div>
+                  </div>
+                  <div class="service-slot">
+                    <div class="service-slot-top">
+                      <span class="service-slot-time">오후</span>
+                    </div>
+                    <p class="service-slot-type">공개 증거 (전시대)</p>
+                    <p class="service-slot-leader">김석환 형제</p>
+                    <div class="service-slot-meta">
+                      <div class="service-meta-row"><span class="service-meta-label">모임 시간</span><span>오후 1시 50분</span></div>
+                      <div class="service-meta-row"><span class="service-meta-label">모임 장소</span><span>각 봉사 장소 앞</span></div>
+                      <div class="service-slot-service-box"><span class="service-slot-service-label">봉사 시간</span><span class="service-slot-service-hours">2:00 - 4:00</span></div>
+                    </div>
+                  </div>
+                  <button type="button" class="service-card-button" onclick="openContactDay('화요일')">요일 인도자 연락처 보기</button>
+                </div>
+              </article>
+
+              <article class="service-week-card">
+                <div class="service-week-head">
+                  <h3 class="service-week-day">수요일</h3>
+                  <span class="service-week-badge">2개 마련</span>
+                </div>
+                <div class="service-week-list">
+                  <div class="service-slot">
+                    <div class="service-slot-top">
+                      <span class="service-slot-time">오전</span>
+                    </div>
+                    <p class="service-slot-type">공개 증거 (전시대)</p>
+                    <p class="service-slot-leader">원제헌 형제</p>
+                    <div class="service-slot-meta">
+                      <div class="service-meta-row"><span class="service-meta-label">모임 시간</span><span>오전 9시 30분</span></div>
+                      <div class="service-meta-row"><span class="service-meta-label">모임 장소</span><span>각 봉사 장소 앞</span></div>
+                      <div class="service-slot-service-box"><span class="service-slot-service-label">봉사 시간</span><span class="service-slot-service-hours">10:00 - 12:00</span></div>
+                    </div>
+                  </div>
+                  <div class="service-slot">
+                    <div class="service-slot-top">
+                      <span class="service-slot-time">저녁</span>
+                    </div>
+                    <p class="service-slot-type">공개 증거 (전시대)</p>
+                    <p class="service-slot-leader">국승진 형제</p>
+                    <div class="service-slot-meta">
+                      <div class="service-meta-row"><span class="service-meta-label">모임 시간</span><span>저녁 5시 50분</span></div>
+                      <div class="service-meta-row"><span class="service-meta-label">모임 장소</span><span>각 봉사 장소 앞</span></div>
+                      <div class="service-slot-service-box"><span class="service-slot-service-label">봉사 시간</span><span class="service-slot-service-hours">6:00 - 8:00</span></div>
+                    </div>
+                  </div>
+                  <button type="button" class="service-card-button" onclick="openContactDay('수요일')">요일 인도자 연락처 보기</button>
+                </div>
+              </article>
+
+              <article class="service-week-card">
+                <div class="service-week-head">
+                  <h3 class="service-week-day">목요일</h3>
+                  <span class="service-week-badge">2개 마련</span>
+                </div>
+                <div class="service-week-list">
+                  <div class="service-slot">
+                    <div class="service-slot-top">
+                      <span class="service-slot-time">오전</span>
+                    </div>
+                    <p class="service-slot-type">편지 봉사</p>
+                    <p class="service-slot-leader">김정상 형제</p>
+                    <div class="service-slot-meta">
+                      <div class="service-meta-row"><span class="service-meta-label">모임 시간</span><span>오전 9시 30분</span></div>
+                      <div class="service-meta-row"><span class="service-meta-label">모임 장소</span><span>줌 (656-950-0746)</span></div>
+                      <div class="service-slot-service-box"><span class="service-slot-service-label">봉사 시간</span><span class="service-slot-service-hours">10:00 - 12:00</span></div>
+                    </div>
+                  </div>
+                  <div class="service-slot">
+                    <div class="service-slot-top">
+                      <span class="service-slot-time">오후</span>
+                    </div>
+                    <p class="service-slot-type">공개 증거 (가두)</p>
+                    <p class="service-slot-leader">원제헌 형제</p>
+                    <div class="service-slot-meta">
+                      <div class="service-meta-row"><span class="service-meta-label">모임 시간</span><span>오후 1시 20분</span></div>
+                      <div class="service-meta-row"><span class="service-meta-label">모임 장소</span><span>각 봉사 장소 앞</span></div>
+                      <div class="service-slot-service-box"><span class="service-slot-service-label">봉사 시간</span><span class="service-slot-service-hours">1:30 - 3:30</span></div>
+                    </div>
+                  </div>
+                  <button type="button" class="service-card-button" onclick="openContactDay('목요일')">요일 인도자 연락처 보기</button>
+                </div>
+              </article>
+
+              <article class="service-week-card">
+                <div class="service-week-head">
+                  <h3 class="service-week-day">금요일</h3>
+                  <span class="service-week-badge">2개 마련</span>
+                </div>
+                <div class="service-week-list">
+                  <div class="service-slot">
+                    <div class="service-slot-top">
+                      <span class="service-slot-time">아침</span>
+                    </div>
+                    <p class="service-slot-type">공개 증거 (전시대)</p>
+                    <p class="service-slot-leader">유진근 형제</p>
+                    <div class="service-slot-meta">
+                      <div class="service-meta-row"><span class="service-meta-label">모임 시간</span><span>아침 7시 05분</span></div>
+                      <div class="service-meta-row"><span class="service-meta-label">모임 장소</span><span>각 봉사 장소 앞</span></div>
+                      <div class="service-slot-service-box"><span class="service-slot-service-label">봉사 시간</span><span class="service-slot-service-hours">7:15 - 9:15</span></div>
+                    </div>
+                  </div>
+                  <div class="service-slot">
+                    <div class="service-slot-top">
+                      <span class="service-slot-time">오전</span>
+                    </div>
+                    <p class="service-slot-type">호별 봉사</p>
+                    <p class="service-slot-leader">유진근 형제</p>
+                    <div class="service-slot-meta">
+                      <div class="service-meta-row"><span class="service-meta-label">모임 시간</span><span>오전 9시 30분</span></div>
+                      <div class="service-meta-row"><span class="service-meta-label">모임 장소</span><span>줌 (656-950-0746)</span></div>
+                      <div class="service-slot-service-box"><span class="service-slot-service-label">봉사 시간</span><span class="service-slot-service-hours">10:00 - 12:00</span></div>
+                    </div>
+                  </div>
+                  <button type="button" class="service-card-button" onclick="openContactDay('금요일')">요일 인도자 연락처 보기</button>
+                </div>
+              </article>
+
+              <article class="service-week-card">
+                <div class="service-week-head">
+                  <h3 class="service-week-day">토요일</h3>
+                  <span class="service-week-badge">2개 마련</span>
+                </div>
+                <div class="service-week-list">
+                  <div class="service-slot">
+                    <div class="service-slot-top">
+                      <span class="service-slot-time">오전</span>
+                    </div>
+                    <p class="service-slot-type">공개 증거 (전시대)</p>
+                    <p class="service-slot-leader">김석환 형제</p>
+                    <div class="service-slot-meta">
+                      <div class="service-meta-row"><span class="service-meta-label">모임 시간</span><span>오전 9시 30분</span></div>
+                      <div class="service-meta-row"><span class="service-meta-label">모임 장소</span><span>왕국 회관 (순회구 전체)</span></div>
+                      <div class="service-slot-service-box"><span class="service-slot-service-label">봉사 시간</span><span class="service-slot-service-hours">10:00 - 12:00</span></div>
+                    </div>
+                  </div>
+                  <div class="service-slot">
+                    <div class="service-slot-top">
+                      <span class="service-slot-time">오후</span>
+                    </div>
+                    <p class="service-slot-type">공개 증거 (전시대)</p>
+                    <p class="service-slot-leader">원제헌 형제</p>
+                    <div class="service-slot-meta">
+                      <div class="service-meta-row"><span class="service-meta-label">모임 시간</span><span>오후 4시 20분</span></div>
+                      <div class="service-meta-row"><span class="service-meta-label">모임 장소</span><span>각 봉사 장소 앞</span></div>
+                      <div class="service-slot-service-box"><span class="service-slot-service-label">봉사 시간</span><span class="service-slot-service-hours">4:30 - 6:30</span></div>
+                    </div>
+                  </div>
+                  <button type="button" class="service-card-button" onclick="openContactDay('토요일')">요일 인도자 연락처 보기</button>
+                </div>
+              </article>
+            </div>
           </div>
         </div>
       </section>
@@ -1475,11 +1902,261 @@
             </div>
             <div class="section-heading-text">
               <h2>순회구 봉사 안내</h2>
-              <span>순회구 봉사와 관련된 일정 및 참고 사항</span>
+              <span>날짜별로 확인할 수 있는 순회구 봉사 마련</span>
             </div>
           </div>
           <div class="section-intro">
-            <p>이곳에는 순회구 봉사와 관련된 일정, 집합 장소, 유의 사항 등을 정리할 수 있습니다. 참석하시는 분들이 쉽게 확인하실 수 있도록 필요한 내용을 보기 좋게 넣어 두시면 좋습니다.</p>
+            <p>순회구 봉사 마련표입니다. 아래의 “해당 날짜 인도자 연락처 보기”를 누르시면 문의하기에서 해당 날짜의 인도자 연락처를 보실 수 있습니다.</p>
+          </div>
+
+          <div class="service-schedule-wrap">
+            <div class="service-week-grid">
+              <article class="service-week-card">
+                <div class="service-week-head">
+                  <h3 class="service-week-day">12일 화요일</h3>
+                  <span class="service-week-badge">2개 마련</span>
+                </div>
+                <div class="service-week-list">
+                  <div class="service-slot">
+                    <div class="service-slot-top">
+                      <span class="service-slot-time">오전</span>
+                    </div>
+                    <p class="service-slot-type">순회구 지하철 봉사 (전시대)</p>
+                    <p class="service-slot-leader">미정</p>
+                    <div class="service-slot-meta">
+                      <div class="service-meta-row"><span class="service-meta-label">모임 시간</span><span>오전 6시 50분</span></div>
+                      <div class="service-meta-row"><span class="service-meta-label">모임 장소</span><span>면목역 광장</span></div>
+                      <div class="service-slot-service-box"><span class="service-slot-service-label">봉사 시간</span><span class="service-slot-service-hours">7:00 - 9:00</span></div>
+                    </div>
+                  </div>
+                  <div class="service-slot">
+                    <div class="service-slot-top">
+                      <span class="service-slot-time">오후</span>
+                    </div>
+                    <p class="service-slot-type">순회구 지하철 봉사 (전시대)</p>
+                    <p class="service-slot-leader">미정</p>
+                    <div class="service-slot-meta">
+                      <div class="service-meta-row"><span class="service-meta-label">모임 시간</span><span>오후 4시 50분</span></div>
+                      <div class="service-meta-row"><span class="service-meta-label">모임 장소</span><span>면목역 광장</span></div>
+                      <div class="service-slot-service-box"><span class="service-slot-service-label">봉사 시간</span><span class="service-slot-service-hours">5:00 - 7:00</span></div>
+                    </div>
+                  </div>
+                  <button type="button" class="service-card-button" onclick="openCircuitContactDay('12일 화요일')">해당 날짜 인도자 연락처 보기</button>
+                </div>
+              </article>
+
+              <article class="service-week-card">
+                <div class="service-week-head">
+                  <h3 class="service-week-day">14일 목요일</h3>
+                  <span class="service-week-badge">2개 마련</span>
+                </div>
+                <div class="service-week-list">
+                  <div class="service-slot">
+                    <div class="service-slot-top">
+                      <span class="service-slot-time">오전</span>
+                    </div>
+                    <p class="service-slot-type">순회구 지하철 봉사 (전시대)</p>
+                    <p class="service-slot-leader">이소진 형제</p>
+                    <div class="service-slot-meta">
+                      <div class="service-meta-row"><span class="service-meta-label">모임 시간</span><span>오전 6시 50분</span></div>
+                      <div class="service-meta-row"><span class="service-meta-label">모임 장소</span><span>면목역 광장</span></div>
+                      <div class="service-slot-service-box"><span class="service-slot-service-label">봉사 시간</span><span class="service-slot-service-hours">7:00 - 9:00</span></div>
+                    </div>
+                  </div>
+                  <div class="service-slot">
+                    <div class="service-slot-top">
+                      <span class="service-slot-time">오후</span>
+                    </div>
+                    <p class="service-slot-type">순회구 지하철 봉사 (전시대)</p>
+                    <p class="service-slot-leader">김진솔 형제</p>
+                    <div class="service-slot-meta">
+                      <div class="service-meta-row"><span class="service-meta-label">모임 시간</span><span>오후 4시 50분</span></div>
+                      <div class="service-meta-row"><span class="service-meta-label">모임 장소</span><span>면목역 광장</span></div>
+                      <div class="service-slot-service-box"><span class="service-slot-service-label">봉사 시간</span><span class="service-slot-service-hours">5:00 - 7:00</span></div>
+                    </div>
+                  </div>
+                  <button type="button" class="service-card-button" onclick="openCircuitContactDay('14일 목요일')">해당 날짜 인도자 연락처 보기</button>
+                </div>
+              </article>
+
+              <article class="service-week-card">
+                <div class="service-week-head">
+                  <h3 class="service-week-day">15일 금요일</h3>
+                  <span class="service-week-badge">1개 마련</span>
+                </div>
+                <div class="service-week-list">
+                  <div class="service-slot">
+                    <div class="service-slot-top">
+                      <span class="service-slot-time">오후</span>
+                    </div>
+                    <p class="service-slot-type">순회구 대학교 봉사 (가두 및 전시대)</p>
+                    <p class="service-slot-leader">미정</p>
+                    <div class="service-slot-meta">
+                      <div class="service-meta-row"><span class="service-meta-label">모임 시간</span><span>미정</span></div>
+                      <div class="service-meta-row"><span class="service-meta-label">모임 장소</span><span>왕국 회관</span></div>
+                      <div class="service-slot-service-box"><span class="service-slot-service-label">봉사 시간</span><span class="service-slot-service-hours">2:00 - 5:00</span></div>
+                    </div>
+                  </div>
+                  <button type="button" class="service-card-button" onclick="openCircuitContactDay('15일 금요일')">해당 날짜 인도자 연락처 보기</button>
+                </div>
+              </article>
+
+              <article class="service-week-card">
+                <div class="service-week-head">
+                  <h3 class="service-week-day">16일 토요일</h3>
+                  <span class="service-week-badge">1개 마련</span>
+                </div>
+                <div class="service-week-list">
+                  <div class="service-slot">
+                    <div class="service-slot-top">
+                      <span class="service-slot-time">오후</span>
+                    </div>
+                    <p class="service-slot-type">공개 증거 (가두 및 전시대)</p>
+                    <p class="service-slot-leader">미정</p>
+                    <div class="service-slot-meta">
+                      <div class="service-meta-row"><span class="service-meta-label">모임 시간</span><span>미정</span></div>
+                      <div class="service-meta-row"><span class="service-meta-label">모임 장소</span><span>왕국 회관</span></div>
+                      <div class="service-slot-service-box"><span class="service-slot-service-label">봉사 시간</span><span class="service-slot-service-hours">2:00 - 4:00</span></div>
+                    </div>
+                  </div>
+                  <button type="button" class="service-card-button" onclick="openCircuitContactDay('16일 토요일')">해당 날짜 인도자 연락처 보기</button>
+                </div>
+              </article>
+
+              <article class="service-week-card">
+                <div class="service-week-head">
+                  <h3 class="service-week-day">19일 화요일</h3>
+                  <span class="service-week-badge">2개 마련</span>
+                </div>
+                <div class="service-week-list">
+                  <div class="service-slot">
+                    <div class="service-slot-top">
+                      <span class="service-slot-time">오전</span>
+                    </div>
+                    <p class="service-slot-type">순회구 지하철 봉사 (전시대)</p>
+                    <p class="service-slot-leader">권혁인 형제</p>
+                    <div class="service-slot-meta">
+                      <div class="service-meta-row"><span class="service-meta-label">모임 시간</span><span>오전 6시 50분</span></div>
+                      <div class="service-meta-row"><span class="service-meta-label">모임 장소</span><span>면목역 광장</span></div>
+                      <div class="service-slot-service-box"><span class="service-slot-service-label">봉사 시간</span><span class="service-slot-service-hours">7:00 - 9:00</span></div>
+                    </div>
+                  </div>
+                  <div class="service-slot">
+                    <div class="service-slot-top">
+                      <span class="service-slot-time">오후</span>
+                    </div>
+                    <p class="service-slot-type">순회구 지하철 봉사 (전시대)</p>
+                    <p class="service-slot-leader">김석환 형제</p>
+                    <div class="service-slot-meta">
+                      <div class="service-meta-row"><span class="service-meta-label">모임 시간</span><span>오후 4시 50분</span></div>
+                      <div class="service-meta-row"><span class="service-meta-label">모임 장소</span><span>면목역 광장</span></div>
+                      <div class="service-slot-service-box"><span class="service-slot-service-label">봉사 시간</span><span class="service-slot-service-hours">5:00 - 7:00</span></div>
+                    </div>
+                  </div>
+                  <button type="button" class="service-card-button" onclick="openCircuitContactDay('19일 화요일')">해당 날짜 인도자 연락처 보기</button>
+                </div>
+              </article>
+
+              <article class="service-week-card">
+                <div class="service-week-head">
+                  <h3 class="service-week-day">21일 목요일</h3>
+                  <span class="service-week-badge">2개 마련</span>
+                </div>
+                <div class="service-week-list">
+                  <div class="service-slot">
+                    <div class="service-slot-top">
+                      <span class="service-slot-time">오전</span>
+                    </div>
+                    <p class="service-slot-type">순회구 지하철 봉사 (전시대)</p>
+                    <p class="service-slot-leader">권혁인 형제</p>
+                    <div class="service-slot-meta">
+                      <div class="service-meta-row"><span class="service-meta-label">모임 시간</span><span>오전 6시 50분</span></div>
+                      <div class="service-meta-row"><span class="service-meta-label">모임 장소</span><span>면목역 광장</span></div>
+                      <div class="service-slot-service-box"><span class="service-slot-service-label">봉사 시간</span><span class="service-slot-service-hours">7:00 - 9:00</span></div>
+                    </div>
+                  </div>
+                  <div class="service-slot">
+                    <div class="service-slot-top">
+                      <span class="service-slot-time">오후</span>
+                    </div>
+                    <p class="service-slot-type">순회구 지하철 봉사 (전시대)</p>
+                    <p class="service-slot-leader">원제헌 형제</p>
+                    <div class="service-slot-meta">
+                      <div class="service-meta-row"><span class="service-meta-label">모임 시간</span><span>오후 4시 50분</span></div>
+                      <div class="service-meta-row"><span class="service-meta-label">모임 장소</span><span>면목역 광장</span></div>
+                      <div class="service-slot-service-box"><span class="service-slot-service-label">봉사 시간</span><span class="service-slot-service-hours">5:00 - 7:00</span></div>
+                    </div>
+                  </div>
+                  <button type="button" class="service-card-button" onclick="openCircuitContactDay('21일 목요일')">해당 날짜 인도자 연락처 보기</button>
+                </div>
+              </article>
+
+              <article class="service-week-card">
+                <div class="service-week-head">
+                  <h3 class="service-week-day">22일 금요일</h3>
+                  <span class="service-week-badge">1개 마련</span>
+                </div>
+                <div class="service-week-list">
+                  <div class="service-slot">
+                    <div class="service-slot-top">
+                      <span class="service-slot-time">오후</span>
+                    </div>
+                    <p class="service-slot-type">순회구 대학교 봉사 (가두 및 전시대)</p>
+                    <p class="service-slot-leader">미정</p>
+                    <div class="service-slot-meta">
+                      <div class="service-meta-row"><span class="service-meta-label">모임 시간</span><span>미정</span></div>
+                      <div class="service-meta-row"><span class="service-meta-label">모임 장소</span><span>왕국 회관</span></div>
+                      <div class="service-slot-service-box"><span class="service-slot-service-label">봉사 시간</span><span class="service-slot-service-hours">2:00 - 5:00</span></div>
+                    </div>
+                  </div>
+                  <button type="button" class="service-card-button" onclick="openCircuitContactDay('22일 금요일')">해당 날짜 인도자 연락처 보기</button>
+                </div>
+              </article>
+
+              <article class="service-week-card">
+                <div class="service-week-head">
+                  <h3 class="service-week-day">23일 토요일</h3>
+                  <span class="service-week-badge">1개 마련</span>
+                </div>
+                <div class="service-week-list">
+                  <div class="service-slot">
+                    <div class="service-slot-top">
+                      <span class="service-slot-time">오후</span>
+                    </div>
+                    <p class="service-slot-type">공개 증거 (가두 및 전시대)</p>
+                    <p class="service-slot-leader">미정</p>
+                    <div class="service-slot-meta">
+                      <div class="service-meta-row"><span class="service-meta-label">모임 시간</span><span>미정</span></div>
+                      <div class="service-meta-row"><span class="service-meta-label">모임 장소</span><span>왕국 회관</span></div>
+                      <div class="service-slot-service-box"><span class="service-slot-service-label">봉사 시간</span><span class="service-slot-service-hours">2:00 - 4:00</span></div>
+                    </div>
+                  </div>
+                  <button type="button" class="service-card-button" onclick="openCircuitContactDay('23일 토요일')">해당 날짜 인도자 연락처 보기</button>
+                </div>
+              </article>
+
+              <article class="service-week-card">
+                <div class="service-week-head">
+                  <h3 class="service-week-day">25일 월요일</h3>
+                  <span class="service-week-badge">1개 마련</span>
+                </div>
+                <div class="service-week-list">
+                  <div class="service-slot">
+                    <div class="service-slot-top">
+                      <span class="service-slot-time">오후</span>
+                    </div>
+                    <p class="service-slot-type">순회구 봉사</p>
+                    <p class="service-slot-leader">원제헌 형제</p>
+                    <div class="service-slot-meta">
+                      <div class="service-meta-row"><span class="service-meta-label">모임 시간</span><span>미정</span></div>
+                      <div class="service-meta-row"><span class="service-meta-label">모임 장소</span><span>왕국 회관</span></div>
+                      <div class="service-slot-service-box"><span class="service-slot-service-label">봉사 시간</span><span class="service-slot-service-hours">2:00 - 4:00</span></div>
+                    </div>
+                  </div>
+                  <button type="button" class="service-card-button" onclick="openCircuitContactDay('25일 월요일')">해당 날짜 인도자 연락처 보기</button>
+                </div>
+              </article>
+            </div>
           </div>
         </div>
       </section>
@@ -2014,6 +2691,21 @@
             </div>
             <p class="board-note">요일을 누르시면 시간대별 인도자를 확인하실 수 있습니다.</p>
             <div id="contactScheduleAccordion" class="contact-accordion"></div>
+          </div>
+
+          <div class="section-panel" style="margin-top: 18px;">
+            <div class="panel-header">
+              <div class="panel-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M4 12h16"></path>
+                  <path d="M12 4v16"></path>
+                  <circle cx="12" cy="12" r="8"></circle>
+                </svg>
+              </div>
+              <h3>순회구 날짜별 인도자</h3>
+            </div>
+            <p class="board-note">날짜를 누르시면 해당 순회구 봉사의 인도자를 확인하실 수 있습니다.</p>
+            <div id="circuitContactScheduleAccordion" class="contact-accordion"></div>
           </div>
         </div>
       </section>
@@ -2576,62 +3268,123 @@
 
     const contactScheduleData = [
       {
+        day: '일요일',
+        items: [
+          { time: '오후', type: '호별 봉사', name: '국승진 형제', phone: '01000000000', dateLabel: '17일', dayOfMonth: 17 },
+          { time: '오후', type: '호별 봉사', name: '정영진 형제', phone: '01000000000', dateLabel: '24일', dayOfMonth: 24 }
+        ]
+      },
+      {
         day: '월요일',
         items: [
-          { time: '오전', type: '호별봉사', name: '원제헌 형제', phone: '01000000000' }
+          { time: '오전', type: '공개 증거 (전시대)', name: '원제헌 형제', phone: '01088808114' }
         ]
       },
       {
         day: '화요일',
         items: [
-          { time: '아침', type: '순회구 지하철 봉사<br>(전시대)', name: '순회구 인도자', phone: '01000000000' },
-          { time: '오전', type: '호별봉사', name: '김동범 형제', phone: '01000000000' },
-          { time: '오후', type: '공개증거<br>(전시대)', name: '김석환 형제', phone: '01000000000' },
-          { time: '저녁', type: '순회구 지하철 봉사<br>(전시대)', name: '순회구 인도자', phone: '01000000000' }
+          { time: '오전', type: '호별 봉사', name: '김동범 형제', phone: '01000000000' },
+          { time: '오후', type: '공개 증거 (전시대)', name: '김석환 형제', phone: '01022278129' }
         ]
       },
       {
         day: '수요일',
         items: [
-          { time: '오전', type: '호별봉사', name: '원제헌 형제', phone: '01000000000' },
-          { time: '저녁', type: '공개증거<br>(전시대)', name: '국승진 형제', phone: '01000000000' }
+          { time: '오전', type: '공개 증거 (전시대)', name: '원제헌 형제', phone: '01088808114' },
+          { time: '저녁', type: '공개 증거 (전시대)', name: '국승진 형제', phone: '01000000000' }
         ]
       },
       {
         day: '목요일',
         items: [
-          { time: '아침', type: '순회구 지하철 봉사<br>(전시대)', name: '순회구 인도자', phone: '01000000000' },
-          { time: '오전', type: '편지봉사', name: '김정상 형제', phone: '01000000000' },
-          { time: '오후', type: '공개증거<br>(가두)', name: '원제헌 형제', phone: '01000000000' },
-          { time: '저녁', type: '순회구 지하철 봉사<br>(전시대)', name: '순회구 인도자', phone: '01000000000' }
+          { time: '오전', type: '편지 봉사', name: '김정상 형제', phone: '01000000000' },
+          { time: '오후', type: '공개 증거 (가두)', name: '원제헌 형제', phone: '01088808114' }
         ]
       },
       {
         day: '금요일',
         items: [
-          { time: '아침', type: '공개증거<br>(전시대)', name: '유진근 형제', phone: '01000000000' },
-          { time: '오전', type: '호별봉사', name: '유진근 형제', phone: '01000000000' },
-          { time: '오후', type: '순회구 대학교 봉사<br>(가두 및 전시대)', name: '순회구 인도자', phone: '01000000000' }
+          { time: '아침', type: '공개 증거 (전시대)', name: '유진근 형제', phone: '01000000000' },
+          { time: '오전', type: '호별 봉사', name: '유진근 형제', phone: '01000000000' }
         ]
       },
       {
         day: '토요일',
         items: [
-          { time: '오전', type: '공개증거<br>(전시대)', name: '김석환 형제', phone: '01000000000' },
-          { time: '오후', type: '호별봉사', name: '지용민 형제', phone: '01000000000' },
-          { time: '저녁', type: '순회구 공개 증거', name: '순회구 인도자', phone: '01000000000' }
+          { time: '오전', type: '공개 증거 (전시대)', name: '김석환 형제', phone: '01022278129' },
+          { time: '오후', type: '공개 증거 (전시대)', name: '원제헌 형제', phone: '01088808114' }
+        ]
+      }
+    ];
+
+    const circuitContactScheduleData = [
+      {
+        day: '12일 화요일',
+        items: [
+          { time: '오전', type: '순회구 지하철 봉사 (전시대)', name: '미정', phone: '' },
+          { time: '오후', type: '순회구 지하철 봉사 (전시대)', name: '미정', phone: '' }
         ]
       },
       {
-        day: '일요일',
+        day: '14일 목요일',
         items: [
-          { time: '오후', type: '호별봉사', name: '국승진 형제', phone: '01000000000', dateLabel: '17일', dayOfMonth: 17 },
-          { time: '오후', type: '호별봉사', name: '정영진 형제', phone: '01000000000', dateLabel: '24일', dayOfMonth: 24 }
+          { time: '오전', type: '순회구 지하철 봉사 (전시대)', name: '이소진 형제', phone: '' },
+          { time: '오후', type: '순회구 지하철 봉사 (전시대)', name: '김진솔 형제', phone: '' }
+        ]
+      },
+      {
+        day: '15일 금요일',
+        items: [
+          { time: '오후', type: '순회구 대학교 봉사 (가두 및 전시대)', name: '미정', phone: '' }
+        ]
+      },
+      {
+        day: '16일 토요일',
+        items: [
+          { time: '오후', type: '공개 증거 (가두 및 전시대)', name: '미정', phone: '' }
+        ]
+      },
+      {
+        day: '19일 화요일',
+        items: [
+          { time: '오전', type: '순회구 지하철 봉사 (전시대)', name: '권혁인 형제', phone: '01064345512' },
+          { time: '오후', type: '순회구 지하철 봉사 (전시대)', name: '김석환 형제', phone: '01022278129' }
+        ]
+      },
+      {
+        day: '21일 목요일',
+        items: [
+          { time: '오전', type: '순회구 지하철 봉사 (전시대)', name: '권혁인 형제', phone: '01064345512' },
+          { time: '오후', type: '순회구 지하철 봉사 (전시대)', name: '원제헌 형제', phone: '01088808114' }
+        ]
+      },
+      {
+        day: '22일 금요일',
+        items: [
+          { time: '오후', type: '순회구 대학교 봉사 (가두 및 전시대)', name: '미정', phone: '' }
+        ]
+      },
+      {
+        day: '23일 토요일',
+        items: [
+          { time: '오후', type: '공개 증거 (가두 및 전시대)', name: '미정', phone: '' }
+        ]
+      },
+      {
+        day: '25일 월요일',
+        items: [
+          { time: '오후', type: '순회구 봉사', name: '원제헌 형제', phone: '01088808114' }
         ]
       }
     ];
 
     const dayNames = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'];
+
+    function createPhoneMarkup(phone) {
+      return phone
+        ? `<a href="tel:${phone}">전화하기</a>`
+        : `<span>연락처 추후 안내</span>`;
+    }
 
     function createContactItemMarkup(item) {
       return `
@@ -2642,7 +3395,7 @@
           </div>
           <p class="contact-time-type">${item.type}</p>
           <p class="contact-time-name">${item.name}</p>
-          <div class="contact-time-phone"><a href="tel:${item.phone}">전화하기</a></div>
+          <div class="contact-time-phone">${createPhoneMarkup(item.phone)}</div>
         </div>
       `;
     }
@@ -2656,27 +3409,16 @@
           </div>
           <p class="today-leader-type">${item.type}</p>
           <p class="today-leader-name">${item.name}</p>
-          <div class="today-leader-phone"><a href="tel:${item.phone}">전화하기</a></div>
+          <div class="today-leader-phone">${createPhoneMarkup(item.phone)}</div>
         </div>
       `;
     }
 
-    function renderContactSchedule() {
-      const accordion = document.getElementById('contactScheduleAccordion');
-      const todayLeaders = document.getElementById('todayLeaders');
-      const todayLeaderDay = document.getElementById('todayLeaderDay');
-      if (!accordion || !todayLeaders || !todayLeaderDay) return;
-
-      const now = new Date();
-      const todayName = dayNames[now.getDay()];
-      const todayDate = now.getDate();
-
-      todayLeaderDay.textContent = todayName;
-
-      accordion.innerHTML = contactScheduleData.map((dayData) => {
+    function buildAccordionMarkup(scheduleData) {
+      return scheduleData.map((dayData) => {
         const summaryText = dayData.items.map(item => item.time).join(' · ');
         return `
-          <details class="contact-accordion-item">
+          <details class="contact-accordion-item" data-day="${dayData.day}">
             <summary class="contact-accordion-button">
               <div>
                 <div class="contact-accordion-day">${dayData.day}</div>
@@ -2692,6 +3434,22 @@
           </details>
         `;
       }).join('');
+    }
+
+    function renderContactSchedule() {
+      const accordion = document.getElementById('contactScheduleAccordion');
+      const todayLeaders = document.getElementById('todayLeaders');
+      const todayLeaderDay = document.getElementById('todayLeaderDay');
+      const circuitAccordion = document.getElementById('circuitContactScheduleAccordion');
+      if (!accordion || !todayLeaders || !todayLeaderDay || !circuitAccordion) return;
+
+      const now = new Date();
+      const todayName = dayNames[now.getDay()];
+      const todayDate = now.getDate();
+
+      todayLeaderDay.textContent = todayName;
+      accordion.innerHTML = buildAccordionMarkup(contactScheduleData);
+      circuitAccordion.innerHTML = buildAccordionMarkup(circuitContactScheduleData);
 
       const todayData = contactScheduleData.find(dayData => dayData.day === todayName);
       if (!todayData || !todayData.items.length) {
@@ -2702,6 +3460,41 @@
       const exactDateItems = todayData.items.filter(item => item.dayOfMonth === todayDate);
       const itemsToShow = exactDateItems.length ? exactDateItems : todayData.items;
       todayLeaders.innerHTML = itemsToShow.map(createTodayItemMarkup).join('');
+    }
+
+
+    function openContactDay(day) {
+      const buttons = Array.from(document.querySelectorAll('.menu button'));
+      const contactButton = buttons.find(btn => btn.textContent.trim() === '문의하기');
+      showTab('contact', contactButton || null);
+
+      requestAnimationFrame(() => {
+        const accordionItems = Array.from(document.querySelectorAll('#contactScheduleAccordion .contact-accordion-item'));
+        accordionItems.forEach(item => {
+          item.open = item.dataset.day === day;
+        });
+        const target = accordionItems.find(item => item.dataset.day === day);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    }
+
+    function openCircuitContactDay(day) {
+      const buttons = Array.from(document.querySelectorAll('.menu button'));
+      const contactButton = buttons.find(btn => btn.textContent.trim() === '문의하기');
+      showTab('contact', contactButton || null);
+
+      requestAnimationFrame(() => {
+        const accordionItems = Array.from(document.querySelectorAll('#circuitContactScheduleAccordion .contact-accordion-item'));
+        accordionItems.forEach(item => {
+          item.open = item.dataset.day === day;
+        });
+        const target = accordionItems.find(item => item.dataset.day === day);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
     }
 
     function showTab(id, el) {
