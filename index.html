@@ -1395,6 +1395,52 @@
       box-shadow: 0 12px 22px rgba(95, 127, 104, 0.18);
     }
 
+    .scroll-side-buttons {
+      position: fixed;
+      right: 22px;
+      bottom: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 1400;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: opacity 0.22s ease, visibility 0.22s ease, transform 0.22s ease;
+    }
+
+    .scroll-side-buttons.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .scroll-side-button {
+      width: 52px;
+      height: 52px;
+      border: none;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #7fc0a0, #99cfb0);
+      color: #fff;
+      box-shadow: 0 10px 24px rgba(95, 127, 104, 0.22);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .scroll-side-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(95, 127, 104, 0.28);
+    }
+
+    .scroll-side-button svg {
+      width: 22px;
+      height: 22px;
+      stroke-width: 2.2;
+    }
+
     footer {
       text-align: center;
       padding: 18px 18px 30px;
@@ -1490,6 +1536,16 @@
     }
 
     @media (max-width: 760px) {
+      .scroll-side-buttons {
+        right: 16px;
+        bottom: 18px;
+      }
+
+      .scroll-side-button {
+        width: 48px;
+        height: 48px;
+      }
+
       .menu {
         justify-content: flex-start;
         overflow-x: auto;
@@ -1911,39 +1967,6 @@
 
           <div class="service-schedule-wrap">
             <div class="service-week-grid">
-              <article class="service-week-card">
-                <div class="service-week-head">
-                  <h3 class="service-week-day">12일 화요일</h3>
-                  <span class="service-week-badge">2개 마련</span>
-                </div>
-                <div class="service-week-list">
-                  <div class="service-slot">
-                    <div class="service-slot-top">
-                      <span class="service-slot-time">오전</span>
-                    </div>
-                    <p class="service-slot-type">순회구 지하철 봉사 (전시대)</p>
-                    <p class="service-slot-leader">양현준 형제 (면목남부)</p>
-                    <div class="service-slot-meta">
-                      <div class="service-meta-row"><span class="service-meta-label">모임 시간</span><span>오전 6시 50분</span></div>
-                      <div class="service-meta-row"><span class="service-meta-label">모임 장소</span><span>면목역 광장</span></div>
-                      <div class="service-slot-service-box"><span class="service-slot-service-label">봉사 시간</span><span class="service-slot-service-hours">7:00 - 9:00</span></div>
-                    </div>
-                  </div>
-                  <div class="service-slot">
-                    <div class="service-slot-top">
-                      <span class="service-slot-time">오후</span>
-                    </div>
-                    <p class="service-slot-type">순회구 지하철 봉사 (전시대)</p>
-                    <p class="service-slot-leader">권석호 형제 (면목남부)</p>
-                    <div class="service-slot-meta">
-                      <div class="service-meta-row"><span class="service-meta-label">모임 시간</span><span>오후 4시 50분</span></div>
-                      <div class="service-meta-row"><span class="service-meta-label">모임 장소</span><span>면목역 광장</span></div>
-                      <div class="service-slot-service-box"><span class="service-slot-service-label">봉사 시간</span><span class="service-slot-service-hours">5:00 - 7:00</span></div>
-                    </div>
-                  </div>
-                  <button type="button" class="service-card-button" onclick="openCircuitContactDay('12일 화요일')">해당 날짜 인도자 연락처 보기</button>
-                </div>
-              </article>
 
               <article class="service-week-card">
                 <div class="service-week-head">
@@ -3249,6 +3272,22 @@
     </div>
   </div>
 
+
+  <div class="scroll-side-buttons" id="scrollSideButtons">
+    <button type="button" class="scroll-side-button" aria-label="맨 위로 이동" onclick="scrollToTopSmooth()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path d="M12 19V5"></path>
+        <path d="M6 11l6-6 6 6"></path>
+      </svg>
+    </button>
+    <button type="button" class="scroll-side-button" aria-label="맨 아래로 이동" onclick="scrollToBottomSmooth()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path d="M12 5v14"></path>
+        <path d="M6 13l6 6 6-6"></path>
+      </svg>
+    </button>
+  </div>
+
   
   <div class="footer-counter-wrap">
   <div class="footer-counter">
@@ -3318,13 +3357,6 @@
     ];
 
     const circuitContactScheduleData = [
-      {
-        day: '12일 화요일',
-        items: [
-          { time: '오전', type: '순회구 지하철 봉사 (전시대)', name: '양현준 형제 (면목남부)', phone: '01088120770' },
-          { time: '오후', type: '순회구 지하철 봉사 (전시대)', name: '권석호 형제 (면목남부)', phone: '01092181129' }
-        ]
-      },
       {
         day: '14일 목요일',
         items: [
@@ -3754,7 +3786,38 @@
       }
     }
 
+
+    let scrollSideButtons;
+
+    function toggleScrollSideButtons() {
+      if (!scrollSideButtons) return;
+
+      if (window.scrollY > 240) {
+        scrollSideButtons.classList.add('show');
+      } else {
+        scrollSideButtons.classList.remove('show');
+      }
+    }
+
+    function scrollToTopSmooth() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    function scrollToBottomSmooth() {
+      window.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: 'smooth'
+      });
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
+      scrollSideButtons = document.getElementById('scrollSideButtons');
+      toggleScrollSideButtons();
+      window.addEventListener('scroll', toggleScrollSideButtons);
+
       renderContactSchedule();
       loadPosts();
       showTourOverview(true);
