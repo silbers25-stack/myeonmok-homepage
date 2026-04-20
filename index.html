@@ -2361,7 +2361,7 @@
 
           <div class="service-schedule-wrap">
             <div class="service-week-grid">
-              <article class="service-week-card">
+              <article class="service-week-card" id="service-day-sun">
                 <div class="service-week-head">
                   <h3 class="service-week-day">일요일</h3>
                   <span class="service-week-badge">2명 인도</span>
@@ -2383,7 +2383,7 @@
                 </div>
               </article>
 
-              <article class="service-week-card">
+              <article class="service-week-card" id="service-day-mon">
                 <div class="service-week-head">
                   <h3 class="service-week-day">월요일</h3>
                   <span class="service-week-badge">1개 마련</span>
@@ -2405,7 +2405,7 @@
                 </div>
               </article>
 
-              <article class="service-week-card">
+              <article class="service-week-card" id="service-day-tue">
                 <div class="service-week-head">
                   <h3 class="service-week-day">화요일</h3>
                   <span class="service-week-badge">2개 마련</span>
@@ -2439,7 +2439,7 @@
                 </div>
               </article>
 
-              <article class="service-week-card">
+              <article class="service-week-card" id="service-day-wed">
                 <div class="service-week-head">
                   <h3 class="service-week-day">수요일</h3>
                   <span class="service-week-badge">2개 마련</span>
@@ -2473,7 +2473,7 @@
                 </div>
               </article>
 
-              <article class="service-week-card">
+              <article class="service-week-card" id="service-day-thu">
                 <div class="service-week-head">
                   <h3 class="service-week-day">목요일</h3>
                   <span class="service-week-badge">2개 마련</span>
@@ -2507,7 +2507,7 @@
                 </div>
               </article>
 
-              <article class="service-week-card">
+              <article class="service-week-card" id="service-day-fri">
                 <div class="service-week-head">
                   <h3 class="service-week-day">금요일</h3>
                   <span class="service-week-badge">2개 마련</span>
@@ -2541,7 +2541,7 @@
                 </div>
               </article>
 
-              <article class="service-week-card">
+              <article class="service-week-card" id="service-day-sat">
                 <div class="service-week-head">
                   <h3 class="service-week-day">토요일</h3>
                   <span class="service-week-badge">2개 마련</span>
@@ -2600,7 +2600,7 @@
 
           <div class="service-schedule-wrap">
             <div class="service-week-grid">
-<article class="service-week-card">
+<article class="service-week-card" id="circuit-day-14">
                 <div class="service-week-head">
                   <h3 class="service-week-day">14일 목요일</h3>
                   <span class="service-week-badge">2개 마련</span>
@@ -2634,7 +2634,7 @@
                 </div>
               </article>
 
-              <article class="service-week-card">
+              <article class="service-week-card" id="circuit-day-15">
                 <div class="service-week-head">
                   <h3 class="service-week-day">15일 금요일</h3>
                   <span class="service-week-badge">1개 마련</span>
@@ -2656,7 +2656,7 @@
                 </div>
               </article>
 
-              <article class="service-week-card">
+              <article class="service-week-card" id="circuit-day-16">
                 <div class="service-week-head">
                   <h3 class="service-week-day">16일 토요일</h3>
                   <span class="service-week-badge">1개 마련</span>
@@ -2678,7 +2678,7 @@
                 </div>
               </article>
 
-              <article class="service-week-card">
+              <article class="service-week-card" id="circuit-day-19">
                 <div class="service-week-head">
                   <h3 class="service-week-day">19일 화요일</h3>
                   <span class="service-week-badge">2개 마련</span>
@@ -2712,7 +2712,7 @@
                 </div>
               </article>
 
-              <article class="service-week-card">
+              <article class="service-week-card" id="circuit-day-21">
                 <div class="service-week-head">
                   <h3 class="service-week-day">21일 목요일</h3>
                   <span class="service-week-badge">2개 마련</span>
@@ -2746,7 +2746,7 @@
                 </div>
               </article>
 
-              <article class="service-week-card">
+              <article class="service-week-card" id="circuit-day-22">
                 <div class="service-week-head">
                   <h3 class="service-week-day">22일 금요일</h3>
                   <span class="service-week-badge">1개 마련</span>
@@ -2768,7 +2768,7 @@
                 </div>
               </article>
 
-              <article class="service-week-card">
+              <article class="service-week-card" id="circuit-day-23">
                 <div class="service-week-head">
                   <h3 class="service-week-day">23일 토요일</h3>
                   <span class="service-week-badge">1개 마련</span>
@@ -2790,7 +2790,7 @@
                 </div>
               </article>
 
-              <article class="service-week-card">
+              <article class="service-week-card" id="circuit-day-25">
                 <div class="service-week-head">
                   <h3 class="service-week-day">25일 월요일</h3>
                   <span class="service-week-badge">1개 마련</span>
@@ -3928,6 +3928,7 @@
 
   <div class="scroll-side-buttons" id="scrollSideButtons">
     <button type="button" class="scroll-side-button" aria-label="맨 위로 이동" onclick="scrollToTopSmooth()">↑</button>
+    <button type="button" class="scroll-side-button" aria-label="뒤로 가기" onclick="goBackPage()">←</button>
     <button type="button" class="scroll-side-button" aria-label="맨 아래로 이동" onclick="scrollToBottomSmooth()">↓</button>
   </div>
 
@@ -4152,6 +4153,76 @@
       }
     };
 
+    function getAboutCalendarTarget(key, itemTitle) {
+      const dayServiceMap = {
+        day12: 'service-day-tue',
+        day13: 'service-day-wed',
+        day14: 'service-day-thu',
+        day15: 'service-day-fri',
+        day16: 'service-day-sat',
+        day17: 'service-day-sun',
+        day19: 'service-day-tue',
+        day20: 'service-day-wed',
+        day21: 'service-day-thu',
+        day22: 'service-day-fri',
+        day23: 'service-day-sat',
+        day24: 'service-day-sun',
+        day25: 'service-day-mon'
+      };
+
+      const dayCircuitMap = {
+        day14: 'circuit-day-14',
+        day15: 'circuit-day-15',
+        day16: 'circuit-day-16',
+        day19: 'circuit-day-19',
+        day21: 'circuit-day-21',
+        day22: 'circuit-day-22',
+        day23: 'circuit-day-23',
+        day25: 'circuit-day-25'
+      };
+
+      if (itemTitle.includes('순회구')) {
+        return { tab: 'circuitService', targetId: dayCircuitMap[key] || null, label: '순회구 봉사 안내 보기' };
+      }
+
+      if (itemTitle.includes('집회')) {
+        return { tab: 'meeting', targetId: 'meeting', label: '집회 안내 보기' };
+      }
+
+      if (itemTitle.includes('회중')) {
+        return { tab: 'service', targetId: dayServiceMap[key] || null, label: '회중 봉사 안내 보기' };
+      }
+
+      return null;
+    }
+
+    function goToAboutCalendarTarget(tabId, targetId) {
+      closeAboutCalendarModal();
+      const buttons = Array.from(document.querySelectorAll('.menu button'));
+      const map = {
+        home: '홈',
+        about: '회중 소개',
+        area: '구역 소개',
+        service: '회중 봉사 안내',
+        circuitService: '순회구 봉사 안내',
+        meeting: '집회 안내',
+        tour: '관광지',
+        contact: '문의하기',
+        parking: '주차장 안내',
+        stay: '숙박시설 안내',
+        board: '게시판'
+      };
+      const targetButton = buttons.find(btn => btn.textContent.trim() === map[tabId]);
+      showTab(tabId, targetButton || null);
+
+      setTimeout(() => {
+        const target = document.getElementById(targetId || tabId);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 220);
+    }
+
     function openAboutCalendarModal(key) {
       const modal = document.getElementById('aboutCalendarModal');
       const title = document.getElementById('aboutCalendarModalTitle');
@@ -4160,12 +4231,24 @@
       if (!modal || !title || !body || !detail) return;
 
       title.textContent = detail.title;
-      body.innerHTML = detail.items.map(item => `
-        <div class="about-calendar-detail-item">
-          <h4>${item.title}</h4>
-          <p>${item.detail}</p>
-        </div>
-      `).join('');
+      body.innerHTML = detail.items.map(item => {
+        const target = getAboutCalendarTarget(key, item.title);
+        const classes = `about-calendar-detail-item${target ? ' linkable' : ''}`;
+        const action = target
+          ? `<div class="about-calendar-detail-action">${target.label}</div>`
+          : '';
+        const onClick = target
+          ? ` onclick="goToAboutCalendarTarget('${target.tab}', '${target.targetId || ''}')"`
+          : '';
+
+        return `
+          <div class="${classes}"${onClick}>
+            <h4>${item.title}</h4>
+            <p>${item.detail}</p>
+            ${action}
+          </div>
+        `;
+      }).join('');
 
       modal.classList.add('active');
       modal.setAttribute('aria-hidden', 'false');
@@ -4198,6 +4281,14 @@
 
     function scrollToBottomSmooth() {
       window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
+    }
+
+    function goBackPage() {
+      if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     }
 
     window.addEventListener('load', () => {
